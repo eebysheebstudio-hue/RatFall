@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 UiSwitcher="*uid://cwuxleohtc5xy"
+GlobalSettings="*uid://dx2fti2xu7odx"
 
 [display]
 

@@ -10,6 +10,8 @@ var player_scene: PackedScene = load("res://Scenes/Player/Player.tscn")
 var player_spawn_spacing = 100
 var player_spawn_offset = Vector2(-200, 150)
 
+var pup_scene: PackedScene = load("res://Scenes/PowerUps/TemplatePowerUp.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var players_connected = UiSwitcher.get_main_menu().players
@@ -41,3 +43,12 @@ func _process(delta: float) -> void:
 func _on_kill_box_body_entered(body: Node2D) -> void:
 	if body is Player:
 		print("YOU DIED")
+
+
+func _on_powerup_spawner_timeout() -> void:
+	var pup = pup_scene.instantiate()
+	var camera_pos = $MovementNode/Camera.get_screen_center_position()
+	var spawn_pos = camera_pos + Vector2(randf_range(-576,576), (randf_range(-324,324)))
+	pup.set_position(spawn_pos)
+	$Powerups.add_child(pup)
+	pass # Replace with function body.

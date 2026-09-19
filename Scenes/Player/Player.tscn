@@ -7,6 +7,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(64, 60)
 
+[sub_resource type="Gradient" id="Gradient_h54ih"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.57254905, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_naqra"]
+gradient = SubResource("Gradient_h54ih")
+fill_from = Vector2(0.004347826, 1)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_2cfhw"]
 animations = [{
 "frames": [{
@@ -22,6 +29,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1673534464]
+z_index = 2
 script = ExtResource("1_s0eop")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685134941]
@@ -41,3 +49,16 @@ frame = 1
 frame_progress = 0.5754303
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=700550350]
+panning_strength = 1.5
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1818410178]
+emitting = false
+amount = 40
+texture = SubResource("GradientTexture2D_naqra")
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 50)
+initial_velocity_min = 100.0
+initial_velocity_max = 1000.0

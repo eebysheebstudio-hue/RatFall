@@ -4,19 +4,19 @@ class_name Player
 
 const SPEED = 300.0
 
-var horizontalSpeedMultiplier: float = 0.5
-var verticalSpeedMultiplier: float = 0.5
+var horizontalSpeedMultiplier: float = 1.0
+var verticalSpeedMultiplier: float = 1.0
 
 var leap_speed = 0
 var leap_threshold = 1
 var leap_delta = 5
 
-var verticalClimbingSpeed: float = 0.5
-var horizontalClimbingSpeed: float = 0.5
+var verticalClimbingSpeed: float = 1.0
+var horizontalClimbingSpeed: float = 1.0
 var verticalSpeedWhileFalling: float = 0.0
 var horizontalSpeedWhileFalling: float = 0.1
 
-var speedBoostMultiplier: float = 2.0
+var speedBoostMultiplier: float = 2.5
 var hook_boost: float = 6.0
 var falling_rotation_speed: float = 10
 

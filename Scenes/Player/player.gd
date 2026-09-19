@@ -155,4 +155,4 @@ func apply_hook_state(duration: float, isHookedLeft: bool) -> void:
 func get_powerup(type: String) -> void:
 	self.power_up = type
 	$Label.set_text(power_up)
-	
+	$Sound.play("temp_squeak_sneaky.ogg")

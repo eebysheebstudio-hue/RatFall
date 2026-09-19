@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://py28sufsrjpu" path="res://Scenes/UI/MainMenu.tscn" id="2_b7gst"]
 [ext_resource type="PackedScene" uid="uid://cd225yo6aqkla" path="res://Scenes/UI/GameOverMenu.tscn" id="3_nnbg1"]
 [ext_resource type="PackedScene" uid="uid://c3pqjda7lj1r" path="res://Scenes/UI/SettingsMenu.tscn" id="4_e51q3"]
+[ext_resource type="AudioStream" uid="uid://ck8jxj055vtv5" path="res://Assets/Audio/Rat_Theme_1(temp).wav" id="5_b7gst"]
 
 [node name="UiSwitcher" type="Node2D" unique_id=221688198]
 script = ExtResource("1_dn4em")
@@ -18,3 +19,9 @@ visible = false
 
 [node name="SettingsMenu" parent="CanvasLayer" unique_id=304821896 instance=ExtResource("4_e51q3")]
 visible = false
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=588827579]
+stream = ExtResource("5_b7gst")
+autoplay = true
+
+[connection signal="volume_changed" from="CanvasLayer/SettingsMenu" to="." method="_on_settings_menu_volume_changed"]

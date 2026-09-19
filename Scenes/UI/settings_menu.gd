@@ -1,5 +1,6 @@
 extends Control
 
+signal volume_changed()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,15 +14,18 @@ func _process(delta: float) -> void:
 
 func _on_music_value_changed(value: float) -> void:
 	GlobalSettings.music_vol = (value/100)
-
+	volume_changed.emit()
 
 func _on_sfx_value_changed(value: float) -> void:
 	GlobalSettings.sfx_vol = (value/100)
+	volume_changed.emit()
 
 
 func _on_master_value_changed(value: float) -> void:
 	GlobalSettings.master_vol = (value/100)
+	volume_changed.emit()
 
 
 func _on_button_button_up() -> void:
 	UiSwitcher.show_main_menu()
+	

@@ -7,8 +7,12 @@ const SPEED = 300.0
 var horizontalSpeedMultiplier: float = 0.5
 var verticalSpeedMultiplier: float = 0.5
 
+var leap_speed = 0
+var leap_threshold = 1
+var leap_delta = 5
+
 var verticalClimbingSpeed: float = 0.5
-var horizontalClimbingSpeed: float = 0.15
+var horizontalClimbingSpeed: float = 0.5
 var verticalSpeedWhileFalling: float = 0.0
 var horizontalSpeedWhileFalling: float = 0.1
 
@@ -27,6 +31,10 @@ var hook_direction: float = 0.0
 
 
 func _physics_process(delta: float) -> void:
+	if leap_speed > leap_threshold:
+		leap_speed = 0
+	else:
+		leap_speed = leap_speed + leap_delta * delta
 	#print("state=", current_state, "  vel=", velocity, "  pos=", position)
 	# Speed boost
 	if speedBoostTimer > 0.0:
@@ -64,13 +72,14 @@ func _physics_process(delta: float) -> void:
 		velocity -= get_gravity() * delta
 
 	# Horizontal movement
+
 	if current_state == ClimbingState.HOOKED:
 		# hook moves player left or right. The player falls sideways
 		velocity.x = hook_direction * SPEED * horizontalSpeedMultiplier * hook_boost
 	else:
 		var direction := Input.get_axis("p1_left", "p1_right")
 		if direction:
-			velocity.x = direction * SPEED * horizontalSpeedMultiplier
+			velocity.x = direction * SPEED * horizontalSpeedMultiplier * leap_speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -78,13 +87,14 @@ func _physics_process(delta: float) -> void:
 	if current_state == ClimbingState.CLIMBING:
 		var vdir := Input.get_axis("p1_up", "p1_down")
 		if vdir:
-			velocity.y = vdir * SPEED * verticalSpeedMultiplier
+			velocity.y = vdir * SPEED * verticalSpeedMultiplier * leap_speed
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
 
 # State transitions
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1_test_stop"):

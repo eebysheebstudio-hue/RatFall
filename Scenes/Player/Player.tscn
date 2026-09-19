@@ -1,11 +1,24 @@
 [gd_scene format=3 uid="uid://byr33313hdex6"]
 
 [ext_resource type="Script" uid="uid://b6pkuwonhsr2c" path="res://Scenes/Player/player.gd" id="1_s0eop"]
+[ext_resource type="Texture2D" uid="uid://cfrt8yjuccuj6" path="res://Assets/Visual/rat1.jpg" id="2_h54ih"]
+[ext_resource type="Texture2D" uid="uid://b05diitm0fdrw" path="res://Assets/Visual/rat2.jpg" id="3_ude3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(64, 60)
 
 [node name="Player" type="CharacterBody2D" unique_id=1673534464]
 script = ExtResource("1_s0eop")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685134941]
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="MovingSprite" type="Sprite2D" parent="." unique_id=508346027]
+position = Vector2(0, 0.9999962)
+scale = Vector2(0.016937498, 0.016937498)
+texture = ExtResource("2_h54ih")
+
+[node name="StationarySprite" type="Sprite2D" parent="." unique_id=2014126337]
+position = Vector2(-7.6293945e-06, -1.1920929e-07)
+scale = Vector2(0.017, 0.017)
+texture = ExtResource("3_ude3g")

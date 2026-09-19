@@ -35,6 +35,9 @@ var hook_direction: float = 0.0
 
 var power_up = ""
 
+func _ready() -> void:
+	$Sound.set_volume_linear(GlobalSettings.sfx_vol*GlobalSettings.master_vol)
+
 
 func _physics_process(delta: float) -> void:
 	if leap_speed > leap_threshold:
@@ -162,5 +165,6 @@ func apply_hook_state(duration: float, isHookedLeft: bool) -> void:
 
 func get_powerup(type: String) -> void:
 	self.power_up = type
-	$Label.set_text(power_up)
-	$Sound.play("temp_squeak_sneaky.ogg")
+	$Sound.stream = load("res://Assets/Audio/temp_squeak_sneaky.ogg")
+	$Sound.play()
+	$CPUParticles2D.set_emitting(true)

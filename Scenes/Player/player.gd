@@ -11,6 +11,7 @@ var leap_speed = 0
 var leap_threshold = 1
 var leap_delta = 5
 
+
 var verticalClimbingSpeed: float = 1.0
 var horizontalClimbingSpeed: float = 1.0
 var verticalSpeedWhileFalling: float = 0.0
@@ -31,13 +32,27 @@ var hook_direction: float = 0.0
 
 var power_up = ""
 
+func _ready() -> void:
+	$Sound.set_volume_linear(GlobalSettings.sfx_vol*GlobalSettings.master_vol)
+	$AnimatedSprite2D.play()
+
 
 func _physics_process(delta: float) -> void:
+	# TODO Fix animations to alternate between moving and landing rat
+	#print("Frame is: ", $AnimatedSprite2D.frame)
 	if leap_speed > leap_threshold:
 		leap_speed = 0
+		#$AnimatedSprite2D.set_frame_and_progress(1, 0)
 	else:
 		leap_speed = leap_speed + leap_delta * delta
+		if velocity.x != 0.0 || velocity.y != 0.0:
+			pass
 	#print("state=", current_state, "  vel=", velocity, "  pos=", position)
+	
+	if velocity.x == 0.0 && velocity.y == 0.0:
+		$StationarySprite.visible = true
+	else:
+		$StationarySprite.visible = false
 	# Speed boost
 	if speedBoostTimer > 0.0:
 		speedBoostTimer -= delta
@@ -59,6 +74,8 @@ func _physics_process(delta: float) -> void:
 		ClimbingState.STOPPED:
 			verticalSpeedMultiplier = 0.0
 			horizontalSpeedMultiplier = 0.0
+			velocity.x = 0.0
+			velocity.y = 0.0
 		ClimbingState.CANNON:
 			verticalSpeedMultiplier = verticalSpeedWhileFalling
 			horizontalSpeedMultiplier = horizontalSpeedWhileFalling
@@ -92,6 +109,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = vdir * SPEED * verticalSpeedMultiplier * leap_speed
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
+			
 
 	move_and_slide()
 
@@ -99,15 +117,15 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("p1_test_stop"):
+	if event.is_action_pressed("p1_test_stop") and not event.is_echo():
 		apply_stopped_state(2.0)
-	if event.is_action_pressed("p1_test_fall"):
+	if event.is_action_pressed("p1_test_fall") and not event.is_echo():
 		apply_falling_state(1.0)
-	if event.is_action_pressed("p1_test_boost"):
+	if event.is_action_pressed("p1_test_boost") and not event.is_echo():
 		apply_speed_boost(3.0)
-	if event.is_action_pressed("p1_test_cannon"):
+	if event.is_action_pressed("p1_test_cannon") and not event.is_echo():
 		apply_cannon_state(1.5)
-	if event.is_action_pressed("p1_test_hook"):
+	if event.is_action_pressed("p1_test_hook") and not event.is_echo():
 		apply_hook_state(1, true)
 
 func start_game() -> void:
@@ -154,5 +172,6 @@ func apply_hook_state(duration: float, isHookedLeft: bool) -> void:
 
 func get_powerup(type: String) -> void:
 	self.power_up = type
-	$Label.set_text(power_up)
-	
+	$Sound.stream = load("res://Assets/Audio/temp_squeak_sneaky.ogg")
+	$Sound.play()
+	$CPUParticles2D.set_emitting(true)

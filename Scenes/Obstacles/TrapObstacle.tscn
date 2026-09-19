@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://0vu5k2tiu26e"]
+
+[ext_resource type="Script" uid="uid://btu0kkkxcl2yb" path="res://Scenes/Obstacles/trap_obstacle.gd" id="1_ukuax"]
+[ext_resource type="AudioStream" uid="uid://cljg28me62div" path="res://Assets/Audio/trapSnap1.ogg" id="2_ihlhs"]
+[ext_resource type="Texture2D" uid="uid://cyxj1o5gcwulc" path="res://Assets/Visual/MouseTrapClosed1.png" id="3_4kpkr"]
+[ext_resource type="Texture2D" uid="uid://ctl6pdi60lyjc" path="res://Assets/Visual/MouseTrap.png" id="3_a0c5h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1vivr"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 0.01
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 399.99997
+gravity = Vector3(0, 0, 0)
+color = Color(0.8235294, 0.007843138, 0.0627451, 1)
+
+[node name="TrapObstacle" type="Node2D" unique_id=1036122245 node_paths=PackedStringArray("trap_sfx", "trap_closed_particles", "mouse_trap", "area")]
+script = ExtResource("1_ukuax")
+trap_sfx = NodePath("TrapSFX")
+trap_closed_particles = NodePath("GPUParticles2D")
+mouse_trap = NodePath("Sprite2D")
+open_mouse_trap1 = ExtResource("3_a0c5h")
+closed_mouse_trap1 = ExtResource("3_4kpkr")
+area = NodePath("Area2D")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=296644473]
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1576237442]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="TrapSFX" type="AudioStreamPlayer" parent="." unique_id=477284404]
+stream = ExtResource("2_ihlhs")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=165055990]
+z_index = 3
+emitting = false
+amount = 22
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.5
+trail_sections = 2
+trail_section_subdivisions = 1
+process_material = SubResource("ParticleProcessMaterial_1vivr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1905130229]
+z_index = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_a0c5h")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

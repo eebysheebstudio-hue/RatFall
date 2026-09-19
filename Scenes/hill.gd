@@ -19,6 +19,8 @@ var obstacle_scenes: Array[PackedScene] = [
 	load("res://Scenes/Obstacles/Tree5.tscn"),
 ]
 
+var pup_scene: PackedScene = load("res://Scenes/PowerUps/TemplatePowerUp.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bounds = Vector2($MovementNode/StaticBody2D/LeftBorder.position.x - 200, $MovementNode/StaticBody2D/RightBorder.position.x + 200)
@@ -64,3 +66,12 @@ func scatter_obstacles():
 func _on_kill_box_body_entered(body: Node2D) -> void:
 	if body is Player:
 		print("YOU DIED")
+
+
+func _on_powerup_spawner_timeout() -> void:
+	var pup = pup_scene.instantiate()
+	var camera_pos = $MovementNode/Camera.get_screen_center_position()
+	var spawn_pos = camera_pos + Vector2(randf_range(-576,576), (randf_range(-324,324)))
+	pup.set_position(spawn_pos)
+	$Powerups.add_child(pup)
+	pass # Replace with function body.

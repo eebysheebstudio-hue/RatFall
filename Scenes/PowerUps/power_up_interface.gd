@@ -9,7 +9,7 @@ var pup_type
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	area.body_entered.connect(_on_area_2d_body_entered)
-	self.pup_type = types[randi_range(0,3)]
+	self.pup_type = types[randi_range(0,2)] #WHY IS THIS INCLUSIVE???
 	#TODO: change to sprite when art assets availible
 	if pup_type == "speed":
 		$ColorRect.set_color(Color(1,0,0,1))

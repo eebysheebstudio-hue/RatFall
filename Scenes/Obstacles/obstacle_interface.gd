@@ -16,5 +16,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		obstacle_effect(body)
 		
-func obstacle_effect(player: Player):
+func obstacle_effect(player: Player) -> void:
 	print("YOU TRIGGERED THE OBSTACLE INTERFACE EFFECT")

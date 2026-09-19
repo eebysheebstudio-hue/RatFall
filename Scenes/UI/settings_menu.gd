@@ -21,3 +21,7 @@ func _on_sfx_value_changed(value: float) -> void:
 
 func _on_master_value_changed(value: float) -> void:
 	GlobalSettings.master_vol = (value/100)
+
+
+func _on_button_button_up() -> void:
+	UiSwitcher.show_main_menu()

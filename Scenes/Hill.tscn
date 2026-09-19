@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="3_5w2i3"]
 [ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
 [ext_resource type="PackedScene" uid="uid://lo3enc16f3xs" path="res://Scenes/UI/HillHud.tscn" id="6_q62r0"]
+[ext_resource type="PackedScene" uid="uid://ntjoko872gi3" path="res://Scenes/UI/PlayerHud.tscn" id="7_vsmbq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
@@ -82,6 +83,26 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="HillHud" parent="CanvasLayer/BoxContainer" unique_id=1600366834 instance=ExtResource("6_q62r0")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/BoxContainer/HillHud" unique_id=1831515906]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(5, 35)
+
+[node name="PlayerHud" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=587170444 instance=ExtResource("7_vsmbq")]
+layout_mode = 2
+offset_transform_enabled = true
+
+[node name="PlayerHud2" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=1671021736 instance=ExtResource("7_vsmbq")]
+layout_mode = 2
+
+[node name="PlayerHud3" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=152885630 instance=ExtResource("7_vsmbq")]
+layout_mode = 2
+
+[node name="PlayerHud4" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=2096173716 instance=ExtResource("7_vsmbq")]
 layout_mode = 2
 
 [connection signal="body_entered" from="MovementNode/KillBox" to="." method="_on_kill_box_body_entered"]

@@ -22,3 +22,5 @@ texture = ExtResource("2_h54ih")
 position = Vector2(-7.6293945e-06, -1.1920929e-07)
 scale = Vector2(0.017, 0.017)
 texture = ExtResource("3_ude3g")
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=700550350]

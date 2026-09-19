@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c11speqv57aw2"]
+
+[ext_resource type="Script" uid="uid://j0dkpbye0yw0" path="res://Scenes/Obstacles/obstacle_interface.gd" id="1_umqb5"]
+
+[node name="TemplateObject" type="Node2D" unique_id=1434413026]
+script = ExtResource("1_umqb5")
+metadata/_custom_type_script = "uid://j0dkpbye0yw0"

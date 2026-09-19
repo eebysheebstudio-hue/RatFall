@@ -33,4 +33,9 @@ visible = false
 stream = SubResource("AudioStreamWAV_dn4em")
 autoplay = true
 
+[node name="Sfx" type="AudioStreamPlayer" parent="." unique_id=1394473476]
+max_polyphony = 4
+
+[connection signal="player_enter" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_player_enter"]
+[connection signal="player_exit" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_player_exit"]
 [connection signal="volume_changed" from="CanvasLayer/SettingsMenu" to="." method="_on_settings_menu_volume_changed"]

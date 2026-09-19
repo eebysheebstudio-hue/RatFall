@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cpv7c16wg1g6m" path="res://Scenes/UI/HillProgressBar.tscn" id="2_kgtut"]
 [ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="3_5w2i3"]
 [ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
+[ext_resource type="PackedScene" uid="uid://lo3enc16f3xs" path="res://Scenes/UI/HillHud.tscn" id="6_q62r0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
@@ -60,19 +61,27 @@ shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1369945536]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=615657957]
+[node name="BoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=412102664]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/BoxContainer" unique_id=615657957]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HillProgressBar" parent="CanvasLayer/MarginContainer" unique_id=730191033 instance=ExtResource("2_kgtut")]
+[node name="HillProgressBar" parent="CanvasLayer/BoxContainer/MarginContainer" unique_id=730191033 instance=ExtResource("2_kgtut")]
 layout_mode = 2
 size_flags_horizontal = 8
+
+[node name="HillHud" parent="CanvasLayer/BoxContainer" unique_id=1600366834 instance=ExtResource("6_q62r0")]
+layout_mode = 2
 
 [connection signal="body_entered" from="MovementNode/KillBox" to="." method="_on_kill_box_body_entered"]

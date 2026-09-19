@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://ntjoko872gi3"]
+
+[ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="1_tpfxl"]
+
+[sub_resource type="Gradient" id="Gradient_pi7ir"]
+offsets = PackedFloat32Array(0, 0.9952494, 1)
+colors = PackedColorArray(0.95961994, 0.95961994, 0.95961994, 1, 0, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g4v7s"]
+gradient = SubResource("Gradient_pi7ir")
+
+[node name="PlayerHud" type="Control" unique_id=587170444]
+custom_minimum_size = Vector2(300, 200)
+custom_maximum_size = Vector2(300, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -854.0
+offset_bottom = -452.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1991078837]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_g4v7s")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1954324190]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1677836116]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="PowerUpIcon" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=674048366]
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("1_tpfxl")
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1069266847]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "PlayerName"

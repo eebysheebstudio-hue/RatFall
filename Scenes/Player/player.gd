@@ -33,9 +33,8 @@ var hook_direction: float = 0.0
 var power_up = ""
 
 func _ready() -> void:
-	$AnimatedSprite2D.play()
-func _ready() -> void:
 	$Sound.set_volume_linear(GlobalSettings.sfx_vol*GlobalSettings.master_vol)
+	$AnimatedSprite2D.play()
 
 
 func _physics_process(delta: float) -> void:

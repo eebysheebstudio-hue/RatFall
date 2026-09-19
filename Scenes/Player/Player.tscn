@@ -7,13 +7,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(64, 60)
 
-[sub_resource type="Gradient" id="Gradient_h54ih"]
-colors = PackedColorArray(1, 1, 0, 1, 1, 0.57254905, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_naqra"]
-gradient = SubResource("Gradient_h54ih")
-fill_from = Vector2(0.004347826, 1)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_2cfhw"]
 animations = [{
 "frames": [{
@@ -27,6 +20,13 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Gradient" id="Gradient_h54ih"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 0.57254905, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_naqra"]
+gradient = SubResource("Gradient_h54ih")
+fill_from = Vector2(0.004347826, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1673534464]
 z_index = 2

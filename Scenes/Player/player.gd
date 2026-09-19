@@ -14,6 +14,7 @@ var horizontalSpeedWhileFalling: float = 0.05
 
 var speedBoostMultiplier: float = 2.0
 var hook_boost: float = 6.0
+var falling_rotation_speed: float = 10
 
 
 enum ClimbingState { CLIMBING, FALLING, STOPPED, CANNON, HOOKED }
@@ -44,6 +45,7 @@ func _physics_process(delta: float) -> void:
 		ClimbingState.FALLING:
 			verticalSpeedMultiplier = verticalSpeedWhileFalling
 			horizontalSpeedMultiplier = horizontalSpeedWhileFalling
+			rotate(falling_rotation_speed * delta)
 		ClimbingState.STOPPED:
 			verticalSpeedMultiplier = 0.0
 			horizontalSpeedMultiplier = 0.0

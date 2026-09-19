@@ -29,6 +29,8 @@ var speedBoostTimer: float = 0.0
 # Set by apply_hook_state() to tell _physics_process which way to push
 var hook_direction: float = 0.0
 
+var power_up = ""
+
 
 func _physics_process(delta: float) -> void:
 	if leap_speed > leap_threshold:
@@ -149,3 +151,8 @@ func apply_hook_state(duration: float, isHookedLeft: bool) -> void:
 	await get_tree().create_timer(duration).timeout
 	if current_state == ClimbingState.HOOKED:
 		current_state = ClimbingState.CLIMBING # When hook timer is expired, climb.
+
+func get_powerup(type: String) -> void:
+	self.power_up = type
+	$Label.set_text(power_up)
+	

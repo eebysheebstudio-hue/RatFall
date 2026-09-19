@@ -4,13 +4,13 @@ class_name Player
 
 const SPEED = 300.0
 
-var horizontalSpeedMultiplier: float = 0.1
-var verticalSpeedMultiplier: float = 0.1
+var horizontalSpeedMultiplier: float = 0.5
+var verticalSpeedMultiplier: float = 0.5
 
-var verticalClimbingSpeed: float = 0.1
-var horizontalClimbingSpeed: float = 0.08
+var verticalClimbingSpeed: float = 0.5
+var horizontalClimbingSpeed: float = 0.15
 var verticalSpeedWhileFalling: float = 0.0
-var horizontalSpeedWhileFalling: float = 0.05
+var horizontalSpeedWhileFalling: float = 0.1
 
 var speedBoostMultiplier: float = 2.0
 var hook_boost: float = 6.0
@@ -90,7 +90,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1_test_stop"):
 		apply_stopped_state(2.0)
 	if event.is_action_pressed("p1_test_fall"):
-		apply_falling_state(2.0)
+		apply_falling_state(1.0)
 	if event.is_action_pressed("p1_test_boost"):
 		apply_speed_boost(3.0)
 	if event.is_action_pressed("p1_test_cannon"):

@@ -13,11 +13,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if (percent_progress < 100):
-		percent_progress = percent_progress + (percent_progress_speed * delta)
-		$MovementNode.position = $MovementNode.position + Vector2(0, -hill_height * percent_progress / 100)
-		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.update_progress(percent_progress)
+#func _process(delta: float) -> void:
+	#if (percent_progress < 100):
+		#percent_progress = percent_progress + (percent_progress_speed * delta)
+		#$MovementNode.position = $MovementNode.position + Vector2(0, -hill_height * percent_progress / 100)
+		#$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.update_progress(percent_progress)
 
 func _on_kill_box_body_entered(body: Node2D) -> void:
 	if body is Player:

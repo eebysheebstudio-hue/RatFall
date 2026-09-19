@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cpv7c16wg1g6m"]
 
 [ext_resource type="Script" uid="uid://0l7wudccyk08" path="res://Scenes/UI/hill_progress_bar.gd" id="1_kdk02"]
+[ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="2_q1fsv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdk02"]
 bg_color = Color(0.6, 0.6, 0.6, 0.25490198)
@@ -26,3 +27,63 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_kdk02")
 value = 1.0
 fill_mode = 3
 show_percentage = false
+
+[node name="Player1Icon" type="TextureRect" parent="." unique_id=1354372583]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -40.0
+offset_right = -536.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_q1fsv")
+expand_mode = 1
+
+[node name="Player2Icon" type="TextureRect" parent="." unique_id=2008229165]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -40.0
+offset_right = -536.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_q1fsv")
+expand_mode = 1
+
+[node name="Player3Icon" type="TextureRect" parent="." unique_id=1587796976]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -40.0
+offset_right = -536.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_q1fsv")
+expand_mode = 1
+
+[node name="Player4Icon" type="TextureRect" parent="." unique_id=1443797397]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -40.0
+offset_right = -536.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_q1fsv")
+expand_mode = 1

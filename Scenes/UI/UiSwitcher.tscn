@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cwuxleohtc5xy"]
+
+[ext_resource type="Script" uid="uid://chb27f2jff3sr" path="res://Scenes/UI/ui_switcher.gd" id="1_dn4em"]
+[ext_resource type="PackedScene" uid="uid://py28sufsrjpu" path="res://Scenes/UI/MainMenu.tscn" id="2_b7gst"]
+[ext_resource type="PackedScene" uid="uid://cd225yo6aqkla" path="res://Scenes/UI/GameOverMenu.tscn" id="3_nnbg1"]
+[ext_resource type="PackedScene" uid="uid://c3pqjda7lj1r" path="res://Scenes/UI/SettingsMenu.tscn" id="4_e51q3"]
+
+[node name="UiSwitcher" type="Node2D" unique_id=221688198]
+script = ExtResource("1_dn4em")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1694760473]
+
+[node name="MainMenu" parent="CanvasLayer" unique_id=355245501 instance=ExtResource("2_b7gst")]
+visible = false
+
+[node name="GameOverMenu" parent="CanvasLayer" unique_id=1800715222 instance=ExtResource("3_nnbg1")]
+visible = false
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=304821896 instance=ExtResource("4_e51q3")]
+visible = false

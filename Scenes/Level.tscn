@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://cxgpqi50n4smf"]
 
 [ext_resource type="PackedScene" uid="uid://byr33313hdex6" path="res://Scenes/Player/Player.tscn" id="1_fuudy"]
+[ext_resource type="Script" uid="uid://ydt2ld6jgioj" path="res://Scenes/level.gd" id="1_xylue"]
 [ext_resource type="PackedScene" uid="uid://7fbfqvagj7vj" path="res://Scenes/PowerUps/TemplatePowerUp.tscn" id="3_tj5wv"]
 [ext_resource type="PackedScene" uid="uid://blmc5yrdwedf7" path="res://Scenes/Obstacles/TemplateObstacle.tscn" id="4_ienac"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yf5fn"]
 
 [node name="Level" type="Node2D" unique_id=466737875]
+script = ExtResource("1_xylue")
 
 [node name="Player" parent="." unique_id=1673534464 instance=ExtResource("1_fuudy")]
 

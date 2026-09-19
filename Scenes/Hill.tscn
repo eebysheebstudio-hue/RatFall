@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cg3bm7wl03pay" path="res://Scenes/hill.gd" id="1_7po3v"]
 [ext_resource type="PackedScene" uid="uid://byr33313hdex6" path="res://Scenes/Player/Player.tscn" id="2_4uofs"]
 [ext_resource type="PackedScene" uid="uid://cpv7c16wg1g6m" path="res://Scenes/UI/HillProgressBar.tscn" id="2_kgtut"]
-[ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="3_5w2i3"]
+[ext_resource type="Texture2D" uid="uid://dgh8iah2lf4u8" path="res://Assets/Visual/Grass.jpg" id="2_q62r0"]
 [ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
 [ext_resource type="PackedScene" uid="uid://lo3enc16f3xs" path="res://Scenes/UI/HillHud.tscn" id="6_q62r0"]
 [ext_resource type="PackedScene" uid="uid://ntjoko872gi3" path="res://Scenes/UI/PlayerHud.tscn" id="7_vsmbq"]
@@ -16,11 +16,14 @@ distance = -205.0
 [node name="Hill" type="Node2D" unique_id=675779279]
 script = ExtResource("1_7po3v")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035939035]
-modulate = Color(1, 1, 1, 0.47058824)
-position = Vector2(10.5000305, -102120)
-scale = Vector2(9.742188, 1600.7032)
-texture = ExtResource("3_5w2i3")
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2079550402]
+offset_left = -1898.0
+offset_top = -236372.0
+offset_right = 2988.0
+offset_bottom = 1516.0
+texture = ExtResource("2_q62r0")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Player" parent="." unique_id=1673534464 instance=ExtResource("2_4uofs")]
 position = Vector2(0, -200)

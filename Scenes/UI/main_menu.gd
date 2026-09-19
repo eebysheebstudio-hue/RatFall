@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _input(event: InputEvent) -> void:
+	#don't judge me
 	if event.is_action_pressed("p1_action"):
 		players[0] = true
 		$HBoxContainer/ColorRect.set_color(Color(0,1,0,1))
@@ -25,6 +26,19 @@ func _input(event: InputEvent) -> void:
 		players[3] = true
 		$HBoxContainer/ColorRect3.set_color(Color(0,1,0,1))
 		
+	if event.is_action_pressed("p1_back"):
+		players[0] = false
+		$HBoxContainer/ColorRect.set_color(Color(1,0,0,1))
+	elif event.is_action_pressed("p2_back"):
+		players[1] = false
+		$HBoxContainer/ColorRect2.set_color(Color(1,0,0,1))
+	elif event.is_action_pressed("p3_back"):
+		players[2] = false
+		$HBoxContainer/ColorRect3.set_color(Color(1,0,0,1))
+	elif event.is_action_pressed("p4_back"):
+		players[3] = false
+		$HBoxContainer/ColorRect3.set_color(Color(1,0,0,1))
+		
 func _on_quit_pressed() -> void:
 	get_tree().quit()
 
@@ -36,3 +50,4 @@ func _on_settings_pressed() -> void:
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(hillScene)
 	UiSwitcher.hide_all()
+	#when we have the actual game, pass the list of active players

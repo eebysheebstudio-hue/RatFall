@@ -1,4 +1,5 @@
 extends Control
+class_name MainMenu
 var hillScene: PackedScene = load("res://Scenes/Hill.tscn")
 var players = [false,false,false,false]
 

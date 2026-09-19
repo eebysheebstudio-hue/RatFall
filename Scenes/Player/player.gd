@@ -26,7 +26,7 @@ var hook_direction: float = 0.0
 
 
 func _physics_process(delta: float) -> void:
-	print("state=", current_state, "  vel=", velocity, "  pos=", position)
+	#print("state=", current_state, "  vel=", velocity, "  pos=", position)
 	# Speed boost
 	if speedBoostTimer > 0.0:
 		speedBoostTimer -= delta

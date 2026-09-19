@@ -5,11 +5,17 @@ var percent_progress_speed: float = 1 # Moves X% of the hill per second
 var percent_progress: float = 0.0
 var hill_height: float
 var players: Array[Player]
+var names: Array[String] = ["Nibbler", "Sniffles", "Wormtail", "Patchy", "Swipes", "Swiftfoot"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hill_height = hill_top - hill_bottom
 	$MovementNode.position = Vector2(0, hill_bottom)
+	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_player_name(names)
+	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_player_name(names)
+	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_player_name(names)
+	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(names)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

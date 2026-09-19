@@ -10,9 +10,6 @@ var verticalSpeedMultiplier: float = 1.0
 var leap_speed = 0
 var leap_threshold = 1
 var leap_delta = 5
-var animation_threshold = 0.2
-var animation_delta = 1
-var animation_time = 0
 
 
 var verticalClimbingSpeed: float = 1.0
@@ -35,17 +32,25 @@ var hook_direction: float = 0.0
 
 var power_up = ""
 
+func _ready() -> void:
+	$AnimatedSprite2D.play()
 
 func _physics_process(delta: float) -> void:
+	# TODO Fix animations to alternate between moving and landing rat
+	#print("Frame is: ", $AnimatedSprite2D.frame)
 	if leap_speed > leap_threshold:
 		leap_speed = 0
-		$StationarySprite.visible = true
+		#$AnimatedSprite2D.set_frame_and_progress(1, 0)
 	else:
 		leap_speed = leap_speed + leap_delta * delta
-		animation_time = animation_time + animation_delta * delta
-		if animation_threshold > animation_time:
-			$StationarySprite.visible = false
+		if velocity.x != 0.0 || velocity.y != 0.0:
+			pass
 	#print("state=", current_state, "  vel=", velocity, "  pos=", position)
+	
+	if velocity.x == 0.0 && velocity.y == 0.0:
+		$StationarySprite.visible = true
+	else:
+		$StationarySprite.visible = false
 	# Speed boost
 	if speedBoostTimer > 0.0:
 		speedBoostTimer -= delta
@@ -100,6 +105,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = vdir * SPEED * verticalSpeedMultiplier * leap_speed
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
+			
 
 	move_and_slide()
 

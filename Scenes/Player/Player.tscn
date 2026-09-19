@@ -7,20 +7,37 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(64, 60)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_2cfhw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_h54ih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ude3g")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" unique_id=1673534464]
 script = ExtResource("1_s0eop")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685134941]
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="MovingSprite" type="Sprite2D" parent="." unique_id=508346027]
-position = Vector2(0, 0.9999962)
-scale = Vector2(0.016937498, 0.016937498)
-texture = ExtResource("2_h54ih")
-
 [node name="StationarySprite" type="Sprite2D" parent="." unique_id=2014126337]
+visible = false
 position = Vector2(-7.6293945e-06, -1.1920929e-07)
 scale = Vector2(0.017, 0.017)
 texture = ExtResource("3_ude3g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1968134422]
+z_index = -1
+scale = Vector2(0.017285716, 0.017285716)
+sprite_frames = SubResource("SpriteFrames_2cfhw")
+frame = 1
+frame_progress = 0.5754303
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=700550350]

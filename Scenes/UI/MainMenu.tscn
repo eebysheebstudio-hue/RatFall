@@ -57,6 +57,68 @@ text = "Settings"
 layout_mode = 2
 text = "Quit"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=743060285]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 50.0
+offset_top = 208.0
+offset_right = 1102.0
+offset_bottom = 312.0
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=154515323]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer/ColorRect" unique_id=577328351]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 40.0
+offset_right = 84.0
+offset_bottom = 63.0
+text = "Player 1"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="HBoxContainer" unique_id=238834867]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer/ColorRect2" unique_id=1287967322]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 40.0
+offset_right = 88.0
+offset_bottom = 63.0
+text = "Player 2"
+
+[node name="ColorRect3" type="ColorRect" parent="HBoxContainer" unique_id=660270404]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer/ColorRect3" unique_id=1164955761]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 40.0
+offset_right = 84.0
+offset_bottom = 63.0
+text = "Player 3"
+
+[node name="ColorRect4" type="ColorRect" parent="HBoxContainer" unique_id=1339924837]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="HBoxContainer/ColorRect4" unique_id=230674647]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 40.0
+offset_right = 84.0
+offset_bottom = 63.0
+text = "Player 4"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

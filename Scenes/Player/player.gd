@@ -4,15 +4,19 @@ class_name Player
 
 const SPEED = 300.0
 
-var horizontalSpeedMultiplier: float = 0.1
-var verticalSpeedMultiplier: float = 0.1
+var horizontalSpeedMultiplier: float = 1.0
+var verticalSpeedMultiplier: float = 1.0
 
-var verticalClimbingSpeed: float = 0.1
-var horizontalClimbingSpeed: float = 0.08
+var leap_speed = 0
+var leap_threshold = 1
+var leap_delta = 5
+
+var verticalClimbingSpeed: float = 1.0
+var horizontalClimbingSpeed: float = 1.0
 var verticalSpeedWhileFalling: float = 0.0
-var horizontalSpeedWhileFalling: float = 0.05
+var horizontalSpeedWhileFalling: float = 0.1
 
-var speedBoostMultiplier: float = 2.0
+var speedBoostMultiplier: float = 2.5
 var hook_boost: float = 6.0
 var falling_rotation_speed: float = 10
 
@@ -25,9 +29,15 @@ var speedBoostTimer: float = 0.0
 # Set by apply_hook_state() to tell _physics_process which way to push
 var hook_direction: float = 0.0
 
+var power_up = ""
+
 
 func _physics_process(delta: float) -> void:
-	print("state=", current_state, "  vel=", velocity, "  pos=", position)
+	if leap_speed > leap_threshold:
+		leap_speed = 0
+	else:
+		leap_speed = leap_speed + leap_delta * delta
+	#print("state=", current_state, "  vel=", velocity, "  pos=", position)
 	# Speed boost
 	if speedBoostTimer > 0.0:
 		speedBoostTimer -= delta
@@ -64,13 +74,14 @@ func _physics_process(delta: float) -> void:
 		velocity -= get_gravity() * delta
 
 	# Horizontal movement
+
 	if current_state == ClimbingState.HOOKED:
 		# hook moves player left or right. The player falls sideways
 		velocity.x = hook_direction * SPEED * horizontalSpeedMultiplier * hook_boost
 	else:
 		var direction := Input.get_axis("p1_left", "p1_right")
 		if direction:
-			velocity.x = direction * SPEED * horizontalSpeedMultiplier
+			velocity.x = direction * SPEED * horizontalSpeedMultiplier * leap_speed
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -78,7 +89,7 @@ func _physics_process(delta: float) -> void:
 	if current_state == ClimbingState.CLIMBING:
 		var vdir := Input.get_axis("p1_up", "p1_down")
 		if vdir:
-			velocity.y = vdir * SPEED * verticalSpeedMultiplier
+			velocity.y = vdir * SPEED * verticalSpeedMultiplier * leap_speed
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 
@@ -86,11 +97,12 @@ func _physics_process(delta: float) -> void:
 
 # State transitions
 
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1_test_stop"):
 		apply_stopped_state(2.0)
 	if event.is_action_pressed("p1_test_fall"):
-		apply_falling_state(2.0)
+		apply_falling_state(1.0)
 	if event.is_action_pressed("p1_test_boost"):
 		apply_speed_boost(3.0)
 	if event.is_action_pressed("p1_test_cannon"):
@@ -139,3 +151,8 @@ func apply_hook_state(duration: float, isHookedLeft: bool) -> void:
 	await get_tree().create_timer(duration).timeout
 	if current_state == ClimbingState.HOOKED:
 		current_state = ClimbingState.CLIMBING # When hook timer is expired, climb.
+
+func get_powerup(type: String) -> void:
+	self.power_up = type
+	$Label.set_text(power_up)
+	

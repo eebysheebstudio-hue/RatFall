@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://nxuyehf6kqj"]
 
 [ext_resource type="Script" uid="uid://cg3bm7wl03pay" path="res://Scenes/hill.gd" id="1_7po3v"]
+[ext_resource type="PackedScene" uid="uid://0vu5k2tiu26e" path="res://Scenes/Obstacles/TrapObstacle.tscn" id="2_0p0u6"]
 [ext_resource type="PackedScene" uid="uid://byr33313hdex6" path="res://Scenes/Player/Player.tscn" id="2_4uofs"]
 [ext_resource type="PackedScene" uid="uid://cpv7c16wg1g6m" path="res://Scenes/UI/HillProgressBar.tscn" id="2_kgtut"]
 [ext_resource type="Texture2D" uid="uid://dgh8iah2lf4u8" path="res://Assets/Visual/Grass.jpg" id="2_q62r0"]
@@ -15,6 +16,9 @@ distance = -205.0
 
 [node name="Hill" type="Node2D" unique_id=675779279]
 script = ExtResource("1_7po3v")
+
+[node name="TrapObstacle" parent="." unique_id=1036122245 instance=ExtResource("2_0p0u6")]
+position = Vector2(0, -300)
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2079550402]
 offset_left = -1898.0

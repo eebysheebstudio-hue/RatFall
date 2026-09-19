@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cxgpqi50n4smf"]
+
+[ext_resource type="Script" uid="uid://ydt2ld6jgioj" path="res://Scenes/boot_level.gd" id="1_rt26l"]
+
+[node name="BootLevel" type="Node2D" unique_id=466737875]
+script = ExtResource("1_rt26l")

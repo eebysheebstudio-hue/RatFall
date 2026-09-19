@@ -10,6 +10,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func hide_all() -> void:
+	$CanvasLayer/MainMenu.hide()
+	$CanvasLayer/GameOverMenu.hide()
+	$CanvasLayer/SettingsMenu.hide()
+	
+
 func show_main_menu() -> void:
 	$CanvasLayer/MainMenu.show()
 	$CanvasLayer/GameOverMenu.hide()

@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://nxuyehf6kqj"]
+
+[ext_resource type="Script" uid="uid://cg3bm7wl03pay" path="res://Scenes/hill.gd" id="1_7po3v"]
+[ext_resource type="PackedScene" uid="uid://byr33313hdex6" path="res://Scenes/Player/Player.tscn" id="2_4uofs"]
+[ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="3_5w2i3"]
+[ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yf5fn"]
+distance = -205.0
+
+[node name="Hill" type="Node2D" unique_id=675779279]
+script = ExtResource("1_7po3v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2035939035]
+modulate = Color(1, 1, 1, 0.47058824)
+position = Vector2(10.5000305, -574.50006)
+scale = Vector2(9.742188, 17.27344)
+texture = ExtResource("3_5w2i3")
+
+[node name="Player" parent="." unique_id=1673534464 instance=ExtResource("2_4uofs")]
+position = Vector2(0, -200)
+
+[node name="MovementNode" type="Node2D" parent="." unique_id=681719708]
+
+[node name="KillBox" type="Area2D" parent="MovementNode" unique_id=410473534]
+position = Vector2(0, 250)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementNode/KillBox" unique_id=852733214]
+shape = SubResource("WorldBoundaryShape2D_g4v7s")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="MovementNode" unique_id=709591160]
+
+[node name="LeftBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=2079975868]
+position = Vector2(-250, 0)
+rotation = 1.5707964
+shape = SubResource("WorldBoundaryShape2D_yf5fn")
+
+[node name="RightBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=1564697198]
+position = Vector2(250, 0)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_yf5fn")
+
+[node name="TopBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=2107406977]
+position = Vector2(0, -100)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_yf5fn")
+
+[node name="Camera" parent="MovementNode" unique_id=2085499639 instance=ExtResource("3_8xj3v")]
+
+[node name="temp" type="StaticBody2D" parent="." unique_id=790399171]
+position = Vector2(0, -200)
+
+[node name="BottomBorder" type="CollisionShape2D" parent="temp" unique_id=1897531899]
+position = Vector2(1, 34)
+shape = SubResource("WorldBoundaryShape2D_yf5fn")
+
+[connection signal="body_entered" from="MovementNode/KillBox" to="." method="_on_kill_box_body_entered"]

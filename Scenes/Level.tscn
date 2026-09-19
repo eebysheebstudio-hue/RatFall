@@ -1,15 +1,26 @@
 [gd_scene format=3 uid="uid://cxgpqi50n4smf"]
 
-[ext_resource type="PackedScene" uid="uid://byr33313hdex6" path="res://Scenes/Player.tscn" id="1_0ba56"]
+[ext_resource type="PackedScene" uid="uid://byr33313hdex6" path="res://Scenes/Player/Player.tscn" id="1_fuudy"]
+[ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="2_xylue"]
+[ext_resource type="PackedScene" uid="uid://7fbfqvagj7vj" path="res://Scenes/PowerUps/TemplatePowerUp.tscn" id="3_tj5wv"]
+[ext_resource type="PackedScene" uid="uid://blmc5yrdwedf7" path="res://Scenes/Obstacles/TemplateObstacle.tscn" id="4_ienac"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
-distance = -584.0
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yf5fn"]
 
 [node name="Level" type="Node2D" unique_id=466737875]
 
-[node name="Player" parent="." unique_id=1673534464 instance=ExtResource("1_0ba56")]
+[node name="Player" parent="." unique_id=1673534464 instance=ExtResource("1_fuudy")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1709717279]
+[node name="Camera" parent="Player" unique_id=2085499639 instance=ExtResource("2_xylue")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1170108626]
-shape = SubResource("WorldBoundaryShape2D_g4v7s")
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=737453859]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1795568579]
+position = Vector2(-12, 527)
+shape = SubResource("WorldBoundaryShape2D_yf5fn")
+
+[node name="TemplatePowerUp" parent="." unique_id=1036122245 instance=ExtResource("3_tj5wv")]
+position = Vector2(73, 470)
+
+[node name="TemplateObstacle" parent="." unique_id=1050292371 instance=ExtResource("4_ienac")]
+position = Vector2(162, 475)

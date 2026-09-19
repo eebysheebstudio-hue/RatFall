@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://e7bnyjcr413k"]
+
+[ext_resource type="Script" uid="uid://j0dkpbye0yw0" path="res://Scenes/Obstacles/obstacle_interface.gd" id="1_87d5c"]
+[ext_resource type="Texture2D" uid="uid://bopiina47mgnq" path="res://Assets/Visual/Obstacles/Tree2.png" id="2_xgm1t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="Tree2" type="Node2D" unique_id=1036122245 node_paths=PackedStringArray("area")]
+script = ExtResource("1_87d5c")
+area = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1833959839]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_xgm1t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=1508840862]
+collision_layer = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=2015504661]
+polygon = PackedVector2Array(-468, -184, -252, -528, -360, -532, 8, -968, 348, -524, 268, -532, 468, -176, 352, -192, 552, 148, 388, 112, 592, 464, 412, 372, 676, 804, 171, 675, 231, 791, 326, 816, 288, 898, 69, 892, -31, 953, -264, 874, -140, 660, -684, 800, -444, 400, -596, 468, -400, 120, -552, 132, -356, -180)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=296644473]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1576237442]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -19,6 +19,7 @@ func show_main_menu() -> void:
 	$CanvasLayer/MainMenu.show()
 	$CanvasLayer/GameOverMenu.hide()
 	$CanvasLayer/SettingsMenu.hide()
+	$CanvasLayer/MainMenu.get_focus()
 	
 func show_game_over() -> void:
 	$CanvasLayer/MainMenu.hide()

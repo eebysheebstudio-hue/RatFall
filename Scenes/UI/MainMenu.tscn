@@ -16,6 +16,9 @@ bg_color = Color(0.6433649, 0.17309237, 2.8878452e-07, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgqbg"]
 bg_color = Color(1, 0.58284736, 0.45390093, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ncoa"]
+bg_color = Color(0.99669176, 0.6829455, 0.55884904, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
 bg_color = Color(0.99607843, 0.79607844, 0.015686275, 1)
 
@@ -25,6 +28,9 @@ bg_color = Color(0.76862055, 0.5883835, 0.035750367, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab04i"]
 bg_color = Color(0.9999998, 0.88845176, 0.3125341, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pyop"]
+bg_color = Color(0.9999015, 0.89654154, 0.6137802, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl3t2"]
 bg_color = Color(0.41568628, 0.83137256, 0.77254903, 1)
 
@@ -33,6 +39,9 @@ bg_color = Color(0.2742202, 0.6734506, 0.66430223, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvisc"]
 bg_color = Color(0.6189007, 0.91558546, 0.88163066, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euk5f"]
+bg_color = Color(0.7036076, 0.95460004, 0.91248536, 1)
 
 [node name="MainMenu" type="Control" unique_id=355245501]
 layout_mode = 3
@@ -81,6 +90,7 @@ theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_744d7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_hys1s")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fgqbg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0ncoa")
 text = "Start Game"
 
 [node name="Settings" type="Button" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=2109320513]
@@ -92,6 +102,7 @@ theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_yf5fn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_m48tj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ab04i")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4pyop")
 text = "Settings"
 
 [node name="Quit" type="Button" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=48745625]
@@ -103,6 +114,7 @@ theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_kl3t2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ynupv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dvisc")
+theme_override_styles/focus = SubResource("StyleBoxFlat_euk5f")
 text = "Quit"
 
 [node name="PlayerIndication" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=743060285]

@@ -10,6 +10,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _input(event: InputEvent) -> void:
+		if event.is_action_pressed("p1_action"):
+			_on_main_menu_button_pressed()
+	
 
 func finish_game(victory: bool, winner: Player):
 	$VBoxContainer/LoserInfo.hide()
@@ -25,6 +30,7 @@ func finish_game(victory: bool, winner: Player):
 		$VBoxContainer/WinnerInfo.show()
 	else:
 		$VBoxContainer/LoserInfo.show()
+
 
 func _on_main_menu_button_pressed() -> void:
 	print("Pressed")

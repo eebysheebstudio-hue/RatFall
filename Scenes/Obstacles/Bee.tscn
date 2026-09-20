@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b7lgsp1d8rs7n"]
+
+[ext_resource type="Script" uid="uid://c43wkevx5k6c2" path="res://Scenes/Obstacles/bee.gd" id="1_f7rg7"]
+[ext_resource type="Texture2D" uid="uid://827lbyvw2bsv" path="res://Assets/Visual/Obstacles/Bee.png" id="2_f7rg7"]
+
+[node name="Bee" type="Node2D" unique_id=1036122245 node_paths=PackedStringArray("area")]
+script = ExtResource("1_f7rg7")
+area = NodePath("Area2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=935420578]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_f7rg7")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=296644473]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=297324480]
+polygon = PackedVector2Array(-53, -10, -34, -28, 0, -32, 32, -26, 43, -13, 75, -18, 43, -7, 34, 15, -3, 34, -50, 31)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

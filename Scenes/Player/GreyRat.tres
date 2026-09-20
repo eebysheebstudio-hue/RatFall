@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://2jolad27umpy"]
+
+[ext_resource type="Texture2D" uid="uid://v53u6caslmqc" path="res://Assets/Visual/Grey_Rat2.png" id="1_bucmo"]
+[ext_resource type="Texture2D" uid="uid://bgmlpl1nptrpi" path="res://Assets/Visual/Grey_Rat1.png" id="2_dnmuu"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bucmo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dnmuu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

@@ -2,7 +2,14 @@ extends Node2D
 var hill_bottom: float = 0.0
 var hill_top = 10000.0
 var percent_progress_speed: float = 1 # Moves X% of the hill per second 
-var percent_progress: float = 0.0
+var percent_progress: float = 100
+var cats_entry_percent = 100
+var cats_entry_percent_speed = 5
+var cats_entry_offset = 350
+var intro_camera_accel: float = 0.0
+var bring_in_cats = false
+var text_cutscene_started = false
+var started: bool = false
 var hill_height: float
 var players: Array[Player]
 var names: Array[String] = ["Nibbler", "Sniffles", "Wormtail", "Patchy", "Swipes", "Swiftfoot", "Pipsqueak"]
@@ -23,12 +30,13 @@ var pup_scene: PackedScene = load("res://Scenes/PowerUps/TemplatePowerUp.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+
 	bounds = Vector2($MovementNode/StaticBody2D/LeftBorder.position.x - 200, $MovementNode/StaticBody2D/RightBorder.position.x + 200)
 	var players_connected = UiSwitcher.get_main_menu().players
 	for player_index in range(players_connected.size()):
 		if players_connected[player_index]:
 			var player: Player = player_scene.instantiate()
-			player.player_index = player_index
+			player.update_player_index(player_index)
 			player.position.x = player_index * player_spawn_spacing
 			player.position = player.position + player_spawn_offset
 			#print("adding player")
@@ -55,16 +63,38 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (percent_progress < 100):
+	if not text_cutscene_started and percent_progress > 0:
+		intro_camera_accel = intro_camera_accel + 5 * delta
+		percent_progress = max(0, percent_progress - (percent_progress_speed * intro_camera_accel * delta))
+		$MovementNode/Camera.position = Vector2(0, -hill_height * (percent_progress / 100))
+	if not text_cutscene_started and percent_progress <= 0:
+		text_cutscene_started = true
+		run_text_cut_scene()
+	if bring_in_cats and cats_entry_percent > 0:
+		cats_entry_percent = max(0, cats_entry_percent - cats_entry_percent_speed * delta)
+		$MovementNode/Cats.position.y = cats_entry_offset * cats_entry_percent / 100
+	if started and percent_progress < 100:
 		percent_progress = percent_progress + (percent_progress_speed * delta)
 		$MovementNode.position = Vector2(0, -hill_height * (percent_progress / 100))
 		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.update_progress(percent_progress)
 
+func run_text_cut_scene():
+	$CanvasLayer/Label.text = "GET"
+	await get_tree().create_timer(1.0).timeout
+	$CanvasLayer/Label.text = "THAT"
+	await get_tree().create_timer(1.0).timeout
+	$CanvasLayer/Label.text = "CHEESE"
+	await get_tree().create_timer(1.0).timeout
+	$CanvasLayer/Label.text = ""
+	started = true
+	await get_tree().create_timer(10.0).timeout
+	bring_in_cats = true
+	
 func scatter_obstacles():
 	var obstacles: Array[ObstacleInterface] = []
 	for i in range(n_obstacles):
 		var obstacle: Node2D = obstacle_scenes.pick_random().instantiate()
-		var y = randf_range(0, hill_top)
+		var y = randf_range(-hill_top, -1000)
 		var x = randf_range(bounds.x, bounds.y)
 		obstacle.position = Vector2(x, randf_range(0, -y))
 		obstacles.append(obstacle)

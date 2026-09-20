@@ -28,17 +28,20 @@ distance = -205.0
 script = ExtResource("1_7po3v")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2079550402]
-offset_left = -1898.0
-offset_top = -236372.0
-offset_right = 2988.0
-offset_bottom = 1516.0
+offset_left = -2447.0
+offset_top = -12003.0
+offset_right = 2439.0
+offset_bottom = 375.0
 texture = ExtResource("2_q62r0")
 expand_mode = 1
 stretch_mode = 1
 
 [node name="MovementNode" type="Node2D" parent="." unique_id=681719708]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MovementNode" unique_id=595382674]
+[node name="Cats" type="Node2D" parent="MovementNode" unique_id=1717894587]
+position = Vector2(0, 350)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MovementNode/Cats" unique_id=595382674]
 z_index = 10
 position = Vector2(0, -88)
 scale = Vector2(0.55571264, 0.55571264)
@@ -46,22 +49,22 @@ sprite_frames = ExtResource("3_vsmbq")
 autoplay = "default"
 frame_progress = 0.33088094
 
-[node name="KillBox" type="Area2D" parent="MovementNode" unique_id=410473534]
+[node name="KillBox" type="Area2D" parent="MovementNode/Cats" unique_id=410473534]
 position = Vector2(0, 250)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementNode/KillBox" unique_id=852733214]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementNode/Cats/KillBox" unique_id=852733214]
 shape = SubResource("WorldBoundaryShape2D_g4v7s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MovementNode" unique_id=709591160]
 
 [node name="LeftBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=2079975868]
-position = Vector2(-250, 0)
+position = Vector2(-400, 0)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
 [node name="RightBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=1564697198]
-position = Vector2(250, 0)
+position = Vector2(400, 0)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
@@ -71,6 +74,7 @@ rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
 [node name="Camera" parent="MovementNode" unique_id=2085499639 instance=ExtResource("3_8xj3v")]
+position = Vector2(0, -5000)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1369945536]
 
@@ -138,9 +142,19 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 size_flags_horizontal = 8
 
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1781535886]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Players" type="Node2D" parent="." unique_id=465932949]
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=951822854]
 z_index = 1
 
-[connection signal="body_entered" from="MovementNode/KillBox" to="." method="_on_kill_box_body_entered"]
+[connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]

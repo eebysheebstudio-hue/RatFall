@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b2r825ds2g6yg"]
+
+[ext_resource type="Texture2D" uid="uid://cftnl6fjxo104" path="res://Assets/Visual/Black_Rat1.png" id="1_v1lsr"]
+[ext_resource type="Texture2D" uid="uid://5h7a2ot11cna" path="res://Assets/Visual/Black_Rat2.png" id="2_jadqd"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jadqd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_v1lsr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

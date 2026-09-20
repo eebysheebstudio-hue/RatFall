@@ -27,7 +27,7 @@ var falling_rotation_speed: float = 10
 enum ClimbingState { CLIMBING, FALLING, STOPPED, CANNON, HOOKED }
 
 var current_state: ClimbingState = ClimbingState.CLIMBING
-var speedBoostTimer: float = 0.0
+var speedBoostTimer: float = 0.0 
 
 # Set by apply_hook_state() to tell _physics_process which way to push
 var hook_direction: float = 0.0
@@ -38,6 +38,21 @@ func _ready() -> void:
 	$Sound.set_volume_linear(GlobalSettings.sfx_vol*GlobalSettings.master_vol)
 	$AnimatedSprite2D.play()
 
+func update_player_index(new_index: int):
+	player_index = new_index
+	match player_index:
+		1:
+			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/BlackRat.tres")
+			$StationarySprite.texture = load("res://Assets/Visual/Black_Rat1.png")
+		2:
+			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/WhiteRat.tres")
+			$StationarySprite.texture = load("res://Assets/Visual/White_Rat1.png")
+		0:
+			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/GreyRat.tres")
+			$StationarySprite.texture = load("res://Assets/Visual/Grey_Rat1.png")
+		3:
+			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/SpottedRat.tres")
+			$StationarySprite.texture = load("res://Assets/Visual/Spotted_Rat1.png")
 
 func _physics_process(delta: float) -> void:
 	# TODO Fix animations to alternate between moving and landing rat
@@ -53,7 +68,9 @@ func _physics_process(delta: float) -> void:
 	
 	if velocity.x == 0.0 && velocity.y == 0.0:
 		$StationarySprite.visible = true
+		$AnimatedSprite2D.visible = false
 	else:
+		$AnimatedSprite2D.visible = true
 		$StationarySprite.visible = false
 	# Speed boost
 	if speedBoostTimer > 0.0:

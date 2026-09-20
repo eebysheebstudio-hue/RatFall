@@ -14,7 +14,8 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_ulttk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D" unique_id=1508840862]
-collision_layer = 4
+collision_layer = 16
+collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D" unique_id=2015504661]
 polygon = PackedVector2Array(-388, -924, -140, -964, 76, -964, 372, -940, 604, -744, 632, -532, 120, -328, 128, -60, 300, -48, 352, 60, 324, 180, 144, 224, 192, 616, 256, 768, 336, 852, 528, 928, 384, 952, 140, 880, 292, 1008, 64, 976, 20, 872, -72, 1008, -180, 872, -360, 1000, -256, 852, -604, 996, -716, 972, -432, 848, -296, 636, -240, 392, -348, 356, -404, 268, -376, 200, -200, 156, -172, 28, -168, -180, -444, -188, -644, -272, -672, -432, -604, -504, -620, -708, -524, -860)

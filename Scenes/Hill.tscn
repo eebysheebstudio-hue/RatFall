@@ -262,7 +262,7 @@ scale = Vector2(1.5038861, 1.6187412)
 position = Vector2(163.60251, -3150.1284)
 scale = Vector2(0.64038193, 0.69411135)
 
-[node name="TrapObstacle4" parent="Obstacles" unique_id=1036122245 instance=ExtResource("25_cjtib")]
+[node name="TrapObstacle4" parent="Obstacles" unique_id=674378057 instance=ExtResource("25_cjtib")]
 position = Vector2(-75.51371, -4420.502)
 scale = Vector2(0.64038193, 0.69411135)
 

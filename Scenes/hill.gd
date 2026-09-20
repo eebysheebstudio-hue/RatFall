@@ -34,7 +34,7 @@ var pup_scene: PackedScene = load("res://Scenes/PowerUps/TemplatePowerUp.tscn")
 var power_up_scenes: Array[PackedScene] = [
 	load("res://Scenes/PowerUps/Cannon.tscn"),
 	load("res://Scenes/PowerUps/poison.tscn"),
-	load("res://Scenes/PowerUps/Hook.tscn"),
+	load("res://Scenes/PowerUps/HookPowerUp.tscn"),
 	load("res://Scenes/PowerUps/Sugar.tscn"),
 ]
 # Called when the node enters the scene tree for the first time.

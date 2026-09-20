@@ -27,11 +27,9 @@ func _on_master_value_changed(value: float) -> void:
 	volume_changed.emit()
 
 func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("p1_back")):
+	if (self.is_visible() && event.is_action_pressed("p1_back")):
 		UiSwitcher.show_main_menu()
 
-func _on_button_button_up() -> void:
-	UiSwitcher.show_main_menu()
 	
 func _button_sound_relay() -> void:
 	button_sound.emit()

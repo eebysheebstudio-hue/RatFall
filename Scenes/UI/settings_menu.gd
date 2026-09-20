@@ -33,3 +33,7 @@ func _input(event: InputEvent) -> void:
 	
 func _button_sound_relay() -> void:
 	button_sound.emit()
+
+
+func _on_button_pressed() -> void:
+	UiSwitcher.show_main_menu()

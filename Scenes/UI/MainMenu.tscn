@@ -2,46 +2,56 @@
 
 [ext_resource type="Script" uid="uid://kcavauyfde7n" path="res://Scenes/UI/main_menu.gd" id="1_mjmdf"]
 [ext_resource type="Texture2D" uid="uid://cg10sy6ftsoil" path="res://Assets/Visual/Screens/Title Screen.png" id="2_mjmdf"]
-[ext_resource type="Texture2D" uid="uid://cnygarewojfdy" path="res://Assets/Visual/GameHud/Grey_Rat_Icon.png" id="3_jex3y"]
-[ext_resource type="Texture2D" uid="uid://daiy25bopm3r" path="res://Assets/Visual/GameHud/Black_Rat_Icon.png" id="4_744d7"]
-[ext_resource type="Texture2D" uid="uid://c2ym2a8p1jkdm" path="res://Assets/Visual/GameHud/White_Rat_Icon.png" id="5_kl3t2"]
-[ext_resource type="Texture2D" uid="uid://cq0seifqk7u2g" path="res://Assets/Visual/GameHud/Spotted_Rat_Icon.png" id="6_ynupv"]
+[ext_resource type="Texture2D" uid="uid://db8jwqab787a4" path="res://Assets/Visual/AAA/Play Button.png" id="3_ynupv"]
+[ext_resource type="Texture2D" uid="uid://b73immax2brty" path="res://Assets/Visual/AAA/Play button dark.png" id="4_m48tj"]
+[ext_resource type="Texture2D" uid="uid://b382qpg3qnh6a" path="res://Assets/Visual/AAA/Settings Button.png" id="5_ab04i"]
+[ext_resource type="Texture2D" uid="uid://b1o1xw5fv4gll" path="res://Assets/Visual/GameHud/GreyJoin.png" id="5_dvisc"]
+[ext_resource type="Texture2D" uid="uid://dhjftg6ke1ry8" path="res://Assets/Visual/AAA/Play button bright.png" id="5_kdsd0"]
+[ext_resource type="Texture2D" uid="uid://bdv7lne4blloj" path="res://Assets/Visual/GameHud/BlackJoin.png" id="6_ab04i"]
+[ext_resource type="Texture2D" uid="uid://ddxhu8d7car1j" path="res://Assets/Visual/AAA/Settings button bright.png" id="6_hys1s"]
+[ext_resource type="Texture2D" uid="uid://w28iu2b3ufj7" path="res://Assets/Visual/GameHud/WhiteJoin.png" id="7_hys1s"]
+[ext_resource type="Texture2D" uid="uid://cwhkqwi8wtybt" path="res://Assets/Visual/AAA/Settings button dark.png" id="7_w0mr3"]
+[ext_resource type="Texture2D" uid="uid://beyx6rwtwltst" path="res://Assets/Visual/GameHud/Join.png" id="8_fgqbg"]
+[ext_resource type="Texture2D" uid="uid://0vcdnbptw4wt" path="res://Assets/Visual/GameHud/SpottedJoin.png" id="9_euk5f"]
+[ext_resource type="Texture2D" uid="uid://c3khdjhofqhqo" path="res://Assets/Visual/AAA/Quit Button.png" id="9_ytwc7"]
+[ext_resource type="Texture2D" uid="uid://bqmlsrg70p7nb" path="res://Assets/Visual/AAA/Quit button dark.png" id="10_0ncoa"]
+[ext_resource type="Texture2D" uid="uid://bjx3y6ybfvpd2" path="res://Assets/Visual/AAA/Quit button bright.png" id="11_4pyop"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_744d7"]
-bg_color = Color(0.9877456, 0.48987037, 0.27792123, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4b8a"]
+texture = ExtResource("3_ynupv")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hys1s"]
-bg_color = Color(0.6433649, 0.17309237, 2.8878452e-07, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mw62m"]
+texture = ExtResource("4_m48tj")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgqbg"]
-bg_color = Color(1, 0.58284736, 0.45390093, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_owj4x"]
+texture = ExtResource("5_kdsd0")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ncoa"]
-bg_color = Color(0.99669176, 0.6829455, 0.55884904, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w0mr3"]
+texture = ExtResource("5_kdsd0")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
-bg_color = Color(0.99607843, 0.79607844, 0.015686275, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fgqbg"]
+texture = ExtResource("5_ab04i")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m48tj"]
-bg_color = Color(0.76862055, 0.5883835, 0.035750367, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_euk5f"]
+texture = ExtResource("7_w0mr3")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab04i"]
-bg_color = Color(0.9999998, 0.88845176, 0.3125341, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kdsd0"]
+texture = ExtResource("6_hys1s")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pyop"]
-bg_color = Color(0.9999015, 0.89654154, 0.6137802, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ervkh"]
+texture = ExtResource("9_ytwc7")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl3t2"]
-bg_color = Color(0.41568628, 0.83137256, 0.77254903, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2qihr"]
+texture = ExtResource("10_0ncoa")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynupv"]
-bg_color = Color(0.2742202, 0.6734506, 0.66430223, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xwq8e"]
+texture = ExtResource("11_4pyop")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvisc"]
-bg_color = Color(0.6189007, 0.91558546, 0.88163066, 1)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sdupg"]
+load_path = "res://.godot/imported/Quit button bright.png-2d9ab2797a73d2723dff2cfdc1f845e9.ctex"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_euk5f"]
-bg_color = Color(0.7036076, 0.95460004, 0.91248536, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2v0rb"]
+texture = SubResource("CompressedTexture2D_sdupg")
 
 [node name="MainMenu" type="Control" unique_id=355245501]
 layout_mode = 3
@@ -87,11 +97,11 @@ theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_focus_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_744d7")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_hys1s")
-theme_override_styles/hover = SubResource("StyleBoxFlat_fgqbg")
-theme_override_styles/focus = SubResource("StyleBoxFlat_0ncoa")
-text = "Start Game"
+theme_override_styles/normal = SubResource("StyleBoxTexture_q4b8a")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mw62m")
+theme_override_styles/hover = SubResource("StyleBoxTexture_owj4x")
+theme_override_styles/focus = SubResource("StyleBoxTexture_w0mr3")
+text = " "
 
 [node name="Settings" type="Button" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=2109320513]
 layout_mode = 2
@@ -99,11 +109,11 @@ theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_focus_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_yf5fn")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m48tj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ab04i")
-theme_override_styles/focus = SubResource("StyleBoxFlat_4pyop")
-text = "Settings"
+theme_override_styles/normal = SubResource("StyleBoxTexture_fgqbg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_euk5f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kdsd0")
+theme_override_styles/focus = SubResource("StyleBoxTexture_kdsd0")
+text = " "
 
 [node name="Quit" type="Button" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=48745625]
 layout_mode = 2
@@ -111,11 +121,11 @@ theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_focus_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_kl3t2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ynupv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dvisc")
-theme_override_styles/focus = SubResource("StyleBoxFlat_euk5f")
-text = "Quit"
+theme_override_styles/normal = SubResource("StyleBoxTexture_ervkh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2qihr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xwq8e")
+theme_override_styles/focus = SubResource("StyleBoxTexture_2v0rb")
+text = " "
 
 [node name="PlayerIndication" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=743060285]
 custom_minimum_size = Vector2(100, 100)
@@ -128,7 +138,19 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 color = Color(0.6627451, 0.007843138, 0, 1)
 
+[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect" unique_id=2063235678]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_fgqbg")
+expand_mode = 4
+
 [node name="RatIcon1" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect" unique_id=2142099390]
+custom_maximum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -141,15 +163,26 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_jex3y")
-stretch_mode = 2
+texture = ExtResource("5_dvisc")
 
 [node name="ColorRect2" type="ColorRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication" unique_id=238834867]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 color = Color(0.6627451, 0.007843138, 0, 1)
 
+[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect2" unique_id=30653489]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_fgqbg")
+expand_mode = 4
+
 [node name="RatIcon1" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect2" unique_id=40595668]
+custom_maximum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -162,15 +195,26 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_744d7")
-stretch_mode = 2
+texture = ExtResource("6_ab04i")
 
 [node name="ColorRect3" type="ColorRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication" unique_id=660270404]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 color = Color(0.6627451, 0.007843138, 0, 1)
 
+[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect3" unique_id=1731556064]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_fgqbg")
+expand_mode = 4
+
 [node name="RatIcon1" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect3" unique_id=1199817212]
+custom_maximum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -183,29 +227,41 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_kl3t2")
-stretch_mode = 2
+scale = Vector2(1, 0.99317044)
+texture = ExtResource("7_hys1s")
 
 [node name="ColorRect4" type="ColorRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication" unique_id=1339924837]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 color = Color(0.6627451, 0.007843138, 0, 1)
 
+[node name="TextureRect" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect4" unique_id=595673242]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_fgqbg")
+expand_mode = 4
+
 [node name="RatIcon1" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect4" unique_id=1238993920]
+custom_maximum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_ynupv")
-stretch_mode = 2
+scale = Vector2(1, 0.996435)
+texture = ExtResource("9_euk5f")
 
 [node name="Tooltip" type="Label" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=219710305]
 layout_mode = 2

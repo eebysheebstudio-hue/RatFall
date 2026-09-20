@@ -22,35 +22,43 @@ func _input(event: InputEvent) -> void:
 	#I wound never, this is beautiful
 	if event.is_action_pressed("p1_start"):
 		players[0] = true
+		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect/TextureRect.show()
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect.set_color(Color(0.219, 0.467, 0.172, 1.0))
 		player_enter.emit()
 	elif event.is_action_pressed("p2_start"):
 		players[1] = true
+		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect2/TextureRect.show()
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect2.set_color(Color(0.219, 0.467, 0.172, 1.0))
 		player_enter.emit()
 	elif event.is_action_pressed("p3_start"):
 		players[2] = true
+		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect3/TextureRect.show()
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect3.set_color(Color(0.219, 0.467, 0.172, 1.0))
 		player_enter.emit()
 	elif event.is_action_pressed("p4_start"):
 		players[3] = true
+		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect4/TextureRect.show()
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect4.set_color(Color(0.219, 0.467, 0.172, 1.0))
 		player_enter.emit()
 
 	if event.is_action_pressed("p1_back") && players[0]:
 		players[0] = false
+		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect/TextureRect.hide()
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect.set_color(Color(0.663, 0.008, 0.0, 1.0))
 		player_exit.emit()
 	elif event.is_action_pressed("p2_back") && players[1]:
 		players[1] = false
+		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect2/TextureRect.hide()
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect2.set_color(Color(0.663, 0.008, 0.0, 1.0))
 		player_exit.emit()
 	elif event.is_action_pressed("p3_back") && players[2]:
 		players[2] = false
+		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect3/TextureRect.hide()
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect3.set_color(Color(0.663, 0.008, 0.0, 1.0))
 		player_exit.emit()
 	elif event.is_action_pressed("p4_back") && players[3]:
 		players[3] = false
+		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect4/TextureRect.hide()
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect4.set_color(Color("a90200ff"))
 		player_exit.emit()
 		

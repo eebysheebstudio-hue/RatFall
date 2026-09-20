@@ -2,15 +2,21 @@
 
 [ext_resource type="Script" uid="uid://bdivmc11trj56" path="res://Scenes/UI/settings_menu.gd" id="1_q4b8a"]
 [ext_resource type="Texture2D" uid="uid://28tcx1p7r0tf" path="res://Assets/Visual/Screens/SettingsBg.PNG" id="2_q4b8a"]
+[ext_resource type="Texture2D" uid="uid://xxcjitya6rbo" path="res://Assets/Visual/AAA/main menu button.png" id="3_3hh3s"]
+[ext_resource type="Texture2D" uid="uid://cpq6cpccyvwt6" path="res://Assets/Visual/AAA/Main menu button dark.png" id="4_83xbh"]
+[ext_resource type="Texture2D" uid="uid://d2dxa42hkcntv" path="res://Assets/Visual/AAA/Main menu button bright.png" id="5_v1gh5"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl3t2"]
-bg_color = Color(0.41568628, 0.83137256, 0.77254903, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qf63h"]
+texture = ExtResource("3_3hh3s")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynupv"]
-bg_color = Color(0.2742202, 0.6734506, 0.66430223, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wvou"]
+texture = ExtResource("4_83xbh")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvisc"]
-bg_color = Color(0.6189007, 0.91558546, 0.88163066, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1jff"]
+texture = ExtResource("5_v1gh5")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8vcbs"]
+texture = ExtResource("5_v1gh5")
 
 [node name="SettingsMenu" type="Control" unique_id=304821896]
 layout_mode = 3
@@ -37,6 +43,22 @@ grow_vertical = 2
 scale = Vector2(0.5690397, 0.5685322)
 texture = ExtResource("2_q4b8a")
 stretch_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=733346361]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -611.0
+offset_top = -319.0
+offset_right = -571.0
+offset_bottom = -279.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(30.728172, 14.676014)
+color = Color(1, 1, 1, 0.30588236)
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=918123637]
 layout_mode = 1
@@ -138,19 +160,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -80.0
+offset_left = -414.0
 offset_top = -48.0
-offset_right = 80.0
+offset_right = 414.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_focus_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_kl3t2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ynupv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dvisc")
-text = "Done"
+theme_override_styles/normal = SubResource("StyleBoxTexture_qf63h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4wvou")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h1jff")
+theme_override_styles/focus = SubResource("StyleBoxTexture_8vcbs")
 
 [connection signal="drag_ended" from="VBoxContainer2/master" to="." method="_on_master_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer2/master" to="." method="_on_master_value_changed"]
@@ -160,3 +182,4 @@ text = "Done"
 [connection signal="value_changed" from="VBoxContainer2/music" to="." method="_on_music_value_changed"]
 [connection signal="button_down" from="Button" to="." method="_button_sound_relay"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

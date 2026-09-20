@@ -10,15 +10,21 @@
 [ext_resource type="Texture2D" uid="uid://c7c401scbcmef" path="res://Assets/Visual/GameHud/White_Rat_Dead_Icon.png" id="7_o36f0"]
 [ext_resource type="Texture2D" uid="uid://kukdho2slway" path="res://Assets/Visual/GameHud/Spotted_Rat_Dead_Icon.png" id="8_mtrh1"]
 [ext_resource type="Texture2D" uid="uid://dfqv7sii17nhc" path="res://Assets/Visual/GameHud/all lose.png" id="9_pn7lq"]
+[ext_resource type="Texture2D" uid="uid://xxcjitya6rbo" path="res://Assets/Visual/AAA/main menu button.png" id="11_78kbk"]
+[ext_resource type="Texture2D" uid="uid://cpq6cpccyvwt6" path="res://Assets/Visual/AAA/Main menu button dark.png" id="12_ivw2w"]
+[ext_resource type="Texture2D" uid="uid://d2dxa42hkcntv" path="res://Assets/Visual/AAA/Main menu button bright.png" id="13_3ak47"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl3t2"]
-bg_color = Color(0.41568628, 0.83137256, 0.77254903, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qf63h"]
+texture = ExtResource("11_78kbk")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynupv"]
-bg_color = Color(0.2742202, 0.6734506, 0.66430223, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4wvou"]
+texture = ExtResource("12_ivw2w")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvisc"]
-bg_color = Color(0.6189007, 0.91558546, 0.88163066, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1jff"]
+texture = ExtResource("13_3ak47")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8vcbs"]
+texture = ExtResource("13_3ak47")
 
 [node name="GameOverMenu" type="Control" unique_id=1800715222]
 custom_minimum_size = Vector2(600, 600)
@@ -144,9 +150,10 @@ theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_focus_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_pressed_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_kl3t2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ynupv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_dvisc")
-text = "Main Menu"
+theme_override_styles/normal = SubResource("StyleBoxTexture_qf63h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4wvou")
+theme_override_styles/hover = SubResource("StyleBoxTexture_h1jff")
+theme_override_styles/focus = SubResource("StyleBoxTexture_8vcbs")
+text = " "
 
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

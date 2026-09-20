@@ -19,7 +19,7 @@ func set_alive_status(alive_in: bool):
 		
 
 		$MarginContainer/HBoxContainer/Label.text = player_name
-		# TODO This causes a conflict (names not defined)names.remove_at(random_index)
+		#TODO This comment has an unknown purpose and breaks the code names.remove_at(random_index)
 		#print(names)
 
 	

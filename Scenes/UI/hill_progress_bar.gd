@@ -1,43 +1,38 @@
 extends Control
 class_name HillProgressBar
+
 var icon_y_offset: float = 0
 var icon_x_offset: float = 0
 var icon_x_start: float = 0
-var progress_bar_height = 415
-var is_player_alive = [false, false, false, false]
+var progress_bar_height: float = 415
+var is_player_alive := [false, false, false, false]
+var icons: Array[Control]
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#progress_bar_height = $TextureRect/MarginContainer/ProgressBar.size.y
-	icon_y_offset = 15 + $Player1Icon.size.y /2
-	icon_x_offset = $Player1Icon.size.x /2
+	await get_tree().create_timer(1.0).timeout
+	# Turn off images
+	icons = [$Player1Icon, $Player2Icon, $Player3Icon, $Player4Icon]
+	icon_y_offset = 15 + icons[0].size.y / 2
+	icon_x_offset = icons[0].size.x / 2
 	icon_x_start = 0
 
-# Only activate positions for active players
-	var icons := [$Player1Icon, $Player2Icon, $Player3Icon, $Player4Icon]
+	for i in icons.size():
+		icons[i].visible = false
 
+# Check active players and activate their icons
 	for p in get_tree().get_nodes_in_group("players"):
 		if p is Player:
-			icons[p.player_index].position = Vector2(icon_x_start, size.y - icon_y_offset)
-			
-	
-	$Player1Icon.position = Vector2(icon_x_start, size.y - icon_y_offset)
-	$Player2Icon.position = Vector2(icon_x_start  + icon_x_offset, size.y - icon_y_offset)
-	$Player3Icon.position = Vector2(icon_x_start + 2 * icon_x_offset, size.y - icon_y_offset)
-	$Player4Icon.position = Vector2(icon_x_start + 3 * icon_x_offset, size.y - icon_y_offset)
+			var i: int = p.player_index
+			icons[i].visible = true
+			icons[i].position = Vector2(icon_x_start + i * icon_x_offset, size.y - icon_y_offset)
 
-	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func set_player_alive(player_index: int, alive: bool) -> void:
+	is_player_alive[player_index] = alive
 
-func set_player_alive(player_index: int, is_alive: bool):
-	is_player_alive[player_index] = is_alive
-
-func update_progress(value: float):
+func update_progress(value: float) -> void:
 	$TextureRect/MarginContainer/ProgressBar.value = value
-	if is_player_alive[0]: $Player1Icon.position = Vector2(icon_x_start, size.y - icon_y_offset - progress_bar_height * value / 100)
-	if is_player_alive[1]: $Player2Icon.position = Vector2(icon_x_start + icon_x_offset, size.y - icon_y_offset - progress_bar_height * value / 100)
-	if is_player_alive[2]: $Player3Icon.position = Vector2(icon_x_start + 2 * icon_x_offset, size.y - icon_y_offset - progress_bar_height * value / 100)
-	if is_player_alive[3]: $Player4Icon.position = Vector2(icon_x_start + 3 * icon_x_offset, size.y - icon_y_offset - progress_bar_height * value / 100)
+	var y := size.y - icon_y_offset - progress_bar_height * value / 100
+	for i in icons.size():
+		if is_player_alive[i]:
+			icons[i].position = Vector2(icon_x_start + i * icon_x_offset, y)

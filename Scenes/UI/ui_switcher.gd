@@ -47,6 +47,6 @@ func _on_main_menu_player_exit() -> void:
 	$Sfx.play()
 
 
-func _on_button_hover() -> void:
+func _on_button_sound() -> void:
 	$Sfx.stream = load("res://Assets/Audio/menu_tick.wav")
 	$Sfx.play()

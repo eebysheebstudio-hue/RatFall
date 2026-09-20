@@ -36,8 +36,8 @@ autoplay = true
 [node name="Sfx" type="AudioStreamPlayer" parent="." unique_id=1394473476]
 max_polyphony = 4
 
-[connection signal="button_hover" from="CanvasLayer/MainMenu" to="." method="_on_button_hover"]
+[connection signal="button_sound" from="CanvasLayer/MainMenu" to="." method="_on_button_sound"]
 [connection signal="player_enter" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_player_enter"]
 [connection signal="player_exit" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_player_exit"]
-[connection signal="button_hover" from="CanvasLayer/SettingsMenu" to="." method="_on_button_hover"]
+[connection signal="button_sound" from="CanvasLayer/SettingsMenu" to="." method="_on_button_sound"]
 [connection signal="volume_changed" from="CanvasLayer/SettingsMenu" to="." method="_on_settings_menu_volume_changed"]

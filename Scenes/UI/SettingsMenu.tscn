@@ -86,5 +86,5 @@ text = "DONE"
 [connection signal="value_changed" from="VBoxContainer2/sfx" to="." method="_on_sfx_value_changed"]
 [connection signal="drag_ended" from="VBoxContainer2/music" to="." method="_on_music_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer2/music" to="." method="_on_music_value_changed"]
+[connection signal="button_down" from="Button" to="." method="_button_sound_relay"]
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
-[connection signal="focus_entered" from="Button" to="." method="_button_hover_relay"]

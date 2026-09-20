@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://nxuyehf6kqj"]
 
 [ext_resource type="Script" uid="uid://cg3bm7wl03pay" path="res://Scenes/hill.gd" id="1_7po3v"]
+[ext_resource type="Texture2D" uid="uid://gklten7u05e1" path="res://Assets/Visual/Full.jpg" id="2_6mhlc"]
 [ext_resource type="PackedScene" uid="uid://cpv7c16wg1g6m" path="res://Scenes/UI/HillProgressBar.tscn" id="2_kgtut"]
-[ext_resource type="Texture2D" uid="uid://dgh8iah2lf4u8" path="res://Assets/Visual/Grass.jpg" id="2_q62r0"]
 [ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
 [ext_resource type="SpriteFrames" uid="uid://begqj27dwl72q" path="res://Assets/Visual/CatChasers/CatChaser.tres" id="3_vsmbq"]
 [ext_resource type="PackedScene" uid="uid://lo3enc16f3xs" path="res://Scenes/UI/HillHud.tscn" id="6_q62r0"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://kukdho2slway" path="res://Assets/Visual/GameHud/Spotted_Rat_Dead_Icon.png" id="16_tq72c"]
 [ext_resource type="Texture2D" uid="uid://ccf5l2hbbknbj" path="res://Assets/Visual/GameHud/Player4Hud.png" id="17_qee4n"]
 [ext_resource type="PackedScene" uid="uid://dry7pc6bq84id" path="res://Scenes/Cheese.tscn" id="20_1oy28"]
+[ext_resource type="Texture2D" uid="uid://dcvnhqueofrx4" path="res://Assets/Visual/GameHud/GET.png" id="20_6mhlc"]
 [ext_resource type="PackedScene" uid="uid://b7lgsp1d8rs7n" path="res://Scenes/Obstacles/Bee.tscn" id="21_v62hp"]
 [ext_resource type="PackedScene" uid="uid://cu5htx1ltlnuu" path="res://Scenes/Obstacles/Bunny.tscn" id="22_b62s8"]
 [ext_resource type="PackedScene" uid="uid://b3fiepyhm8sj5" path="res://Scenes/Obstacles/Cappy.tscn" id="23_1111v"]
@@ -46,7 +47,7 @@ offset_left = -676.0
 offset_top = -10375.0
 offset_right = 683.0
 offset_bottom = 375.0
-texture = ExtResource("2_q62r0")
+texture = ExtResource("2_6mhlc")
 expand_mode = 1
 stretch_mode = 1
 
@@ -170,6 +171,17 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 128
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GetThatCheese" type="TextureRect" parent="CanvasLayer" unique_id=613212118]
+visible = false
+custom_minimum_size = Vector2(720, 720)
+custom_maximum_size = Vector2(720, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_6mhlc")
 
 [node name="Players" type="Node2D" parent="." unique_id=465932949]
 

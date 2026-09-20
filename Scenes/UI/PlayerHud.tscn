@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ntjoko872gi3"]
 
 [ext_resource type="Script" uid="uid://bn7clmd0srxbf" path="res://Scenes/UI/player_hud.gd" id="1_pi7ir"]
-[ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="1_tpfxl"]
+[ext_resource type="Texture2D" uid="uid://j4e5s62d11ct" path="res://Assets/Visual/GameHud/DeadPlaceholder.jpg" id="2_pi7ir"]
 
 [sub_resource type="Gradient" id="Gradient_pi7ir"]
 offsets = PackedFloat32Array(0, 0.9952494, 1)
@@ -11,28 +11,30 @@ colors = PackedColorArray(0.95961994, 0.95961994, 0.95961994, 1, 0, 0, 0, 1, 1, 
 gradient = SubResource("Gradient_pi7ir")
 
 [node name="PlayerHud" type="Control" unique_id=587170444]
-custom_minimum_size = Vector2(300, 200)
-custom_maximum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(250, 100)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -852.0
-offset_bottom = -448.0
+offset_top = -2.0
+offset_right = -980.0
+offset_bottom = -560.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pi7ir")
+dead_icon = ExtResource("2_pi7ir")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1954324190]
-layout_mode = 0
-offset_right = 267.0
-offset_bottom = 168.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1677836116]
 layout_mode = 2
@@ -40,9 +42,11 @@ size_flags_vertical = 4
 offset_transform_enabled = true
 
 [node name="PowerUpIcon" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=674048366]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 2
-texture = ExtResource("1_tpfxl")
+texture = ExtResource("2_pi7ir")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1069266847]
 layout_mode = 2
@@ -51,14 +55,12 @@ text = "PlayerName"
 
 [node name="Background" type="TextureRect" parent="." unique_id=1991078837]
 z_index = -1
+custom_minimum_size = Vector2(0, 100)
+custom_maximum_size = Vector2(-1, 100)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
-offset_top = 16.0
-offset_right = -50.0
-offset_bottom = -49.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_g4v7s")

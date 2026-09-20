@@ -16,6 +16,7 @@ tags = {
 }
 
 [node name="UiSwitcher" type="Node2D" unique_id=221688198]
+process_mode = 3
 script = ExtResource("1_dn4em")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1694760473]

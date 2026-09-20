@@ -13,5 +13,4 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
-		get_tree().paused = true
-		UiSwitcher.show_game_over(body)
+		UiSwitcher.finish_game(true, body)

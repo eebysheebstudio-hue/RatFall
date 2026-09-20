@@ -4,6 +4,8 @@ class_name Player
 
 const SPEED = 300.0
 
+var player_index: int = 0
+
 var horizontalSpeedMultiplier: float = 1.0
 var verticalSpeedMultiplier: float = 1.0
 

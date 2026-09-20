@@ -28,7 +28,7 @@ func set_player_alive(player_index: int, is_alive: bool):
 
 func update_progress(value: float):
 	$TextureRect/MarginContainer/ProgressBar.value = value
-	if is_player_alive[0]: $Player1Icon.position = Vector2(icon_x_start, size.y - icon_y_offset - size.y * value / 100)
+	if is_player_alive[0]: $Player1Icon.position = Vector2(icon_x_start, size.y - icon_y_offset - progress_bar_height * value / 100)
 	if is_player_alive[1]: $Player2Icon.position = Vector2(icon_x_start + icon_x_offset, size.y - icon_y_offset - progress_bar_height * value / 100)
 	if is_player_alive[2]: $Player3Icon.position = Vector2(icon_x_start + 2 * icon_x_offset, size.y - icon_y_offset - progress_bar_height * value / 100)
 	if is_player_alive[3]: $Player4Icon.position = Vector2(icon_x_start + 3 * icon_x_offset, size.y - icon_y_offset - progress_bar_height * value / 100)

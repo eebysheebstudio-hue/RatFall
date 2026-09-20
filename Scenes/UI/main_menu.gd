@@ -33,7 +33,7 @@ func _input(event: InputEvent) -> void:
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect3.set_color(Color(0.219, 0.467, 0.172, 1.0))
 		player_enter.emit()
 	elif event.is_action_pressed("p4_start"):
-		players[2] = true
+		players[3] = true
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect4.set_color(Color(0.219, 0.467, 0.172, 1.0))
 		player_enter.emit()
 

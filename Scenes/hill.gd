@@ -42,7 +42,6 @@ func _ready() -> void:
 			player.update_player_index(player_index)
 			player.position.x = player_index * player_spawn_spacing
 			player.position = player.position + player_spawn_offset
-			#print("adding player")
 			$Players.add_child(player)
 			
 			var random_index = randi() % names.size()
@@ -60,6 +59,7 @@ func _ready() -> void:
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_alive_status(true)
 				3: 	
+					print("Adding P4A")
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_alive_status(true)
 			$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(player_index, true)

@@ -76,8 +76,7 @@ func _ready() -> void:
 			$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(player_index, true)
 			living_player_indexes.append(player_index)
 	hill_height = hill_top - hill_bottom
-	$MovementNode.position = Vector2(0, hill_bottom)
-	scatter_obstacles()
+	run_text_cut_scene()
 
 
 
@@ -89,7 +88,7 @@ func _process(delta: float) -> void:
 		$MovementNode/Camera.position = Vector2(0, -hill_height * (percent_progress / 100))
 	if not text_cutscene_started and percent_progress <= 0:
 		text_cutscene_started = true
-		run_text_cut_scene()
+		start_race()
 	if bring_in_cats and cats_entry_percent > 0:
 		cats_entry_percent = max(0, cats_entry_percent - cats_entry_percent_speed * delta)
 		$MovementNode/Cats.position.y = cats_entry_offset * cats_entry_percent / 100
@@ -98,7 +97,14 @@ func _process(delta: float) -> void:
 		$MovementNode.position = Vector2(0, -hill_height * (percent_progress / 100))
 		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.update_progress(percent_progress)
 
+func start_race():
+	started = true
+	await get_tree().create_timer(10.0).timeout
+	bring_in_cats = true
+
 func run_text_cut_scene():
+	var display_text_wait_duration: float = 1
+	await get_tree().create_timer(display_text_wait_duration).timeout
 	$CanvasLayer/GetThatCheese.texture = get_texture
 	$CanvasLayer/GetThatCheese.show()
 	await get_tree().create_timer(1.0).timeout
@@ -107,9 +113,6 @@ func run_text_cut_scene():
 	$CanvasLayer/GetThatCheese.texture = cheese_texture
 	await get_tree().create_timer(1.0).timeout
 	$CanvasLayer/GetThatCheese.hide()
-	started = true
-	await get_tree().create_timer(10.0).timeout
-	bring_in_cats = true
 	
 func scatter_obstacles():
 	var obstacles: Array[ObstacleInterface] = []

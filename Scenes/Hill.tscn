@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cu5htx1ltlnuu" path="res://Scenes/Obstacles/Bunny.tscn" id="22_b62s8"]
 [ext_resource type="PackedScene" uid="uid://b3fiepyhm8sj5" path="res://Scenes/Obstacles/Cappy.tscn" id="23_1111v"]
 [ext_resource type="PackedScene" uid="uid://n2cn7wby24xy" path="res://Scenes/Obstacles/Frog.tscn" id="24_6mhlc"]
+[ext_resource type="Texture2D" uid="uid://ct0y1f875urjp" path="res://Assets/Visual/GameHud/Dot.png" id="24_1111v"]
 [ext_resource type="PackedScene" uid="uid://bljn03dqf3shs" path="res://Scenes/Obstacles/Tree4.tscn" id="24_tq72c"]
 [ext_resource type="PackedScene" uid="uid://0vu5k2tiu26e" path="res://Scenes/Obstacles/TrapObstacle.tscn" id="25_cjtib"]
 [ext_resource type="PackedScene" uid="uid://e7bnyjcr413k" path="res://Scenes/Obstacles/Tree2.tscn" id="26_q6vll"]
@@ -29,11 +30,18 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yf5fn"]
 distance = -205.0
 
+[sub_resource type="Gradient" id="Gradient_1111v"]
+offsets = PackedFloat32Array(0.0020833334, 1)
+colors = PackedColorArray(1, 1, 1, 0.5294118, 1, 1, 1, 0)
+
 [node name="Hill" type="Node2D" unique_id=675779279]
 script = ExtResource("1_7po3v")
 
 [node name="HookPowerUp" parent="." unique_id=1036122245 instance=ExtResource("2_v62hp")]
 position = Vector2(0, -151.8)
+
+[node name="HookPowerUp2" parent="." unique_id=1691817921 instance=ExtResource("2_v62hp")]
+position = Vector2(-141, -209)
 
 [node name="Powerup Spawner" type="Timer" parent="." unique_id=571246852]
 autostart = true
@@ -54,7 +62,7 @@ position = Vector2(0, 350)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MovementNode/Cats" unique_id=595382674]
 z_index = 10
-position = Vector2(0, -88)
+position = Vector2(0, -89)
 scale = Vector2(0.55571264, 0.55571264)
 sprite_frames = ExtResource("3_vsmbq")
 autoplay = "default"
@@ -261,6 +269,18 @@ position = Vector2(-134, -784)
 
 [node name="Frog" parent="." unique_id=24904739 instance=ExtResource("24_6mhlc")]
 position = Vector2(105, -880)
+
+[node name="SpawnPowerUpParticles" type="CPUParticles2D" parent="." unique_id=2058239557]
+emitting = false
+amount = 10
+texture = ExtResource("24_1111v")
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 11.54
+initial_velocity_max = 261.54
+color_ramp = SubResource("Gradient_1111v")
 
 [connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
 [connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]

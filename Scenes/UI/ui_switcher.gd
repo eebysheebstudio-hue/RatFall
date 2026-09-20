@@ -34,6 +34,7 @@ func show_settings() -> void:
 	$CanvasLayer/MainMenu.hide()
 	$CanvasLayer/GameOverMenu.hide()
 	$CanvasLayer/SettingsMenu.show()
+	$CanvasLayer/SettingsMenu/Button.grab_focus()
 	
 func get_main_menu() -> MainMenu:
 	return $CanvasLayer/MainMenu

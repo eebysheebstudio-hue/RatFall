@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c3pqjda7lj1r"]
 
 [ext_resource type="Script" uid="uid://bdivmc11trj56" path="res://Scenes/UI/settings_menu.gd" id="1_q4b8a"]
-[ext_resource type="Texture2D" uid="uid://d2hkiffpkrtc5" path="res://Assets/Visual/Extra/Cheese1.png" id="2_q4b8a"]
+[ext_resource type="Texture2D" uid="uid://28tcx1p7r0tf" path="res://Assets/Visual/Screens/SettingsBg.PNG" id="2_q4b8a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl3t2"]
 bg_color = Color(0.41568628, 0.83137256, 0.77254903, 1)
@@ -28,12 +28,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -415.5
-offset_top = -428.0
-offset_right = 415.5
-offset_bottom = 428.0
+offset_left = -702.0
+offset_top = -571.0
+offset_right = 1686.0
+offset_bottom = 1097.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.5690397, 0.5685322)
 texture = ExtResource("2_q4b8a")
 stretch_mode = 2
 
@@ -92,6 +93,44 @@ horizontal_alignment = 1
 layout_mode = 2
 value = 50.0
 
+[node name="Tutorial" type="Control" parent="VBoxContainer2" unique_id=50452512]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HowToPlay" type="VBoxContainer" parent="VBoxContainer2/Tutorial" unique_id=893853455]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -205.5
+offset_top = -83.5
+offset_right = 205.5
+offset_bottom = 83.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Controls" type="Label" parent="VBoxContainer2/Tutorial/HowToPlay" unique_id=1117200167]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Movement" type="Label" parent="VBoxContainer2/Tutorial/HowToPlay" unique_id=585168621]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+text = "Movement: Joystick + Dpad"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer2/Tutorial/HowToPlay" unique_id=1217054486]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+text = "Power Ups: A button (xbox),
+                                 X button (playstation)"
+horizontal_alignment = 1
+
 [node name="Button" type="Button" parent="." unique_id=1438274239]
 layout_mode = 1
 anchors_preset = 7
@@ -111,47 +150,7 @@ theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_kl3t2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ynupv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dvisc")
-text = "DONE"
-
-[node name="HowToPlay" type="VBoxContainer" parent="." unique_id=893853455]
-layout_mode = 0
-offset_left = 865.0
-offset_top = 562.0
-offset_right = 1276.0
-offset_bottom = 729.0
-
-[node name="Controls" type="Label" parent="HowToPlay" unique_id=1117200167]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
-text = "Controls"
-horizontal_alignment = 1
-
-[node name="Label" type="Label" parent="HowToPlay" unique_id=585168621]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
-text = "
-Movement: Joystick + Dpad"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="HowToPlay" unique_id=1217054486]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
-text = "
-                      A button (xbox),
-                                 X button (playstation)"
-horizontal_alignment = 1
-
-[node name="Inputs" type="VBoxContainer" parent="." unique_id=1857364035]
-layout_mode = 0
-offset_left = 965.0
-offset_top = 679.0
-offset_right = 1051.0
-offset_bottom = 719.0
-
-[node name="Power ups" type="Label" parent="Inputs" unique_id=595880234]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
-text = "Power ups:"
+text = "Done"
 
 [connection signal="drag_ended" from="VBoxContainer2/master" to="." method="_on_master_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer2/master" to="." method="_on_master_value_changed"]

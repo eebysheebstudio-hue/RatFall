@@ -236,6 +236,8 @@ p4_start={
 2d_physics/layer_2="KillLayer"
 2d_physics/layer_3="Obstacle"
 2d_physics/layer_4="PowerUp"
+2d_physics/layer_5="Blocker"
+2d_physics/layer_6="Cheese"
 
 [physics]
 

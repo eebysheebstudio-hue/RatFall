@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cq0seifqk7u2g" path="res://Assets/Visual/GameHud/Spotted_Rat_Icon.png" id="15_6mhlc"]
 [ext_resource type="Texture2D" uid="uid://kukdho2slway" path="res://Assets/Visual/GameHud/Spotted_Rat_Dead_Icon.png" id="16_tq72c"]
 [ext_resource type="Texture2D" uid="uid://ccf5l2hbbknbj" path="res://Assets/Visual/GameHud/Player4Hud.png" id="17_qee4n"]
+[ext_resource type="PackedScene" uid="uid://dry7pc6bq84id" path="res://Scenes/Cheese.tscn" id="20_1oy28"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
@@ -30,7 +31,7 @@ script = ExtResource("1_7po3v")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2079550402]
 offset_left = -676.0
-offset_top = -12003.0
+offset_top = -10375.0
 offset_right = 683.0
 offset_bottom = 375.0
 texture = ExtResource("2_q62r0")
@@ -157,5 +158,8 @@ vertical_alignment = 1
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=951822854]
 z_index = 1
+
+[node name="Cheese" parent="." unique_id=1937917780 instance=ExtResource("20_1oy28")]
+position = Vector2(0, -10084)
 
 [connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]

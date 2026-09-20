@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b5vjdwdlcvfy1" path="res://Assets/Visual/GameHud/Grey_Rat_Dead_Icon.png" id="8_cgor0"]
 [ext_resource type="Texture2D" uid="uid://d2cdvlrqhagjf" path="res://Assets/Visual/GameHud/Player1Hud.png" id="9_l6dtb"]
 [ext_resource type="Texture2D" uid="uid://daiy25bopm3r" path="res://Assets/Visual/GameHud/Black_Rat_Icon.png" id="10_1oy28"]
+[ext_resource type="Texture2D" uid="uid://fgx27pwwl0w3" path="res://Assets/Visual/GameHud/Black_Rat_Dead_Icon.png" id="11_l6dtb"]
 [ext_resource type="Texture2D" uid="uid://smebeup0uma2" path="res://Assets/Visual/GameHud/Player2Hud.png" id="11_v62hp"]
 [ext_resource type="Texture2D" uid="uid://c2ym2a8p1jkdm" path="res://Assets/Visual/GameHud/White_Rat_Icon.png" id="12_b62s8"]
 [ext_resource type="Texture2D" uid="uid://c7c401scbcmef" path="res://Assets/Visual/GameHud/White_Rat_Dead_Icon.png" id="13_dicbf"]
@@ -28,9 +29,9 @@ distance = -205.0
 script = ExtResource("1_7po3v")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2079550402]
-offset_left = -2447.0
+offset_left = -676.0
 offset_top = -12003.0
-offset_right = 2439.0
+offset_right = 683.0
 offset_bottom = 375.0
 texture = ExtResource("2_q62r0")
 expand_mode = 1
@@ -114,7 +115,7 @@ bg_texture = ExtResource("9_l6dtb")
 [node name="PlayerHud2" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=1671021736 instance=ExtResource("7_vsmbq")]
 layout_mode = 2
 alive_icon = ExtResource("10_1oy28")
-dead_icon = ExtResource("10_1oy28")
+dead_icon = ExtResource("11_l6dtb")
 bg_texture = ExtResource("11_v62hp")
 
 [node name="PlayerHud3" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=152885630 instance=ExtResource("7_vsmbq")]

@@ -41,15 +41,15 @@ func _ready() -> void:
 func update_player_index(new_index: int):
 	player_index = new_index
 	match player_index:
+		0:
+			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/GreyRat.tres")
+			$StationarySprite.texture = load("res://Assets/Visual/Grey_Rat1.png")
 		1:
 			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/BlackRat.tres")
 			$StationarySprite.texture = load("res://Assets/Visual/Black_Rat1.png")
 		2:
 			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/WhiteRat.tres")
 			$StationarySprite.texture = load("res://Assets/Visual/White_Rat1.png")
-		0:
-			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/GreyRat.tres")
-			$StationarySprite.texture = load("res://Assets/Visual/Grey_Rat1.png")
 		3:
 			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/SpottedRat.tres")
 			$StationarySprite.texture = load("res://Assets/Visual/Spotted_Rat1.png")

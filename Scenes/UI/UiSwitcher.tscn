@@ -32,6 +32,7 @@ visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1259902310]
 stream = ExtResource("5_b7gst")
+volume_db = -18.667
 autoplay = true
 
 [node name="Sfx" type="AudioStreamPlayer" parent="." unique_id=1394473476]

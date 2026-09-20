@@ -1,6 +1,7 @@
 extends Control
 
 signal volume_changed()
+signal button_hover()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,3 +30,5 @@ func _on_master_value_changed(value: float) -> void:
 func _on_button_button_up() -> void:
 	UiSwitcher.show_main_menu()
 	
+func _button_hover_relay() -> void:
+	button_hover.emit()

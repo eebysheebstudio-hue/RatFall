@@ -45,3 +45,8 @@ func _on_main_menu_player_enter() -> void:
 func _on_main_menu_player_exit() -> void:
 	$Sfx.stream = load("res://Assets/Audio/player_exit.wav")
 	$Sfx.play()
+
+
+func _on_button_hover() -> void:
+	$Sfx.stream = load("res://Assets/Audio/menu_tick.wav")
+	$Sfx.play()

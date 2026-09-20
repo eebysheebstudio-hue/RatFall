@@ -4,6 +4,7 @@ var hillScene: PackedScene = load("res://Scenes/Hill.tscn")
 var players = [false,false,false,false]
 signal player_enter()
 signal player_exit()
+signal button_hover()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,3 +62,6 @@ func _on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(hillScene)
 	UiSwitcher.hide_all()
 	#when we have the actual game, pass the list of active players
+	
+func _button_hover_relay() -> void:
+	button_hover.emit()

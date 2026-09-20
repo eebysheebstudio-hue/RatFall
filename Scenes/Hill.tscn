@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://kukdho2slway" path="res://Assets/Visual/GameHud/Spotted_Rat_Dead_Icon.png" id="16_tq72c"]
 [ext_resource type="Texture2D" uid="uid://ccf5l2hbbknbj" path="res://Assets/Visual/GameHud/Player4Hud.png" id="17_qee4n"]
 [ext_resource type="PackedScene" uid="uid://dry7pc6bq84id" path="res://Scenes/Cheese.tscn" id="20_1oy28"]
+[ext_resource type="PackedScene" uid="uid://b7lgsp1d8rs7n" path="res://Scenes/Obstacles/Bee.tscn" id="21_v62hp"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
@@ -167,6 +168,12 @@ z_index = 1
 position = Vector2(0, -10084)
 
 [node name="Powerups" type="Node2D" parent="." unique_id=919580044]
+
+[node name="TemplateObstacle" parent="." unique_id=1036122245 instance=ExtResource("21_v62hp")]
+position = Vector2(83, -854)
+
+[node name="Bee" parent="." unique_id=1274855835 instance=ExtResource("21_v62hp")]
+position = Vector2(-9, -9863)
 
 [connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
 [connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]

@@ -98,15 +98,15 @@ func run_text_cut_scene():
 	
 func scatter_obstacles():
 	var obstacles: Array[ObstacleInterface] = []
-	for i in range(n_obstacles):
-		var obstacle: Node2D = obstacle_scenes.pick_random().instantiate()
-		var y = randf_range(-hill_top, -1000)
-		var x = randf_range(bounds.x, bounds.y)
-		obstacle.position = Vector2(x, randf_range(0, -y))
-		obstacles.append(obstacle)
-	obstacles.sort_custom(func (a, b): return a.position.y < b.position.y)
-	for obstacle in obstacles:
-		$Obstacles.add_child(obstacle)
+	#for i in range(n_obstacles):
+		#var obstacle: Node2D = obstacle_scenes.pick_random().instantiate()
+		#var y = randf_range(-hill_top, -1000)
+		#var x = randf_range(bounds.x, bounds.y)
+		#obstacle.position = Vector2(x, randf_range(0, -y))
+		#obstacles.append(obstacle)
+	#obstacles.sort_custom(func (a, b): return a.position.y < b.position.y)
+	#for obstacle in obstacles:
+		#$Obstacles.add_child(obstacle)
 
 func _on_kill_box_body_entered(body: Node2D) -> void:
 	if body is Player:

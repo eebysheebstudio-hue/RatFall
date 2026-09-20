@@ -112,11 +112,9 @@ func _on_kill_box_body_entered(body: Node2D) -> void:
 			3: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
 		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(body.player_index, false)
 		living_player_indexes.erase(body.player_index)
-		print("LIVING PLAYERS")
 		print(living_player_indexes.size())
 		if living_player_indexes.is_empty():
 			UiSwitcher.finish_game(false, body)
-		print("YOU DIED")
 		#TODO: have a death sound effect, particle effect too
 
 

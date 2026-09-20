@@ -12,6 +12,15 @@ func _ready() -> void:
 	icon_y_offset = 15 + $Player1Icon.size.y /2
 	icon_x_offset = $Player1Icon.size.x /2
 	icon_x_start = 0
+
+# Only activate positions for active players
+	var icons := [$Player1Icon, $Player2Icon, $Player3Icon, $Player4Icon]
+
+	for p in get_tree().get_nodes_in_group("players"):
+		if p is Player:
+			icons[p.player_index].position = Vector2(icon_x_start, size.y - icon_y_offset)
+			
+	
 	$Player1Icon.position = Vector2(icon_x_start, size.y - icon_y_offset)
 	$Player2Icon.position = Vector2(icon_x_start  + icon_x_offset, size.y - icon_y_offset)
 	$Player3Icon.position = Vector2(icon_x_start + 2 * icon_x_offset, size.y - icon_y_offset)

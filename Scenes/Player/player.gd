@@ -10,20 +10,20 @@ const SPEED = 300.0
 var player_name: String = "Nameless"
 var player_index: int = 0
 
-var horizontalSpeedMultiplier: float = 1.0
-var verticalSpeedMultiplier: float = 1.0
+var horizontal_speed_multiplier: float = 1.0
+var vertical_speed_multiplier: float = 1.0
 
 var leap_speed = 0
 var leap_threshold = 1
 var leap_delta = 5
 
 
-var verticalClimbingSpeed: float = 1.0
-var horizontalClimbingSpeed: float = 1.0
-var verticalSpeedWhileFalling: float = 0.0
-var horizontalSpeedWhileFalling: float = 0.1
+var vertical_climbing_speed: float = 1.0
+var horizontal_climbing_speed: float = 1.0
+var vertical_speed_while_falling: float = 0.0
+var horizontal_speed_while_falling: float = 0.1
 
-var speedBoostMultiplier: float = 2.5
+var speed_boost_multiplier: float = 2.5
 var falling_rotation_speed: float = 10
 
 
@@ -78,32 +78,32 @@ func _physics_process(delta: float) -> void:
 	# Speed boost
 	if speedBoostTimer > 0.0:
 		speedBoostTimer -= delta
-	var climb_speed_y := verticalClimbingSpeed
-	var climb_speed_x := horizontalClimbingSpeed
+	var climb_speed_y := vertical_climbing_speed
+	var climb_speed_x := horizontal_climbing_speed
 	if speedBoostTimer > 0.0:
-		climb_speed_y *= speedBoostMultiplier
-		climb_speed_x *= speedBoostMultiplier
+		climb_speed_y *= speed_boost_multiplier
+		climb_speed_x *= speed_boost_multiplier
 
 	# State multipliers
 	match current_state:
 		ClimbingState.CLIMBING:
-			verticalSpeedMultiplier = climb_speed_y
-			horizontalSpeedMultiplier = climb_speed_x
+			vertical_speed_multiplier = climb_speed_y
+			horizontal_speed_multiplier = climb_speed_x
 		ClimbingState.FALLING:
-			verticalSpeedMultiplier = verticalSpeedWhileFalling
-			horizontalSpeedMultiplier = horizontalSpeedWhileFalling
+			vertical_speed_multiplier = vertical_speed_while_falling
+			horizontal_speed_multiplier = horizontal_speed_while_falling
 			rotate(falling_rotation_speed * delta)
 		ClimbingState.STOPPED:
-			verticalSpeedMultiplier = 0.0
-			horizontalSpeedMultiplier = 0.0
+			vertical_speed_multiplier = 0.0
+			horizontal_speed_multiplier = 0.0
 			velocity.x = 0.0
 			velocity.y = 0.0
 		ClimbingState.CANNON:
-			verticalSpeedMultiplier = verticalSpeedWhileFalling
-			horizontalSpeedMultiplier = horizontalSpeedWhileFalling
+			vertical_speed_multiplier = vertical_speed_while_falling
+			horizontal_speed_multiplier = horizontal_speed_while_falling
 		ClimbingState.HOOKED:
-			verticalSpeedMultiplier = verticalSpeedWhileFalling
-			horizontalSpeedMultiplier = horizontalSpeedWhileFalling
+			vertical_speed_multiplier = vertical_speed_while_falling
+			horizontal_speed_multiplier = horizontal_speed_while_falling
 
 	# Gravity only while falling
 	if current_state == ClimbingState.FALLING:
@@ -128,7 +128,7 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis(left_action, right_action)
 	if direction:
-		velocity.x = direction * SPEED * horizontalSpeedMultiplier * leap_speed
+		velocity.x = direction * SPEED * horizontal_speed_multiplier * leap_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -136,7 +136,7 @@ func _physics_process(delta: float) -> void:
 	if current_state == ClimbingState.CLIMBING:
 		var vdir := Input.get_axis(up_action, down_action)
 		if vdir:
-			velocity.y = vdir * SPEED * verticalSpeedMultiplier * leap_speed
+			velocity.y = vdir * SPEED * vertical_speed_multiplier * leap_speed
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 			
@@ -189,6 +189,19 @@ func start_race() -> void:
 
 func end_race() -> void:
 	current_state = ClimbingState.STOPPED
+
+func slow_player (duration: float, percent_change: float) -> void:
+# Save original speeds
+	var original_vertical_climbing_speed: float = vertical_climbing_speed
+	var original_horizontal_climbing_speed: float = horizontal_climbing_speed
+# Change speeds by percent
+	vertical_climbing_speed *= percent_change
+	horizontal_climbing_speed *= percent_change
+# Wait, then restore speeds
+	await get_tree().create_timer(duration).timeout
+	vertical_climbing_speed = original_vertical_climbing_speed
+	horizontal_climbing_speed = original_horizontal_climbing_speed
+
 
 func apply_stopped_state(duration: float) -> void:
 	current_state = ClimbingState.STOPPED

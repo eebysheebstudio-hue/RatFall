@@ -21,16 +21,9 @@ func set_alive_status(alive_in: bool):
 		
 
 func set_player_name(name: String):
-	if player_name.is_empty():
-		$MarginContainer/HBoxContainer/Label.text = player_name
+	player_name = name
+	$MarginContainer/HBoxContainer/Label.text = player_name
 
-
-##TODO
-# Set up up to 4 players to join game (4 icons on bottom of screen)
-# In order, pressing start on new controllers will allow players to join
-# Spawn in a player for each player joined
-# 
-#
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

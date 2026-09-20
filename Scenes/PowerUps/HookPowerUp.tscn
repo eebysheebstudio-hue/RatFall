@@ -21,8 +21,11 @@ radial_velocity_max = 399.99997
 gravity = Vector3(0, 0, 0)
 color = Color(0.8235294, 0.007843138, 0.0627451, 1)
 
-[node name="HookPowerUp" type="Node2D" unique_id=1036122245]
+[node name="HookPowerUp" type="Node2D" unique_id=1036122245 node_paths=PackedStringArray("hook_pick_up_sfx", "area")]
 script = ExtResource("1_ixlbu")
+hook_pick_up_sfx = NodePath("HookPickUpSFX")
+area = NodePath("Area2D")
+pick_up_icon = ExtResource("3_ixlbu")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=296644473]
 scale = Vector2(0.25, 0.25)

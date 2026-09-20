@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cg3bm7wl03pay" path="res://Scenes/hill.gd" id="1_7po3v"]
 [ext_resource type="Texture2D" uid="uid://gklten7u05e1" path="res://Assets/Visual/Full.jpg" id="2_6mhlc"]
 [ext_resource type="PackedScene" uid="uid://cpv7c16wg1g6m" path="res://Scenes/UI/HillProgressBar.tscn" id="2_kgtut"]
+[ext_resource type="Texture2D" uid="uid://dgh8iah2lf4u8" path="res://Assets/Visual/Grass.jpg" id="2_q62r0"]
+[ext_resource type="PackedScene" uid="uid://cvtm30cnj61yw" path="res://Scenes/PowerUps/HookPowerUp.tscn" id="2_v62hp"]
 [ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
 [ext_resource type="SpriteFrames" uid="uid://begqj27dwl72q" path="res://Assets/Visual/CatChasers/CatChaser.tres" id="3_vsmbq"]
 [ext_resource type="PackedScene" uid="uid://lo3enc16f3xs" path="res://Scenes/UI/HillHud.tscn" id="6_q62r0"]
@@ -25,6 +27,11 @@
 [ext_resource type="PackedScene" uid="uid://cu5htx1ltlnuu" path="res://Scenes/Obstacles/Bunny.tscn" id="22_b62s8"]
 [ext_resource type="PackedScene" uid="uid://b3fiepyhm8sj5" path="res://Scenes/Obstacles/Cappy.tscn" id="23_1111v"]
 [ext_resource type="PackedScene" uid="uid://n2cn7wby24xy" path="res://Scenes/Obstacles/Frog.tscn" id="24_6mhlc"]
+[ext_resource type="PackedScene" uid="uid://bljn03dqf3shs" path="res://Scenes/Obstacles/Tree4.tscn" id="24_tq72c"]
+[ext_resource type="PackedScene" uid="uid://0vu5k2tiu26e" path="res://Scenes/Obstacles/TrapObstacle.tscn" id="25_cjtib"]
+[ext_resource type="PackedScene" uid="uid://e7bnyjcr413k" path="res://Scenes/Obstacles/Tree2.tscn" id="26_q6vll"]
+[ext_resource type="PackedScene" uid="uid://b0kayinne7apr" path="res://Scenes/Obstacles/Tree3.tscn" id="27_3tuvm"]
+[ext_resource type="PackedScene" uid="uid://dwjfmphcpx70w" path="res://Scenes/Obstacles/Tree6.tscn" id="28_q6vll"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
@@ -33,6 +40,9 @@ distance = -205.0
 
 [node name="Hill" type="Node2D" unique_id=675779279]
 script = ExtResource("1_7po3v")
+
+[node name="HookPowerUp" parent="." unique_id=1036122245 instance=ExtResource("2_v62hp")]
+position = Vector2(0, -151.8)
 
 [node name="Powerup Spawner" type="Timer" parent="." unique_id=571246852]
 autostart = true
@@ -69,17 +79,17 @@ shape = SubResource("WorldBoundaryShape2D_g4v7s")
 [node name="StaticBody2D" type="StaticBody2D" parent="MovementNode" unique_id=709591160]
 
 [node name="LeftBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=2079975868]
-position = Vector2(-400, 0)
+position = Vector2(-400, 2)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
 [node name="RightBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=1564697198]
-position = Vector2(400, 0)
+position = Vector2(350, 0)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
 [node name="TopBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=2107406977]
-position = Vector2(0, -100)
+position = Vector2(0, -50)
 rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
@@ -144,6 +154,8 @@ bg_texture = ExtResource("17_qee4n")
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 3
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, 0)
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
@@ -152,6 +164,8 @@ theme_override_constants/margin_bottom = 50
 [node name="HillProgressBar" parent="CanvasLayer/BoxContainer/MarginContainer" unique_id=730191033 instance=ExtResource("2_kgtut")]
 layout_mode = 2
 size_flags_horizontal = 8
+offset_transform_enabled = true
+offset_transform_position = Vector2(15, 0)
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=1781535886]
 anchors_preset = 15
@@ -180,10 +194,77 @@ texture = ExtResource("20_6mhlc")
 z_index = 1
 rotation = 0.025223725
 
+[node name="Bee" parent="Obstacles" unique_id=1036122245 instance=ExtResource("21_v62hp")]
+position = Vector2(123.8278, -801.378)
+rotation = -0.025223725
+
+[node name="Bunny" parent="Obstacles" unique_id=1111000795 instance=ExtResource("22_b62s8")]
+position = Vector2(-383.8725, -2805.2107)
+rotation = -0.025223725
+scale = Vector2(0.71512675, 0.66051394)
+
+[node name="Bunny2" parent="Obstacles" unique_id=612467776 instance=ExtResource("22_b62s8")]
+position = Vector2(-512.19183, -2736.9526)
+rotation = -0.18572676
+scale = Vector2(1.2323581, 1.2777853)
+
+[node name="Bunny3" parent="Obstacles" unique_id=165538779 instance=ExtResource("22_b62s8")]
+position = Vector2(-296.9323, -2729.3794)
+rotation = 0.40500933
+scale = Vector2(0.6109965, 0.70864874)
+
+[node name="Cappy" parent="Obstacles" unique_id=363736203 instance=ExtResource("23_1111v")]
+position = Vector2(361.14685, -1267.5117)
+rotation = 3.116369
+scale = Vector2(1, -1)
+
+[node name="Frog" parent="Obstacles" unique_id=2117873499 instance=ExtResource("24_6mhlc")]
+position = Vector2(410.55807, -2243.0684)
+rotation = -0.025223725
+
+[node name="Tree4" parent="Obstacles" unique_id=917598745 instance=ExtResource("24_tq72c")]
+position = Vector2(177.67535, -847.75085)
+
+[node name="TrapObstacle" parent="Obstacles" unique_id=2007855936 instance=ExtResource("25_cjtib")]
+position = Vector2(467.89972, -1437.258)
+
+[node name="Tree2" parent="Obstacles" unique_id=766890431 instance=ExtResource("26_q6vll")]
+position = Vector2(-401.89233, -1497.3401)
+rotation = -0.10024025
+scale = Vector2(1.1927913, 1.1881354)
+
+[node name="Tree3" parent="Obstacles" unique_id=765020365 instance=ExtResource("27_3tuvm")]
+position = Vector2(353.26678, -3046.8787)
+rotation = -1.9746598
+scale = Vector2(1.0452049, 1.111823)
+
+[node name="Frog2" parent="Obstacles" unique_id=2056546263 instance=ExtResource("24_6mhlc")]
+position = Vector2(-95.96204, -1821.1588)
+rotation = -0.39941067
+scale = Vector2(1.4426833, 1.2419101)
+
+[node name="Tree6" parent="Obstacles" unique_id=218356069 instance=ExtResource("28_q6vll")]
+position = Vector2(19.54493, -2397.2551)
+rotation = -0.14894094
+scale = Vector2(1.1092838, 1.4375628)
+
+[node name="Tree7" parent="Obstacles" unique_id=1637649032 instance=ExtResource("28_q6vll")]
+position = Vector2(-213.64896, -3234.6406)
+rotation = -0.2236057
+scale = Vector2(1.5038861, 1.6187412)
+
+[node name="TrapObstacle2" parent="Obstacles" unique_id=1830406113 instance=ExtResource("25_cjtib")]
+position = Vector2(170.84335, -3180.3203)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle3" parent="Obstacles" unique_id=759331989 instance=ExtResource("25_cjtib")]
+position = Vector2(-580.3604, -3020.3237)
+scale = Vector2(0.64038193, 0.69411135)
+
 [node name="Cheese" parent="." unique_id=1937917780 instance=ExtResource("20_1oy28")]
 position = Vector2(0, -10084)
 
-[node name="Powerups" type="Node2D" parent="." unique_id=919580044]
+[node name="Powerups" type="Node2D" parent="." unique_id=1908181600]
 
 [node name="Bee" parent="." unique_id=1036122245 instance=ExtResource("21_v62hp")]
 position = Vector2(-494, -426)

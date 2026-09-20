@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cg3bm7wl03pay" path="res://Scenes/hill.gd" id="1_7po3v"]
 [ext_resource type="PackedScene" uid="uid://cpv7c16wg1g6m" path="res://Scenes/UI/HillProgressBar.tscn" id="2_kgtut"]
 [ext_resource type="Texture2D" uid="uid://dgh8iah2lf4u8" path="res://Assets/Visual/Grass.jpg" id="2_q62r0"]
+[ext_resource type="PackedScene" uid="uid://cvtm30cnj61yw" path="res://Scenes/PowerUps/HookPowerUp.tscn" id="2_v62hp"]
 [ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
 [ext_resource type="SpriteFrames" uid="uid://begqj27dwl72q" path="res://Assets/Visual/CatChasers/CatChaser.tres" id="3_vsmbq"]
 [ext_resource type="PackedScene" uid="uid://lo3enc16f3xs" path="res://Scenes/UI/HillHud.tscn" id="6_q62r0"]
@@ -28,6 +29,9 @@ distance = -205.0
 
 [node name="Hill" type="Node2D" unique_id=675779279]
 script = ExtResource("1_7po3v")
+
+[node name="HookPowerUp" parent="." unique_id=1036122245 instance=ExtResource("2_v62hp")]
+position = Vector2(0, -151.8)
 
 [node name="Powerup Spawner" type="Timer" parent="." unique_id=571246852]
 autostart = true
@@ -166,7 +170,7 @@ z_index = 1
 [node name="Cheese" parent="." unique_id=1937917780 instance=ExtResource("20_1oy28")]
 position = Vector2(0, -10084)
 
-[connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
-[connection signal="body_entered" from="MovementNode/KillBox" to="." method="_on_kill_box_body_entered"]
-[connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]
+[node name="Powerups" type="Node2D" parent="." unique_id=1908181600]
 
+[connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
+[connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]

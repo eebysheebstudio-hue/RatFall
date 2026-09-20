@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b6pkuwonhsr2c" path="res://Scenes/Player/player.gd" id="1_s0eop"]
 [ext_resource type="Texture2D" uid="uid://cfrt8yjuccuj6" path="res://Assets/Visual/rat1.jpg" id="2_h54ih"]
-[ext_resource type="PackedScene" uid="uid://cvtm30cnj61yw" path="res://Scenes/PowerUps/HookPowerUp.tscn" id="2_ude3g"]
+[ext_resource type="PackedScene" uid="uid://brq4mu1fctwfi" path="res://Scenes/PowerUps/Hook.tscn" id="2_ude3g"]
 [ext_resource type="Texture2D" uid="uid://b05diitm0fdrw" path="res://Assets/Visual/rat2.jpg" id="3_ude3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]

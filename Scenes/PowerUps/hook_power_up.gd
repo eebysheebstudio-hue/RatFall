@@ -7,7 +7,7 @@ func power_up_effect(player: Player) -> void:
 		return
 
 	player.has_hook = true
-	player.get_powerup(pup_type)
+	player.get_powerup(pick_up_type, pick_up_icon)
 
 	if hook_pick_up_sfx:
 		hook_pick_up_sfx.play()

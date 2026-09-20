@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dm2lrlwd8x34y" path="res://Scenes/PowerUps/hook_rope.gd" id="1_xe3k7"]
 [ext_resource type="Texture2D" uid="uid://qo2ajpfw7od5" path="res://Assets/Visual/PowerUps/RopeSeperate.png" id="2_xe3k7"]
 
-[node name="HookRope" type="Node2D" unique_id=1036122245]
+[node name="HookRope" type="Line2D" unique_id=704764997]
 script = ExtResource("1_xe3k7")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=296644473]
@@ -13,5 +13,3 @@ scale = Vector2(0.25, 0.25)
 z_index = 1
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_xe3k7")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

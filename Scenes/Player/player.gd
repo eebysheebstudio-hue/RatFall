@@ -31,8 +31,11 @@ enum ClimbingState { CLIMBING, FALLING, STOPPED, CANNON, HOOKED }
 var current_state: ClimbingState = ClimbingState.CLIMBING
 var speedBoostTimer: float = 0.0 
 
+# Power ups
 var power_up = ""
 var has_hook: bool = false
+var current_power_up_icon: Texture2D = null # send the power up's texture to display in PlayerHUD.
+signal power_up_icon_changed(icon: Texture2D)
 
 func _ready() -> void:
 	$Sound.set_volume_linear(GlobalSettings.sfx_vol*GlobalSettings.master_vol)
@@ -145,6 +148,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	
+	var p := player_index + 1  # Player numbers 1, 2, 3, 4
 	if event.is_action_pressed("p1_test_stop") and not event.is_echo():
 		apply_stopped_state(2.0)
 	if event.is_action_pressed("p1_test_fall") and not event.is_echo():
@@ -155,10 +160,10 @@ func _input(event: InputEvent) -> void:
 		apply_cannon_state(1.5)
 	if event.is_action_pressed("p1_test_hook") and not event.is_echo():
 		spawn_hook()
-	if event.is_action_pressed("p1_action") and not event.is_echo():
+	if event.is_action_pressed("p%d_action" % p) and not event.is_echo():
 		if has_hook:
 			has_hook = false
-			use_hook()	
+			use_hook()
 		
 func spawn_hook() -> void:
 	var hook = hook_scene.instantiate()
@@ -170,6 +175,9 @@ func use_hook() -> void:
 	hook.global_position = global_position
 	get_tree().current_scene.add_child(hook)
 	hook.activate_hook(self)
+	current_power_up_icon = null
+	power_up_icon_changed.emit(null)
+	
 
 func start_game() -> void:
 	current_state = ClimbingState.STOPPED
@@ -205,9 +213,11 @@ func apply_speed_boost(duration: float) -> void:
 # Hook moves player towards the other player that triggered the hook.
 func apply_hook_state() -> void:
 	current_state = ClimbingState.HOOKED
-
-func get_powerup(type: String) -> void:
-	self.power_up = type
+	
+func get_powerup(type: String, icon: Texture2D) -> void:
+	power_up = type
+	current_power_up_icon = icon
 	$Sound.stream = load("res://Assets/Audio/temp_squeak_sneaky.ogg")
 	$Sound.play()
 	$CPUParticles2D.set_emitting(true)
+	power_up_icon_changed.emit(icon)

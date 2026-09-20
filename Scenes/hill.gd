@@ -25,6 +25,9 @@ var obstacle_scenes: Array[PackedScene] = [
 	load("res://Scenes/Obstacles/Tree4.tscn"),
 	load("res://Scenes/Obstacles/Tree5.tscn"),
 ]
+var get_texture = load("res://Assets/Visual/GameHud/GET.png")
+var that_texture = load("res://Assets/Visual/GameHud/THAT.png")
+var cheese_texture = load("res://Assets/Visual/GameHud/CHEESE.png")
 var living_player_indexes: Array[int] = []
 
 var pup_scene: PackedScene = load("res://Scenes/PowerUps/TemplatePowerUp.tscn")
@@ -85,13 +88,14 @@ func _process(delta: float) -> void:
 		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.update_progress(percent_progress)
 
 func run_text_cut_scene():
-	$CanvasLayer/Label.text = "GET"
+	$CanvasLayer/GetThatCheese.texture = get_texture
+	$CanvasLayer/GetThatCheese.show()
 	await get_tree().create_timer(1.0).timeout
-	$CanvasLayer/Label.text = "THAT"
+	$CanvasLayer/GetThatCheese.texture = that_texture
 	await get_tree().create_timer(1.0).timeout
-	$CanvasLayer/Label.text = "CHEESE"
+	$CanvasLayer/GetThatCheese.texture = cheese_texture
 	await get_tree().create_timer(1.0).timeout
-	$CanvasLayer/Label.text = ""
+	$CanvasLayer/GetThatCheese.hide()
 	started = true
 	await get_tree().create_timer(10.0).timeout
 	bring_in_cats = true

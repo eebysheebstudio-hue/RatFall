@@ -175,6 +175,7 @@ texture = ExtResource("20_6mhlc")
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=951822854]
 z_index = 1
+position = Vector2(1, 0)
 rotation = 0.025223725
 
 [node name="Bee" parent="Obstacles" unique_id=2070615394 instance=ExtResource("21_v62hp")]

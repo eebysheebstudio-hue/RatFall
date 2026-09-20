@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://cd225yo6aqkla"]
 
 [ext_resource type="Script" uid="uid://tdrc3885vu2v" path="res://Scenes/UI/game_over_menu.gd" id="1_10vwm"]
-[ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="1_cafdt"]
+[ext_resource type="Texture2D" uid="uid://03y38b35j3oc" path="res://Assets/Visual/GameHud/Game over.png" id="2_s8ffq"]
+[ext_resource type="Texture2D" uid="uid://c7wkl8am4qoqi" path="res://Assets/Visual/GameHud/winner.png" id="3_o36f0"]
 [ext_resource type="Texture2D" uid="uid://d2hkiffpkrtc5" path="res://Assets/Visual/Extra/Cheese1.png" id="3_tn3ku"]
 [ext_resource type="Texture2D" uid="uid://cq0seifqk7u2g" path="res://Assets/Visual/GameHud/Spotted_Rat_Icon.png" id="4_tn3ku"]
 [ext_resource type="Texture2D" uid="uid://b5vjdwdlcvfy1" path="res://Assets/Visual/GameHud/Grey_Rat_Dead_Icon.png" id="5_s8ffq"]
 [ext_resource type="Texture2D" uid="uid://fgx27pwwl0w3" path="res://Assets/Visual/GameHud/Black_Rat_Dead_Icon.png" id="6_pn7lq"]
 [ext_resource type="Texture2D" uid="uid://c7c401scbcmef" path="res://Assets/Visual/GameHud/White_Rat_Dead_Icon.png" id="7_o36f0"]
 [ext_resource type="Texture2D" uid="uid://kukdho2slway" path="res://Assets/Visual/GameHud/Spotted_Rat_Dead_Icon.png" id="8_mtrh1"]
+[ext_resource type="Texture2D" uid="uid://dfqv7sii17nhc" path="res://Assets/Visual/GameHud/all lose.png" id="9_pn7lq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl3t2"]
 bg_color = Color(0.41568628, 0.83137256, 0.77254903, 1)
@@ -19,6 +21,7 @@ bg_color = Color(0.2742202, 0.6734506, 0.66430223, 1)
 bg_color = Color(0.6189007, 0.91558546, 0.88163066, 1)
 
 [node name="GameOverMenu" type="Control" unique_id=1800715222]
+custom_minimum_size = Vector2(600, 600)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,18 +30,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_10vwm")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=268562051]
-visible = false
+[node name="ColorRect" type="ColorRect" parent="." unique_id=614981341]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_cafdt")
+color = Color(0.8039216, 0.9254902, 0.8392157, 0.47058824)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=268562051]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stretch_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1547586104]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -52,34 +63,39 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameOver" type="Label" parent="VBoxContainer" unique_id=1285606212]
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer" unique_id=2113309916]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
-theme_override_font_sizes/font_size = 64
-text = "GAME OVER!!"
-horizontal_alignment = 1
+texture = ExtResource("2_s8ffq")
+expand_mode = 2
+stretch_mode = 5
 
-[node name="WinnerInfo" type="HBoxContainer" parent="VBoxContainer" unique_id=308896856]
+[node name="WinnerInfo" type="VBoxContainer" parent="VBoxContainer" unique_id=131598940]
 layout_mode = 2
 
-[node name="Cheese" type="TextureRect" parent="VBoxContainer/WinnerInfo" unique_id=2066193126]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/WinnerInfo" unique_id=1993408407]
+layout_mode = 2
+texture = ExtResource("3_o36f0")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/WinnerInfo" unique_id=308896856]
+layout_mode = 2
+
+[node name="Cheese" type="TextureRect" parent="VBoxContainer/WinnerInfo/HBox" unique_id=2066193126]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 2
 texture = ExtResource("3_tn3ku")
 expand_mode = 1
 
-[node name="WinnerText" type="Label" parent="VBoxContainer/WinnerInfo" unique_id=892831284]
+[node name="WinnerName" type="Label" parent="VBoxContainer/WinnerInfo/HBox" unique_id=1614340324]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
-text = "Winner:"
-
-[node name="WinnerName" type="Label" parent="VBoxContainer/WinnerInfo" unique_id=1614340324]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_font_sizes/font_size = 24
 text = "Name of Winner"
 
-[node name="WinnerIcon" type="TextureRect" parent="VBoxContainer/WinnerInfo" unique_id=1704802218]
+[node name="WinnerIcon" type="TextureRect" parent="VBoxContainer/WinnerInfo/HBox" unique_id=1704802218]
 layout_mode = 2
 size_flags_horizontal = 10
 texture = ExtResource("4_tn3ku")
@@ -111,11 +127,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("8_mtrh1")
 
-[node name="Label" type="Label" parent="VBoxContainer/LoserInfo" unique_id=805065445]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/LoserInfo" unique_id=1985797149]
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
-text = "You all LOSE! Some more then others."
+texture = ExtResource("9_pn7lq")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="VBoxContainer" unique_id=45374153]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer" unique_id=1060286761]
 process_mode = 3

@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://brq4mu1fctwfi" path="res://Scenes/PowerUps/Hook.tscn" id="2_ude3g"]
 [ext_resource type="Texture2D" uid="uid://b05diitm0fdrw" path="res://Assets/Visual/rat2.jpg" id="3_ude3g"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(64, 60)
+[sub_resource type="CircleShape2D" id="CircleShape2D_1111v"]
+radius = 23.194826
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2cfhw"]
 animations = [{
@@ -36,21 +36,16 @@ script = ExtResource("1_s0eop")
 hook_scene = ExtResource("2_ude3g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685134941]
-shape = SubResource("RectangleShape2D_g4v7s")
+shape = SubResource("CircleShape2D_1111v")
 
-[node name="StationarySprite" type="Sprite2D" parent="." unique_id=2014126337]
-visible = false
+[node name="Sprites" type="Node2D" parent="." unique_id=1487097879]
+
+[node name="StationarySprite" type="Sprite2D" parent="Sprites" unique_id=2014126337]
 position = Vector2(-7.6293945e-06, -1.1920929e-07)
 scale = Vector2(0.017, 0.017)
 texture = ExtResource("3_ude3g")
 
-[node name="StationarySprite2" type="Sprite2D" parent="." unique_id=1810707768]
-visible = false
-position = Vector2(-7.6293945e-06, -1.1920929e-07)
-scale = Vector2(0.017, 0.017)
-texture = ExtResource("3_ude3g")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1968134422]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites" unique_id=1968134422]
 z_index = -1
 scale = Vector2(0.017285716, 0.017285716)
 sprite_frames = SubResource("SpriteFrames_2cfhw")

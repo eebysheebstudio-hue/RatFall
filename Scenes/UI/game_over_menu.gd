@@ -10,21 +10,27 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _input(event: InputEvent) -> void:
+		if event.is_action_pressed("p1_action"):
+			_on_main_menu_button_pressed()
+	
 
 func finish_game(victory: bool, winner: Player):
 	$VBoxContainer/LoserInfo.hide()
 	$VBoxContainer/WinnerInfo.hide()
 	$VBoxContainer/MainMenuButton.grab_focus()
 	if victory:
-		#$VBoxContainer/WinnerInfo/WinnerName.text = winner.player_name #TODO: Restore name stuff
+		$VBoxContainer/WinnerInfo/HBox/WinnerName.text = winner.player_name
 		match winner.player_index:
-			0: $VBoxContainer/WinnerInfo/WinnerIcon.texture = load("res://Assets/Visual/GameHud/Grey_Rat_Icon.png")
-			1: $VBoxContainer/WinnerInfo/WinnerIcon.texture = load("res://Assets/Visual/GameHud/Black_Rat_Icon.png")
-			2: $VBoxContainer/WinnerInfo/WinnerIcon.texture = load("res://Assets/Visual/GameHud/White_Rat_Icon.png")
-			3: $VBoxContainer/WinnerInfo/WinnerIcon.texture = load("res://Assets/Visual/GameHud/Spotted_Rat_Icon.png")
+			0: $VBoxContainer/WinnerInfo/HBox/WinnerIcon.texture = load("res://Assets/Visual/GameHud/Grey_Rat_Icon.png")
+			1: $VBoxContainer/WinnerInfo/HBox/WinnerIcon.texture = load("res://Assets/Visual/GameHud/Black_Rat_Icon.png")
+			2: $VBoxContainer/WinnerInfo/HBox/WinnerIcon.texture = load("res://Assets/Visual/GameHud/White_Rat_Icon.png")
+			3: $VBoxContainer/WinnerInfo/HBox/WinnerIcon.texture = load("res://Assets/Visual/GameHud/Spotted_Rat_Icon.png")
 		$VBoxContainer/WinnerInfo.show()
 	else:
 		$VBoxContainer/LoserInfo.show()
+
 
 func _on_main_menu_button_pressed() -> void:
 	print("Pressed")

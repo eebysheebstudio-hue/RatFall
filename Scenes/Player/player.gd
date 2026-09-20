@@ -7,6 +7,7 @@ class_name Player
 
 const SPEED = 300.0
 
+var player_name: String = "Nameless"
 var player_index: int = 0
 
 var horizontalSpeedMultiplier: float = 1.0
@@ -40,43 +41,39 @@ signal power_up_icon_changed(icon: Texture2D)
 func _ready() -> void:
 	$Sound.set_volume_linear(GlobalSettings.sfx_vol*GlobalSettings.master_vol)
 	add_to_group("players")
-	$AnimatedSprite2D.play()
+	$Sprites/AnimatedSprite2D.play()
 
 func update_player_index(new_index: int):
 	player_index = new_index
 	match player_index:
 		0:
-			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/GreyRat.tres")
-			$StationarySprite.texture = load("res://Assets/Visual/Grey_Rat1.png")
+			$Sprites/AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/GreyRat.tres")
+			$Sprites/StationarySprite.texture = load("res://Assets/Visual/Grey_Rat1.png")
 		1:
-			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/BlackRat.tres")
-			$StationarySprite.texture = load("res://Assets/Visual/Black_Rat1.png")
+			$Sprites/AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/BlackRat.tres")
+			$Sprites/StationarySprite.texture = load("res://Assets/Visual/Black_Rat1.png")
 		2:
-			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/WhiteRat.tres")
-			$StationarySprite.texture = load("res://Assets/Visual/White_Rat1.png")
+			$Sprites/AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/WhiteRat.tres")
+			$Sprites/StationarySprite.texture = load("res://Assets/Visual/White_Rat1.png")
 		3:
-			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/SpottedRat.tres")
-			$StationarySprite.texture = load("res://Assets/Visual/Spotted_Rat1.png")
+			$Sprites/AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/SpottedRat.tres")
+			$Sprites/StationarySprite.texture = load("res://Assets/Visual/Spotted_Rat1.png")
 
 
 func _physics_process(delta: float) -> void:
-	# TODO Fix animations to alternate between moving and landing rat
-	#print("Frame is: ", $AnimatedSprite2D.frame)
 	if leap_speed > leap_threshold:
 		leap_speed = 0
-		#$AnimatedSprite2D.set_frame_and_progress(1, 0)
 	else:
 		leap_speed = leap_speed + leap_delta * delta
 		if velocity.x != 0.0 || velocity.y != 0.0:
 			pass
-	#print("state=", current_state, "  vel=", velocity, "  pos=", position)
 	
 	if velocity.x == 0.0 && velocity.y == 0.0:
-		$StationarySprite.visible = true
-		$AnimatedSprite2D.visible = false
+		$Sprites/StationarySprite.visible = true
+		$Sprites/AnimatedSprite2D.visible = false
 	else:
-		$AnimatedSprite2D.visible = true
-		$StationarySprite.visible = false
+		$Sprites/AnimatedSprite2D.visible = true
+		$Sprites/StationarySprite.visible = false
 	# Speed boost
 	if speedBoostTimer > 0.0:
 		speedBoostTimer -= delta
@@ -141,6 +138,10 @@ func _physics_process(delta: float) -> void:
 			velocity.y = vdir * SPEED * verticalSpeedMultiplier * leap_speed
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
+			
+	# Set player rotation
+	if velocity.length() != 0:
+		$Sprites.rotation = velocity.angle() + PI/2
 
 	move_and_slide()
 

@@ -21,14 +21,14 @@ func set_alive_status(alive_in: bool):
 		player_image.texture = dead_icon
 		
 
-func set_player_name(names: Array[String]):
-	if player_name.is_empty():
-		var random_index = randi() % names.size()
-		player_name = names[random_index]
-		$MarginContainer/HBoxContainer/Label.text = player_name
-		names.remove_at(random_index)
-		print(names)
+func set_player_name(name: String):
+	player_name = name
+	$MarginContainer/HBoxContainer/Label.text = player_name
 
 func set_power_up_icon(icon: Texture2D) -> void:
 	player_image.texture = alive_icon if icon == null else icon
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+	#pass
 	

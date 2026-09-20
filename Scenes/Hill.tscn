@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://nxuyehf6kqj"]
 
 [ext_resource type="Script" uid="uid://cg3bm7wl03pay" path="res://Scenes/hill.gd" id="1_7po3v"]
+[ext_resource type="Texture2D" uid="uid://gklten7u05e1" path="res://Assets/Visual/Full.jpg" id="2_6mhlc"]
 [ext_resource type="PackedScene" uid="uid://cpv7c16wg1g6m" path="res://Scenes/UI/HillProgressBar.tscn" id="2_kgtut"]
 [ext_resource type="Texture2D" uid="uid://dgh8iah2lf4u8" path="res://Assets/Visual/Grass.jpg" id="2_q62r0"]
 [ext_resource type="PackedScene" uid="uid://cvtm30cnj61yw" path="res://Scenes/PowerUps/HookPowerUp.tscn" id="2_v62hp"]
@@ -21,6 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://kukdho2slway" path="res://Assets/Visual/GameHud/Spotted_Rat_Dead_Icon.png" id="16_tq72c"]
 [ext_resource type="Texture2D" uid="uid://ccf5l2hbbknbj" path="res://Assets/Visual/GameHud/Player4Hud.png" id="17_qee4n"]
 [ext_resource type="PackedScene" uid="uid://dry7pc6bq84id" path="res://Scenes/Cheese.tscn" id="20_1oy28"]
+[ext_resource type="Texture2D" uid="uid://dcvnhqueofrx4" path="res://Assets/Visual/GameHud/GET.png" id="20_6mhlc"]
+[ext_resource type="PackedScene" uid="uid://b7lgsp1d8rs7n" path="res://Scenes/Obstacles/Bee.tscn" id="21_v62hp"]
+[ext_resource type="PackedScene" uid="uid://cu5htx1ltlnuu" path="res://Scenes/Obstacles/Bunny.tscn" id="22_b62s8"]
+[ext_resource type="PackedScene" uid="uid://b3fiepyhm8sj5" path="res://Scenes/Obstacles/Cappy.tscn" id="23_1111v"]
+[ext_resource type="PackedScene" uid="uid://n2cn7wby24xy" path="res://Scenes/Obstacles/Frog.tscn" id="24_6mhlc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
@@ -41,7 +47,7 @@ offset_left = -676.0
 offset_top = -10375.0
 offset_right = 683.0
 offset_bottom = 375.0
-texture = ExtResource("2_q62r0")
+texture = ExtResource("2_6mhlc")
 expand_mode = 1
 stretch_mode = 1
 
@@ -162,15 +168,38 @@ theme_override_font_sizes/font_size = 128
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GetThatCheese" type="TextureRect" parent="CanvasLayer" unique_id=613212118]
+visible = false
+custom_minimum_size = Vector2(720, 720)
+custom_maximum_size = Vector2(720, 720)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_6mhlc")
+
 [node name="Players" type="Node2D" parent="." unique_id=465932949]
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=951822854]
 z_index = 1
+rotation = 0.025223725
 
 [node name="Cheese" parent="." unique_id=1937917780 instance=ExtResource("20_1oy28")]
 position = Vector2(0, -10084)
 
 [node name="Powerups" type="Node2D" parent="." unique_id=1908181600]
 
+[node name="Bee" parent="." unique_id=1036122245 instance=ExtResource("21_v62hp")]
+position = Vector2(-494, -426)
+
+[node name="Bunny" parent="." unique_id=1111000795 instance=ExtResource("22_b62s8")]
+position = Vector2(-330, -621)
+
+[node name="Cappy" parent="." unique_id=363736203 instance=ExtResource("23_1111v")]
+position = Vector2(-134, -784)
+
+[node name="Frog" parent="." unique_id=2117873499 instance=ExtResource("24_6mhlc")]
+position = Vector2(105, -880)
 [connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
 [connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]

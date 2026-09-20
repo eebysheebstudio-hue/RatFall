@@ -1,7 +1,16 @@
 [gd_scene format=3 uid="uid://c3pqjda7lj1r"]
 
-[ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="1_gne0f"]
 [ext_resource type="Script" uid="uid://bdivmc11trj56" path="res://Scenes/UI/settings_menu.gd" id="1_q4b8a"]
+[ext_resource type="Texture2D" uid="uid://d2hkiffpkrtc5" path="res://Assets/Visual/Extra/Cheese1.png" id="2_q4b8a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl3t2"]
+bg_color = Color(0.41568628, 0.83137256, 0.77254903, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynupv"]
+bg_color = Color(0.2742202, 0.6734506, 0.66430223, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvisc"]
+bg_color = Color(0.6189007, 0.91558546, 0.88163066, 1)
 
 [node name="SettingsMenu" type="Control" unique_id=304821896]
 layout_mode = 3
@@ -14,37 +23,46 @@ script = ExtResource("1_q4b8a")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=454156550]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -415.5
+offset_top = -428.0
+offset_right = 415.5
+offset_bottom = 428.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_gne0f")
-stretch_mode = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=557762336]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1121542819]
-layout_mode = 2
-text = "SETTINGS"
-horizontal_alignment = 1
+texture = ExtResource("2_q4b8a")
+stretch_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=918123637]
-layout_mode = 0
-offset_left = 136.0
-offset_top = 72.0
-offset_right = 1015.0
-offset_bottom = 568.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -439.5
+offset_top = -248.0
+offset_right = 439.5
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
+
+[node name="Title" type="Label" parent="VBoxContainer2" unique_id=1121542819]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Settings
+"
+horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer2" unique_id=2091329948]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
 text = "Master Volume"
 horizontal_alignment = 1
 
@@ -54,6 +72,7 @@ value = 100.0
 
 [node name="Label2" type="Label" parent="VBoxContainer2" unique_id=1212780016]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
 text = "
 Sound Effects Volume"
 horizontal_alignment = 1
@@ -64,6 +83,7 @@ value = 50.0
 
 [node name="Label3" type="Label" parent="VBoxContainer2" unique_id=1637794164]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
 text = "
 Music Volume"
 horizontal_alignment = 1
@@ -73,12 +93,65 @@ layout_mode = 2
 value = 50.0
 
 [node name="Button" type="Button" parent="." unique_id=1438274239]
-layout_mode = 0
-offset_left = 496.0
-offset_top = 504.0
-offset_right = 656.0
-offset_bottom = 552.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -48.0
+offset_right = 80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_focus_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kl3t2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ynupv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dvisc")
 text = "DONE"
+
+[node name="HowToPlay" type="VBoxContainer" parent="." unique_id=893853455]
+layout_mode = 0
+offset_left = 865.0
+offset_top = 562.0
+offset_right = 1276.0
+offset_bottom = 729.0
+
+[node name="Controls" type="Label" parent="HowToPlay" unique_id=1117200167]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HowToPlay" unique_id=585168621]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+text = "
+Movement: Joystick + Dpad"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="HowToPlay" unique_id=1217054486]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+text = "
+                      A button (xbox),
+                                 X button (playstation)"
+horizontal_alignment = 1
+
+[node name="Inputs" type="VBoxContainer" parent="." unique_id=1857364035]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 679.0
+offset_right = 1051.0
+offset_bottom = 719.0
+
+[node name="Power ups" type="Label" parent="Inputs" unique_id=595880234]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+text = "Power ups:"
 
 [connection signal="drag_ended" from="VBoxContainer2/master" to="." method="_on_master_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer2/master" to="." method="_on_master_value_changed"]

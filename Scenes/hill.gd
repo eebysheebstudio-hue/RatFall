@@ -25,6 +25,9 @@ var obstacle_scenes: Array[PackedScene] = [
 	load("res://Scenes/Obstacles/Tree4.tscn"),
 	load("res://Scenes/Obstacles/Tree5.tscn"),
 ]
+var get_texture = load("res://Assets/Visual/GameHud/GET.png")
+var that_texture = load("res://Assets/Visual/GameHud/THAT.png")
+var cheese_texture = load("res://Assets/Visual/GameHud/CHEESE.png")
 var living_player_indexes: Array[int] = []
 
 var pup_scene: PackedScene = load("res://Scenes/PowerUps/TemplatePowerUp.tscn")
@@ -39,20 +42,25 @@ func _ready() -> void:
 			player.update_player_index(player_index)
 			player.position.x = player_index * player_spawn_spacing
 			player.position = player.position + player_spawn_offset
-			#print("adding player")
 			$Players.add_child(player)
+			
+			var random_index = randi() % names.size()
+			var player_name = names[random_index]
+			names.remove_at(random_index)
+			player.player_name = player_name
 			match player_index:
 				0:  
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_player_name(names)
+					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(true)
 				1: 	
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_player_name(names)
+					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_alive_status(true)
 				2: 	
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_player_name(names)
+					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_alive_status(true)
 				3: 	
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(names)
+					print("Adding P4A")
+					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_alive_status(true)
 					
 					# Assign each playerHUD a player number by using the player index.
@@ -91,28 +99,29 @@ func _process(delta: float) -> void:
 		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.update_progress(percent_progress)
 
 func run_text_cut_scene():
-	$CanvasLayer/Label.text = "GET"
+	$CanvasLayer/GetThatCheese.texture = get_texture
+	$CanvasLayer/GetThatCheese.show()
 	await get_tree().create_timer(1.0).timeout
-	$CanvasLayer/Label.text = "THAT"
+	$CanvasLayer/GetThatCheese.texture = that_texture
 	await get_tree().create_timer(1.0).timeout
-	$CanvasLayer/Label.text = "CHEESE"
+	$CanvasLayer/GetThatCheese.texture = cheese_texture
 	await get_tree().create_timer(1.0).timeout
-	$CanvasLayer/Label.text = ""
+	$CanvasLayer/GetThatCheese.hide()
 	started = true
 	await get_tree().create_timer(10.0).timeout
 	bring_in_cats = true
 	
 func scatter_obstacles():
 	var obstacles: Array[ObstacleInterface] = []
-	for i in range(n_obstacles):
-		var obstacle: Node2D = obstacle_scenes.pick_random().instantiate()
-		var y = randf_range(-hill_top, -1000)
-		var x = randf_range(bounds.x, bounds.y)
-		obstacle.position = Vector2(x, randf_range(0, -y))
-		obstacles.append(obstacle)
-	obstacles.sort_custom(func (a, b): return a.position.y < b.position.y)
-	for obstacle in obstacles:
-		$Obstacles.add_child(obstacle)
+	#for i in range(n_obstacles):
+		#var obstacle: Node2D = obstacle_scenes.pick_random().instantiate()
+		#var y = randf_range(-hill_top, -1000)
+		#var x = randf_range(bounds.x, bounds.y)
+		#obstacle.position = Vector2(x, randf_range(0, -y))
+		#obstacles.append(obstacle)
+	#obstacles.sort_custom(func (a, b): return a.position.y < b.position.y)
+	#for obstacle in obstacles:
+		#$Obstacles.add_child(obstacle)
 
 func _on_kill_box_body_entered(body: Node2D) -> void:
 	if body is Player:
@@ -123,13 +132,15 @@ func _on_kill_box_body_entered(body: Node2D) -> void:
 			3: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
 		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(body.player_index, false)
 		living_player_indexes.erase(body.player_index)
-		print("LIVING PLAYERS")
 		print(living_player_indexes.size())
 		if living_player_indexes.is_empty():
 			UiSwitcher.finish_game(false, body)
-		print("YOU DIED")
 		#TODO: have a death sound effect, particle effect too
 
+# Test game over screen (press LB)
+func _input(event: InputEvent) -> void:
+		if event.is_action_pressed("GameOver"):
+			UiSwitcher.finish_game(false, null)
 
 func _on_powerup_spawner_timeout() -> void:
 	var pup = pup_scene.instantiate()

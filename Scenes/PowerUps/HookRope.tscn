@@ -4,10 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://qo2ajpfw7od5" path="res://Assets/Visual/PowerUps/RopeSeperate.png" id="2_xe3k7"]
 
 [node name="HookRope" type="Line2D" unique_id=704764997]
+texture = ExtResource("2_xe3k7")
 script = ExtResource("1_xe3k7")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=296644473]
-scale = Vector2(0.25, 0.25)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1905130229]
 z_index = 1

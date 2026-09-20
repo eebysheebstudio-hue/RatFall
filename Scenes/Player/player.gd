@@ -7,6 +7,7 @@ class_name Player
 
 const SPEED = 300.0
 
+var player_name: String = "Nameless"
 var player_index: int = 0
 
 var horizontalSpeedMultiplier: float = 1.0
@@ -57,16 +58,12 @@ func update_player_index(new_index: int):
 
 
 func _physics_process(delta: float) -> void:
-	# TODO Fix animations to alternate between moving and landing rat
-	#print("Frame is: ", $Sprites/AnimatedSprite2D.frame)
 	if leap_speed > leap_threshold:
 		leap_speed = 0
-		#$Sprites/AnimatedSprite2D.set_frame_and_progress(1, 0)
 	else:
 		leap_speed = leap_speed + leap_delta * delta
 		if velocity.x != 0.0 || velocity.y != 0.0:
 			pass
-	#print("state=", current_state, "  vel=", velocity, "  pos=", position)
 	
 	if velocity.x == 0.0 && velocity.y == 0.0:
 		$Sprites/StationarySprite.visible = true
@@ -140,7 +137,8 @@ func _physics_process(delta: float) -> void:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 			
 	# Set player rotation
-	$Sprites.rotation = velocity.angle() + PI/2
+	if velocity.length() != 0:
+		$Sprites.rotation = velocity.angle() + PI/2
 
 	move_and_slide()
 

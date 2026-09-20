@@ -20,13 +20,9 @@ func set_alive_status(alive_in: bool):
 		$MarginContainer/HBoxContainer/PowerUpIcon.texture = dead_icon
 		
 
-func set_player_name(names: Array[String]):
+func set_player_name(name: String):
 	if player_name.is_empty():
-		var random_index = randi() % names.size()
-		player_name = names[random_index]
 		$MarginContainer/HBoxContainer/Label.text = player_name
-		names.remove_at(random_index)
-		print(names)
 
 
 ##TODO

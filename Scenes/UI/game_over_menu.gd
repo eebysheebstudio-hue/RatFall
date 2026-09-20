@@ -16,7 +16,7 @@ func finish_game(victory: bool, winner: Player):
 	$VBoxContainer/WinnerInfo.hide()
 	$VBoxContainer/MainMenuButton.grab_focus()
 	if victory:
-		#$VBoxContainer/WinnerInfo/WinnerName.text = winner.player_name #TODO: Restore name stuff
+		$VBoxContainer/WinnerInfo/WinnerName.text = winner.player_name
 		match winner.player_index:
 			0: $VBoxContainer/WinnerInfo/WinnerIcon.texture = load("res://Assets/Visual/GameHud/Grey_Rat_Icon.png")
 			1: $VBoxContainer/WinnerInfo/WinnerIcon.texture = load("res://Assets/Visual/GameHud/Black_Rat_Icon.png")

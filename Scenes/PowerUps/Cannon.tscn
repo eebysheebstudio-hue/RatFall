@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c58j3b3c5qhg"]
+
+[ext_resource type="Script" uid="uid://deybjheo4yf2a" path="res://Scenes/PowerUps/cannon.gd" id="1_4b7w1"]
+[ext_resource type="Texture2D" uid="uid://dfxy4rjdeqwr1" path="res://Assets/Visual/PowerUps/Cannon.PNG" id="2_qpfpb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+
+[node name="Cannon" type="Node2D" unique_id=1036122245]
+script = ExtResource("1_4b7w1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2056682919]
+scale = Vector2(0.22147506, 0.22147506)
+texture = ExtResource("2_qpfpb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=296644473]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1576237442]
+scale = Vector2(4.7910647, 4.7910647)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

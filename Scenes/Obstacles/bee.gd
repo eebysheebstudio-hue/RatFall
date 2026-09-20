@@ -22,7 +22,6 @@ func _process(delta: float) -> void:
 	if result:
 		$Sprite2D.scale.x = dir * 0.1
 		dir = -dir
-		print("YAY")
 	position.x += dir * speed * delta
 	
 

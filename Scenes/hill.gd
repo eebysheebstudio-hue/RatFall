@@ -62,6 +62,17 @@ func _ready() -> void:
 					print("Adding P4A")
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_alive_status(true)
+					
+					# Assign each playerHUD a player number by using the player index.
+			var hud: Control
+			match player_index:
+				0: hud = $CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud
+				1: hud = $CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2
+				2: hud = $CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3
+				3: hud = $CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4
+
+			player.power_up_icon_changed.connect(hud.set_power_up_icon)
+					
 			$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(player_index, true)
 			living_player_indexes.append(player_index)
 	hill_height = hill_top - hill_bottom

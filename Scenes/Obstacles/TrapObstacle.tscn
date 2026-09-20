@@ -59,6 +59,4 @@ z_index = 1
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_a0c5h")
 
-[node name="Node2D" type="Node2D" parent="." unique_id=2137082100]
-
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

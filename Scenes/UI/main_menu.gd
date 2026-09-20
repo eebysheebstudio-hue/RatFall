@@ -72,7 +72,7 @@ func _on_settings_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
-	UiSwitcher.hide_all()	
+	UiSwitcher.hide_all()
 	get_tree().change_scene_to_packed(hillScene)
 
 func _button_sound_relay() -> void:

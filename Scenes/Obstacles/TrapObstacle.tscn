@@ -55,7 +55,7 @@ trail_section_subdivisions = 1
 process_material = SubResource("ParticleProcessMaterial_1vivr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1905130229]
-z_index = 1
+z_index = -1
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_a0c5h")
 

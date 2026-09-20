@@ -16,10 +16,12 @@ func set_alive_status(alive_in: bool):
 		$MarginContainer/HBoxContainer/PowerUpIcon.texture = alive_icon
 	else:
 		$MarginContainer/HBoxContainer/PowerUpIcon.texture = dead_icon
-		
-
 		$MarginContainer/HBoxContainer/Label.text = player_name
-		#TODO This comment has an unknown purpose and breaks the code names.remove_at(random_index)
 		#print(names)
-
-	
+		
+func set_player_name(names: Array[String]):
+	if player_name.is_empty():
+		var random_index = randi() % names.size()
+		player_name = names[random_index]
+		$MarginContainer/HBoxContainer/Label.text = player_name
+		

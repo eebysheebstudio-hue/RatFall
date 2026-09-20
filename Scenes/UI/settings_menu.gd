@@ -1,6 +1,7 @@
 extends Control
 
 signal volume_changed()
+signal button_sound()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,7 +26,12 @@ func _on_master_value_changed(value: float) -> void:
 	GlobalSettings.master_vol = (value/100)
 	volume_changed.emit()
 
+func _input(event: InputEvent) -> void:
+	if (event.is_action_pressed("p1_back")):
+		_on_button_button_up()
 
 func _on_button_button_up() -> void:
 	UiSwitcher.show_main_menu()
 	
+func _button_sound_relay() -> void:
+	button_sound.emit()

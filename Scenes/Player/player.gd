@@ -7,15 +7,14 @@ class_name Player
 
 const SPEED = 300.0
 
+var player_index: int = 0
+
 var horizontalSpeedMultiplier: float = 1.0
 var verticalSpeedMultiplier: float = 1.0
 
 var leap_speed = 0
 var leap_threshold = 1
 var leap_delta = 5
-var animation_threshold = 0.2
-var animation_delta = 1
-var animation_time = 0
 
 
 var verticalClimbingSpeed: float = 1.0
@@ -30,7 +29,7 @@ var falling_rotation_speed: float = 10
 enum ClimbingState { CLIMBING, FALLING, STOPPED, CANNON, HOOKED }
 
 var current_state: ClimbingState = ClimbingState.CLIMBING
-var speedBoostTimer: float = 0.0
+var speedBoostTimer: float = 0.0 
 
 var power_up = ""
 var has_hook: bool = false
@@ -38,17 +37,43 @@ var has_hook: bool = false
 func _ready() -> void:
 	$Sound.set_volume_linear(GlobalSettings.sfx_vol*GlobalSettings.master_vol)
 	add_to_group("players")
+	$AnimatedSprite2D.play()
+
+func update_player_index(new_index: int):
+	player_index = new_index
+	match player_index:
+		0:
+			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/GreyRat.tres")
+			$StationarySprite.texture = load("res://Assets/Visual/Grey_Rat1.png")
+		1:
+			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/BlackRat.tres")
+			$StationarySprite.texture = load("res://Assets/Visual/Black_Rat1.png")
+		2:
+			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/WhiteRat.tres")
+			$StationarySprite.texture = load("res://Assets/Visual/White_Rat1.png")
+		3:
+			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/SpottedRat.tres")
+			$StationarySprite.texture = load("res://Assets/Visual/Spotted_Rat1.png")
+
 
 func _physics_process(delta: float) -> void:
+	# TODO Fix animations to alternate between moving and landing rat
+	#print("Frame is: ", $AnimatedSprite2D.frame)
 	if leap_speed > leap_threshold:
 		leap_speed = 0
-		$StationarySprite.visible = true
+		#$AnimatedSprite2D.set_frame_and_progress(1, 0)
 	else:
 		leap_speed = leap_speed + leap_delta * delta
-		animation_time = animation_time + animation_delta * delta
-		if animation_threshold > animation_time:
-			$StationarySprite.visible = false
+		if velocity.x != 0.0 || velocity.y != 0.0:
+			pass
 	#print("state=", current_state, "  vel=", velocity, "  pos=", position)
+	
+	if velocity.x == 0.0 && velocity.y == 0.0:
+		$StationarySprite.visible = true
+		$AnimatedSprite2D.visible = false
+	else:
+		$AnimatedSprite2D.visible = true
+		$StationarySprite.visible = false
 	# Speed boost
 	if speedBoostTimer > 0.0:
 		speedBoostTimer -= delta
@@ -107,6 +132,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = vdir * SPEED * verticalSpeedMultiplier * leap_speed
 		else:
 			velocity.y = move_toward(velocity.y, 0, SPEED)
+			
 
 	move_and_slide()
 

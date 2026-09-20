@@ -4,8 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://cpv7c16wg1g6m" path="res://Scenes/UI/HillProgressBar.tscn" id="2_kgtut"]
 [ext_resource type="Texture2D" uid="uid://dgh8iah2lf4u8" path="res://Assets/Visual/Grass.jpg" id="2_q62r0"]
 [ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
+[ext_resource type="SpriteFrames" uid="uid://begqj27dwl72q" path="res://Assets/Visual/CatChasers/CatChaser.tres" id="3_vsmbq"]
 [ext_resource type="PackedScene" uid="uid://lo3enc16f3xs" path="res://Scenes/UI/HillHud.tscn" id="6_q62r0"]
+[ext_resource type="Texture2D" uid="uid://cnygarewojfdy" path="res://Assets/Visual/GameHud/Grey_Rat_Icon.png" id="7_ph0nm"]
 [ext_resource type="PackedScene" uid="uid://ntjoko872gi3" path="res://Scenes/UI/PlayerHud.tscn" id="7_vsmbq"]
+[ext_resource type="Texture2D" uid="uid://b5vjdwdlcvfy1" path="res://Assets/Visual/GameHud/Grey_Rat_Dead_Icon.png" id="8_cgor0"]
+[ext_resource type="Texture2D" uid="uid://d2cdvlrqhagjf" path="res://Assets/Visual/GameHud/Player1Hud.png" id="9_l6dtb"]
+[ext_resource type="Texture2D" uid="uid://daiy25bopm3r" path="res://Assets/Visual/GameHud/Black_Rat_Icon.png" id="10_1oy28"]
+[ext_resource type="Texture2D" uid="uid://fgx27pwwl0w3" path="res://Assets/Visual/GameHud/Black_Rat_Dead_Icon.png" id="11_l6dtb"]
+[ext_resource type="Texture2D" uid="uid://smebeup0uma2" path="res://Assets/Visual/GameHud/Player2Hud.png" id="11_v62hp"]
+[ext_resource type="Texture2D" uid="uid://c2ym2a8p1jkdm" path="res://Assets/Visual/GameHud/White_Rat_Icon.png" id="12_b62s8"]
+[ext_resource type="Texture2D" uid="uid://c7c401scbcmef" path="res://Assets/Visual/GameHud/White_Rat_Dead_Icon.png" id="13_dicbf"]
+[ext_resource type="Texture2D" uid="uid://bf04sotn5x63f" path="res://Assets/Visual/GameHud/Player3Hud.png" id="14_1111v"]
+[ext_resource type="Texture2D" uid="uid://cq0seifqk7u2g" path="res://Assets/Visual/GameHud/Spotted_Rat_Icon.png" id="15_6mhlc"]
+[ext_resource type="Texture2D" uid="uid://kukdho2slway" path="res://Assets/Visual/GameHud/Spotted_Rat_Dead_Icon.png" id="16_tq72c"]
+[ext_resource type="Texture2D" uid="uid://ccf5l2hbbknbj" path="res://Assets/Visual/GameHud/Player4Hud.png" id="17_qee4n"]
+[ext_resource type="PackedScene" uid="uid://dry7pc6bq84id" path="res://Scenes/Cheese.tscn" id="20_1oy28"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
@@ -19,32 +33,43 @@ script = ExtResource("1_7po3v")
 autostart = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2079550402]
-offset_left = -1898.0
-offset_top = -236372.0
-offset_right = 2988.0
-offset_bottom = 1516.0
+offset_left = -676.0
+offset_top = -10375.0
+offset_right = 683.0
+offset_bottom = 375.0
 texture = ExtResource("2_q62r0")
 expand_mode = 1
 stretch_mode = 1
 
 [node name="MovementNode" type="Node2D" parent="." unique_id=681719708]
 
-[node name="KillBox" type="Area2D" parent="MovementNode" unique_id=410473534]
+[node name="Cats" type="Node2D" parent="MovementNode" unique_id=1717894587]
+position = Vector2(0, 350)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MovementNode/Cats" unique_id=595382674]
+z_index = 10
+position = Vector2(0, -88)
+scale = Vector2(0.55571264, 0.55571264)
+sprite_frames = ExtResource("3_vsmbq")
+autoplay = "default"
+frame_progress = 0.33088094
+
+[node name="KillBox" type="Area2D" parent="MovementNode/Cats" unique_id=410473534]
 position = Vector2(0, 250)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementNode/KillBox" unique_id=852733214]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovementNode/Cats/KillBox" unique_id=852733214]
 shape = SubResource("WorldBoundaryShape2D_g4v7s")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="MovementNode" unique_id=709591160]
 
 [node name="LeftBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=2079975868]
-position = Vector2(-250, 0)
+position = Vector2(-400, 0)
 rotation = 1.5707964
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
 [node name="RightBorder" type="CollisionShape2D" parent="MovementNode/StaticBody2D" unique_id=1564697198]
-position = Vector2(250, 0)
+position = Vector2(400, 0)
 rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
@@ -54,6 +79,7 @@ rotation = 3.1415927
 shape = SubResource("WorldBoundaryShape2D_yf5fn")
 
 [node name="Camera" parent="MovementNode" unique_id=2085499639 instance=ExtResource("3_8xj3v")]
+position = Vector2(0, -5000)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1369945536]
 
@@ -63,6 +89,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="HillHud" parent="CanvasLayer/BoxContainer" unique_id=1600366834 instance=ExtResource("6_q62r0")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/BoxContainer/HillHud" unique_id=1831515906]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(5, 35)
+theme_override_constants/separation = 0
+
+[node name="PlayerHud" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=587170444 instance=ExtResource("7_vsmbq")]
+layout_mode = 2
+offset_transform_enabled = true
+alive_icon = ExtResource("7_ph0nm")
+dead_icon = ExtResource("8_cgor0")
+bg_texture = ExtResource("9_l6dtb")
+
+[node name="PlayerHud2" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=1671021736 instance=ExtResource("7_vsmbq")]
+layout_mode = 2
+alive_icon = ExtResource("10_1oy28")
+dead_icon = ExtResource("11_l6dtb")
+bg_texture = ExtResource("11_v62hp")
+
+[node name="PlayerHud3" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=152885630 instance=ExtResource("7_vsmbq")]
+layout_mode = 2
+alive_icon = ExtResource("12_b62s8")
+dead_icon = ExtResource("13_dicbf")
+bg_texture = ExtResource("14_1111v")
+
+[node name="PlayerHud4" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=2096173716 instance=ExtResource("7_vsmbq")]
+layout_mode = 2
+alive_icon = ExtResource("15_6mhlc")
+dead_icon = ExtResource("16_tq72c")
+bg_texture = ExtResource("17_qee4n")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/BoxContainer" unique_id=615657957]
 layout_mode = 2
@@ -77,32 +147,25 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="HillHud" parent="CanvasLayer/BoxContainer" unique_id=1600366834 instance=ExtResource("6_q62r0")]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/BoxContainer/HillHud" unique_id=1831515906]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-offset_transform_enabled = true
-offset_transform_position = Vector2(5, 35)
-
-[node name="PlayerHud" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=587170444 instance=ExtResource("7_vsmbq")]
-layout_mode = 2
-offset_transform_enabled = true
-
-[node name="PlayerHud2" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=1671021736 instance=ExtResource("7_vsmbq")]
-layout_mode = 2
-
-[node name="PlayerHud3" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=152885630 instance=ExtResource("7_vsmbq")]
-layout_mode = 2
-
-[node name="PlayerHud4" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=2096173716 instance=ExtResource("7_vsmbq")]
-layout_mode = 2
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1781535886]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Players" type="Node2D" parent="." unique_id=465932949]
 
-[node name="Powerups" type="Node2D" parent="." unique_id=1899735248]
+[node name="Obstacles" type="Node2D" parent="." unique_id=951822854]
+z_index = 1
+
+[node name="Cheese" parent="." unique_id=1937917780 instance=ExtResource("20_1oy28")]
+position = Vector2(0, -10084)
 
 [connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
 [connection signal="body_entered" from="MovementNode/KillBox" to="." method="_on_kill_box_body_entered"]
+[connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]
+

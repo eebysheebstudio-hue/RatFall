@@ -1,7 +1,38 @@
 [gd_scene format=3 uid="uid://py28sufsrjpu"]
 
-[ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="1_g18y6"]
 [ext_resource type="Script" uid="uid://kcavauyfde7n" path="res://Scenes/UI/main_menu.gd" id="1_mjmdf"]
+[ext_resource type="Texture2D" uid="uid://cg10sy6ftsoil" path="res://Assets/Visual/Screens/Title Screen.png" id="2_mjmdf"]
+[ext_resource type="Texture2D" uid="uid://cnygarewojfdy" path="res://Assets/Visual/GameHud/Grey_Rat_Icon.png" id="3_jex3y"]
+[ext_resource type="Texture2D" uid="uid://daiy25bopm3r" path="res://Assets/Visual/GameHud/Black_Rat_Icon.png" id="4_744d7"]
+[ext_resource type="Texture2D" uid="uid://c2ym2a8p1jkdm" path="res://Assets/Visual/GameHud/White_Rat_Icon.png" id="5_kl3t2"]
+[ext_resource type="Texture2D" uid="uid://cq0seifqk7u2g" path="res://Assets/Visual/GameHud/Spotted_Rat_Icon.png" id="6_ynupv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_744d7"]
+bg_color = Color(0.9877456, 0.48987037, 0.27792123, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hys1s"]
+bg_color = Color(0.6433649, 0.17309237, 2.8878452e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgqbg"]
+bg_color = Color(1, 0.58284736, 0.45390093, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0.99607843, 0.79607844, 0.015686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m48tj"]
+bg_color = Color(0.76862055, 0.5883835, 0.035750367, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ab04i"]
+bg_color = Color(0.9999998, 0.88845176, 0.3125341, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kl3t2"]
+bg_color = Color(0.41568628, 0.83137256, 0.77254903, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynupv"]
+bg_color = Color(0.2742202, 0.6734506, 0.66430223, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvisc"]
+bg_color = Color(0.6189007, 0.91558546, 0.88163066, 1)
 
 [node name="MainMenu" type="Control" unique_id=355245501]
 layout_mode = 3
@@ -13,115 +44,160 @@ grow_vertical = 2
 script = ExtResource("1_mjmdf")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1422901408]
-visible = false
+custom_maximum_size = Vector2(1280, 720)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_g18y6")
-stretch_mode = 1
+texture = ExtResource("2_mjmdf")
+expand_mode = 3
+stretch_mode = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1501437319]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect" unique_id=1501437319]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1468997928]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer" unique_id=1468997928]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=493399255]
+[node name="Start" type="Button" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=976353481]
 layout_mode = 2
-size_flags_vertical = 2
-theme_override_font_sizes/font_size = 64
-text = "Rat Fall"
-horizontal_alignment = 1
-
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer" unique_id=976353481]
-layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_focus_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_744d7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hys1s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fgqbg")
 text = "Start Game"
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2109320513]
+[node name="Settings" type="Button" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=2109320513]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_focus_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yf5fn")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_m48tj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ab04i")
 text = "Settings"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=48745625]
+[node name="Quit" type="Button" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=48745625]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_focus_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_colors/font_hover_color = Color(0.6627451, 0.007843138, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kl3t2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ynupv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dvisc")
 text = "Quit"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=743060285]
+[node name="PlayerIndication" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer" unique_id=743060285]
 custom_minimum_size = Vector2(100, 100)
-layout_mode = 0
-offset_left = 50.0
-offset_top = 208.0
-offset_right = 1102.0
-offset_bottom = 312.0
+layout_mode = 2
+size_flags_vertical = 8
 alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer" unique_id=154515323]
+[node name="ColorRect" type="ColorRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication" unique_id=154515323]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-color = Color(1, 0, 0, 1)
+color = Color(0.6627451, 0.007843138, 0, 1)
 
-[node name="Label" type="Label" parent="HBoxContainer/ColorRect" unique_id=577328351]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 40.0
-offset_right = 84.0
-offset_bottom = 63.0
-text = "Player 1"
-horizontal_alignment = 1
+[node name="RatIcon1" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect" unique_id=2142099390]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_jex3y")
+stretch_mode = 2
 
-[node name="ColorRect2" type="ColorRect" parent="HBoxContainer" unique_id=238834867]
+[node name="ColorRect2" type="ColorRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication" unique_id=238834867]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-color = Color(1, 0, 0, 1)
+color = Color(0.6627451, 0.007843138, 0, 1)
 
-[node name="Label" type="Label" parent="HBoxContainer/ColorRect2" unique_id=1287967322]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 40.0
-offset_right = 88.0
-offset_bottom = 63.0
-text = "Player 2"
+[node name="RatIcon1" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect2" unique_id=40595668]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_744d7")
+stretch_mode = 2
 
-[node name="ColorRect3" type="ColorRect" parent="HBoxContainer" unique_id=660270404]
+[node name="ColorRect3" type="ColorRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication" unique_id=660270404]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-color = Color(1, 0, 0, 1)
+color = Color(0.6627451, 0.007843138, 0, 1)
 
-[node name="Label" type="Label" parent="HBoxContainer/ColorRect3" unique_id=1164955761]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 40.0
-offset_right = 84.0
-offset_bottom = 63.0
-text = "Player 3"
+[node name="RatIcon1" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect3" unique_id=1199817212]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_kl3t2")
+stretch_mode = 2
 
-[node name="ColorRect4" type="ColorRect" parent="HBoxContainer" unique_id=1339924837]
+[node name="ColorRect4" type="ColorRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication" unique_id=1339924837]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-color = Color(1, 0, 0, 1)
+color = Color(0.6627451, 0.007843138, 0, 1)
 
-[node name="Label" type="Label" parent="HBoxContainer/ColorRect4" unique_id=230674647]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 40.0
-offset_right = 84.0
-offset_bottom = 63.0
-text = "Player 4"
+[node name="RatIcon1" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect4" unique_id=1238993920]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ynupv")
+stretch_mode = 2
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/Start" to="." method="_button_sound_relay"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/Settings" to="." method="_button_sound_relay"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/Quit" to="." method="_button_sound_relay"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="button_down" from="TextureRect/MarginContainer/VBoxContainer/Start" to="." method="_button_sound_relay"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="button_down" from="TextureRect/MarginContainer/VBoxContainer/Settings" to="." method="_button_sound_relay"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="button_down" from="TextureRect/MarginContainer/VBoxContainer/Quit" to="." method="_button_sound_relay"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

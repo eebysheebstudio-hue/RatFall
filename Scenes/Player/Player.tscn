@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cfrt8yjuccuj6" path="res://Assets/Visual/rat1.jpg" id="2_h54ih"]
 [ext_resource type="PackedScene" uid="uid://brq4mu1fctwfi" path="res://Scenes/PowerUps/Hook.tscn" id="2_ude3g"]
 [ext_resource type="Texture2D" uid="uid://b05diitm0fdrw" path="res://Assets/Visual/rat2.jpg" id="3_ude3g"]
+[ext_resource type="Texture2D" uid="uid://2ti7diy1a2yo" path="res://Assets/Visual/CheeseParticle.png" id="5_jmcll"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1111v"]
 radius = 23.194826
@@ -21,13 +22,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="Gradient" id="Gradient_h54ih"]
-colors = PackedColorArray(1, 1, 0, 1, 1, 0.57254905, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_naqra"]
-gradient = SubResource("Gradient_h54ih")
-fill_from = Vector2(0.004347826, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=1673534464]
 z_index = 2
@@ -57,12 +51,12 @@ panning_strength = 1.5
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1818410178]
 emitting = false
-amount = 40
-texture = SubResource("GradientTexture2D_naqra")
+amount = 20
+texture = ExtResource("5_jmcll")
 one_shot = true
 explosiveness = 1.0
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 50)
 initial_velocity_min = 100.0
-initial_velocity_max = 1000.0
+initial_velocity_max = 587.95

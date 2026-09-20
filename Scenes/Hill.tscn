@@ -35,6 +35,9 @@ script = ExtResource("1_7po3v")
 [node name="HookPowerUp" parent="." unique_id=1036122245 instance=ExtResource("2_v62hp")]
 position = Vector2(0, -151.8)
 
+[node name="HookPowerUp2" parent="." unique_id=1691817921 instance=ExtResource("2_v62hp")]
+position = Vector2(-141, -209)
+
 [node name="Powerup Spawner" type="Timer" parent="." unique_id=571246852]
 autostart = true
 
@@ -54,7 +57,7 @@ position = Vector2(0, 350)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MovementNode/Cats" unique_id=595382674]
 z_index = 10
-position = Vector2(0, -88)
+position = Vector2(0, -89)
 scale = Vector2(0.55571264, 0.55571264)
 sprite_frames = ExtResource("3_vsmbq")
 autoplay = "default"

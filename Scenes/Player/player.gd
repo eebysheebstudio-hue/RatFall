@@ -41,7 +41,8 @@ signal power_up_icon_changed(icon: Texture2D)
 func _ready() -> void:
 	$Sound.set_volume_linear(GlobalSettings.sfx_vol*GlobalSettings.master_vol)
 	add_to_group("players")
-	$Sprites/AnimatedSprite2D.play()
+	$Sprites/AnimatedSprite2D.play()	
+	$Sound.stream = load("res://Assets/Audio/temp_squeak_sneaky.ogg")
 
 func update_player_index(new_index: int):
 	player_index = new_index
@@ -218,7 +219,9 @@ func apply_hook_state() -> void:
 func get_powerup(type: String, icon: Texture2D) -> void:
 	power_up = type
 	current_power_up_icon = icon
-	$Sound.stream = load("res://Assets/Audio/temp_squeak_sneaky.ogg")
+	power_up_icon_changed.emit(icon)
+
+func play_particles():
 	$Sound.play()
 	$CPUParticles2D.set_emitting(true)
-	power_up_icon_changed.emit(icon)
+	

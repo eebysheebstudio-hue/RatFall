@@ -11,11 +11,13 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
+		body.play_particles()
 		power_up_effect(body)
 
 func power_up_effect(player: Player) -> void:
 	# TODO: If adding other pickups, make an OR statement to include other pick ups so that there is a limit of one pick up at a time.
 	if pick_up_type == "hook" and player.has_hook:  
+		self.queue_free()
 		return
 	player.get_powerup(pick_up_type, pick_up_icon)
 	if pick_up_type == "hook":

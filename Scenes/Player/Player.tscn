@@ -38,19 +38,14 @@ hook_scene = ExtResource("2_ude3g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=685134941]
 shape = SubResource("RectangleShape2D_g4v7s")
 
-[node name="StationarySprite" type="Sprite2D" parent="." unique_id=2014126337]
-visible = false
+[node name="Sprites" type="Node2D" parent="." unique_id=1487097879]
+
+[node name="StationarySprite" type="Sprite2D" parent="Sprites" unique_id=2014126337]
 position = Vector2(-7.6293945e-06, -1.1920929e-07)
 scale = Vector2(0.017, 0.017)
 texture = ExtResource("3_ude3g")
 
-[node name="StationarySprite2" type="Sprite2D" parent="." unique_id=1810707768]
-visible = false
-position = Vector2(-7.6293945e-06, -1.1920929e-07)
-scale = Vector2(0.017, 0.017)
-texture = ExtResource("3_ude3g")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1968134422]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprites" unique_id=1968134422]
 z_index = -1
 scale = Vector2(0.017285716, 0.017285716)
 sprite_frames = SubResource("SpriteFrames_2cfhw")

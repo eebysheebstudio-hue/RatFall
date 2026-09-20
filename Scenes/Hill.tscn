@@ -166,7 +166,7 @@ z_index = 1
 [node name="Cheese" parent="." unique_id=1937917780 instance=ExtResource("20_1oy28")]
 position = Vector2(0, -10084)
 
-[connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
-[connection signal="body_entered" from="MovementNode/KillBox" to="." method="_on_kill_box_body_entered"]
-[connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]
+[node name="Powerups" type="Node2D" parent="." unique_id=919580044]
 
+[connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
+[connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]

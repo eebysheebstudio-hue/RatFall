@@ -46,6 +46,7 @@ func _ready() -> void:
 				3: 	
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(names)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_alive_status(true)
+			$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(player_index, true)
 	hill_height = hill_top - hill_bottom
 	$MovementNode.position = Vector2(0, hill_bottom)
 	scatter_obstacles()
@@ -78,8 +79,9 @@ func _on_kill_box_body_entered(body: Node2D) -> void:
 			1: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
 			2: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
 			3: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
-
+		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(body.player_index, true)
 		print("YOU DIED")
+		#TODO: have a death sound effect, particle effect too
 
 
 func _on_powerup_spawner_timeout() -> void:

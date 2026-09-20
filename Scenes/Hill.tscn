@@ -6,11 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
 [ext_resource type="SpriteFrames" uid="uid://begqj27dwl72q" path="res://Assets/Visual/CatChasers/CatChaser.tres" id="3_vsmbq"]
 [ext_resource type="PackedScene" uid="uid://lo3enc16f3xs" path="res://Scenes/UI/HillHud.tscn" id="6_q62r0"]
-[ext_resource type="Texture2D" uid="uid://bhvqj8pxqoyvf" path="res://Assets/Visual/GameHud/1AlivePlaceholder.jpg" id="7_ph0nm"]
+[ext_resource type="Texture2D" uid="uid://cnygarewojfdy" path="res://Assets/Visual/GameHud/Grey_Rat_Icon.png" id="7_ph0nm"]
 [ext_resource type="PackedScene" uid="uid://ntjoko872gi3" path="res://Scenes/UI/PlayerHud.tscn" id="7_vsmbq"]
-[ext_resource type="Texture2D" uid="uid://landmmbd6mww" path="res://Assets/Visual/GameHud/2AlivePlaceholder.jpg" id="8_jvis0"]
-[ext_resource type="Texture2D" uid="uid://ck8ccf8xjs7hs" path="res://Assets/Visual/GameHud/3AlivePlaceholder.jpg" id="9_6ubn2"]
-[ext_resource type="Texture2D" uid="uid://f3v3m312bsfq" path="res://Assets/Visual/GameHud/4AlivePlaceholder.jpg" id="10_lfn00"]
+[ext_resource type="Texture2D" uid="uid://b5vjdwdlcvfy1" path="res://Assets/Visual/GameHud/Grey_Rat_Dead_Icon.png" id="8_cgor0"]
+[ext_resource type="Texture2D" uid="uid://d2cdvlrqhagjf" path="res://Assets/Visual/GameHud/Player1Hud.png" id="9_l6dtb"]
+[ext_resource type="Texture2D" uid="uid://daiy25bopm3r" path="res://Assets/Visual/GameHud/Black_Rat_Icon.png" id="10_1oy28"]
+[ext_resource type="Texture2D" uid="uid://smebeup0uma2" path="res://Assets/Visual/GameHud/Player2Hud.png" id="11_v62hp"]
+[ext_resource type="Texture2D" uid="uid://c2ym2a8p1jkdm" path="res://Assets/Visual/GameHud/White_Rat_Icon.png" id="12_b62s8"]
+[ext_resource type="Texture2D" uid="uid://c7c401scbcmef" path="res://Assets/Visual/GameHud/White_Rat_Dead_Icon.png" id="13_dicbf"]
+[ext_resource type="Texture2D" uid="uid://bf04sotn5x63f" path="res://Assets/Visual/GameHud/Player3Hud.png" id="14_1111v"]
+[ext_resource type="Texture2D" uid="uid://cq0seifqk7u2g" path="res://Assets/Visual/GameHud/Spotted_Rat_Icon.png" id="15_6mhlc"]
+[ext_resource type="Texture2D" uid="uid://kukdho2slway" path="res://Assets/Visual/GameHud/Spotted_Rat_Dead_Icon.png" id="16_tq72c"]
+[ext_resource type="Texture2D" uid="uid://ccf5l2hbbknbj" path="res://Assets/Visual/GameHud/Player4Hud.png" id="17_qee4n"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g4v7s"]
 
@@ -97,18 +104,26 @@ theme_override_constants/separation = 0
 layout_mode = 2
 offset_transform_enabled = true
 alive_icon = ExtResource("7_ph0nm")
+dead_icon = ExtResource("8_cgor0")
+bg_texture = ExtResource("9_l6dtb")
 
 [node name="PlayerHud2" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=1671021736 instance=ExtResource("7_vsmbq")]
 layout_mode = 2
-alive_icon = ExtResource("8_jvis0")
+alive_icon = ExtResource("10_1oy28")
+dead_icon = ExtResource("10_1oy28")
+bg_texture = ExtResource("11_v62hp")
 
 [node name="PlayerHud3" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=152885630 instance=ExtResource("7_vsmbq")]
 layout_mode = 2
-alive_icon = ExtResource("9_6ubn2")
+alive_icon = ExtResource("12_b62s8")
+dead_icon = ExtResource("13_dicbf")
+bg_texture = ExtResource("14_1111v")
 
 [node name="PlayerHud4" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=2096173716 instance=ExtResource("7_vsmbq")]
 layout_mode = 2
-alive_icon = ExtResource("10_lfn00")
+alive_icon = ExtResource("15_6mhlc")
+dead_icon = ExtResource("16_tq72c")
+bg_texture = ExtResource("17_qee4n")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/BoxContainer" unique_id=615657957]
 layout_mode = 2

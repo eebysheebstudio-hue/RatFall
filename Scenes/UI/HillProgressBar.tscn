@@ -1,88 +1,123 @@
 [gd_scene format=3 uid="uid://cpv7c16wg1g6m"]
 
 [ext_resource type="Script" uid="uid://0l7wudccyk08" path="res://Scenes/UI/hill_progress_bar.gd" id="1_kdk02"]
-[ext_resource type="Texture2D" uid="uid://cdhhm1tmv66xb" path="res://icon.svg" id="2_q1fsv"]
+[ext_resource type="Texture2D" uid="uid://crggjox73dyyk" path="res://Assets/Visual/GameHud/ProgressBar.png" id="2_4lf6a"]
+[ext_resource type="Texture2D" uid="uid://ct0y1f875urjp" path="res://Assets/Visual/GameHud/Dot.png" id="2_q1fsv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4lf6a"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdk02"]
-bg_color = Color(0.6, 0.6, 0.6, 0.25490198)
+bg_color = Color(0.6, 0.6, 0.6, 0.5568628)
 
 [node name="HillProgressBar" type="Control" unique_id=730191033]
-custom_minimum_size = Vector2(50, 0)
+custom_minimum_size = Vector2(50, 500)
+custom_maximum_size = Vector2(50, 500)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1219.0
+offset_bottom = -442.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kdk02")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2892937]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=573146181]
+custom_maximum_size = Vector2(-1, 650)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_4lf6a")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect" unique_id=571981161]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_bottom = 15
+
+[node name="ProgressBar" type="ProgressBar" parent="TextureRect/MarginContainer" unique_id=2892937]
+custom_minimum_size = Vector2(30, 0)
+custom_maximum_size = Vector2(30, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxEmpty_4lf6a")
 theme_override_styles/fill = SubResource("StyleBoxFlat_kdk02")
 value = 1.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Player1Icon" type="TextureRect" parent="." unique_id=1354372583]
+modulate = Color(0.84694624, 0.32504654, 0.28242916, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -40.0
-offset_right = -536.0
+offset_left = -25.0
+offset_top = -500.0
+offset_right = -5.0
+offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_q1fsv")
 expand_mode = 1
 
 [node name="Player2Icon" type="TextureRect" parent="." unique_id=2008229165]
+modulate = Color(0.90289974, 0.8715728, 0, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -40.0
-offset_right = -536.0
+offset_left = -25.0
+offset_top = -500.0
+offset_right = -5.0
+offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_q1fsv")
 expand_mode = 1
 
 [node name="Player3Icon" type="TextureRect" parent="." unique_id=1587796976]
+modulate = Color(0.2664308, 0.8215004, 7.70092e-07, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -40.0
-offset_right = -536.0
+offset_left = -25.0
+offset_top = -500.0
+offset_right = -5.0
+offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_q1fsv")
 expand_mode = 1
 
 [node name="Player4Icon" type="TextureRect" parent="." unique_id=1443797397]
+modulate = Color(4.813075e-07, 0.7111887, 0.71390104, 1)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -576.0
-offset_top = -40.0
-offset_right = -536.0
+offset_left = -25.0
+offset_top = -500.0
+offset_right = -5.0
+offset_bottom = -480.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_q1fsv")

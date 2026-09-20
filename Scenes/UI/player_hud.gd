@@ -3,13 +3,14 @@ extends Control
 var player_name: String = "" 
 @export var alive_icon: Texture
 @export var dead_icon: Texture
+@export var bg_texture: Texture
 var alive: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
-	pass 
-	# Replace with function body.
+	$Background.texture = bg_texture
+	$MarginContainer/HBoxContainer/PowerUpIcon.texture = dead_icon
 
 func set_alive_status(alive_in: bool):
 	alive = alive_in

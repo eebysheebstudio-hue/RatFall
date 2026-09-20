@@ -117,8 +117,15 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 
-# Horizontal movement
-	var direction := Input.get_axis("p1_left", "p1_right")
+	# Horizontal movement
+	# Check each player's number and assign the correct input.
+	var p := player_index + 1  # 1, 2, 3, 4
+	var left_action  := "p%d_left"  % p
+	var right_action := "p%d_right" % p
+	var up_action    := "p%d_up"    % p
+	var down_action  := "p%d_down"  % p
+
+	var direction := Input.get_axis(left_action, right_action)
 	if direction:
 		velocity.x = direction * SPEED * horizontalSpeedMultiplier * leap_speed
 	else:
@@ -126,7 +133,7 @@ func _physics_process(delta: float) -> void:
 
 	# Vertical movement only while climbing
 	if current_state == ClimbingState.CLIMBING:
-		var vdir := Input.get_axis("p1_up", "p1_down")
+		var vdir := Input.get_axis(up_action, down_action)
 		if vdir:
 			velocity.y = vdir * SPEED * verticalSpeedMultiplier * leap_speed
 		else:

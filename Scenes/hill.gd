@@ -55,30 +55,30 @@ func _ready() -> void:
 			player.player_name = player_name
 			match player_index:
 				0:  
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_player_name(player_name)
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(true)
+					$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_player_name(player_name)
+					$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(true)
 				1: 	
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_player_name(player_name)
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_alive_status(true)
+					$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_player_name(player_name)
+					$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_alive_status(true)
 				2: 	
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_player_name(player_name)
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_alive_status(true)
+					$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_player_name(player_name)
+					$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_alive_status(true)
 				3: 	
 					print("Adding P4A")
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(player_name)
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_alive_status(true)
+					$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(player_name)
+					$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_alive_status(true)
 					
 					# Assign each playerHUD a player number by using the player index.
 			var hud: Control
 			match player_index:
-				0: hud = $CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud
-				1: hud = $CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2
-				2: hud = $CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3
-				3: hud = $CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4
+				0: hud = $UI/BoxContainer/HillHud/HBoxContainer/PlayerHud
+				1: hud = $UI/BoxContainer/HillHud/HBoxContainer/PlayerHud2
+				2: hud = $UI/BoxContainer/HillHud/HBoxContainer/PlayerHud3
+				3: hud = $UI/BoxContainer/HillHud/HBoxContainer/PlayerHud4
 
 			player.power_up_icon_changed.connect(hud.set_power_up_icon)
 					
-			$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(player_index, true)
+			$UI/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(player_index, true)
 			living_player_indexes.append(player_index)
 	hill_height = hill_top - hill_bottom
 	run_text_cut_scene()
@@ -100,7 +100,7 @@ func _process(delta: float) -> void:
 	if started and percent_progress < 100:
 		percent_progress = percent_progress + (percent_progress_speed * delta)
 		$MovementNode.position = Vector2(0, -hill_height * (percent_progress / 100))
-		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.update_progress(percent_progress)
+		$UI/BoxContainer/MarginContainer/HillProgressBar.update_progress(percent_progress)
 
 func start_race():
 	started = true
@@ -110,14 +110,14 @@ func start_race():
 func run_text_cut_scene():
 	var display_text_wait_duration: float = 1
 	await get_tree().create_timer(display_text_wait_duration).timeout
-	$CanvasLayer/GetThatCheese.texture = get_texture
-	$CanvasLayer/GetThatCheese.show()
+	$UI/GetThatCheese.texture = get_texture
+	$UI/GetThatCheese.show()
 	await get_tree().create_timer(1.0).timeout
-	$CanvasLayer/GetThatCheese.texture = that_texture
+	$UI/GetThatCheese.texture = that_texture
 	await get_tree().create_timer(1.0).timeout
-	$CanvasLayer/GetThatCheese.texture = cheese_texture
+	$UI/GetThatCheese.texture = cheese_texture
 	await get_tree().create_timer(1.0).timeout
-	$CanvasLayer/GetThatCheese.hide()
+	$UI/GetThatCheese.hide()
 	
 func scatter_obstacles():
 	var obstacles: Array[ObstacleInterface] = []
@@ -134,11 +134,11 @@ func scatter_obstacles():
 func _on_kill_box_body_entered(body: Node2D) -> void:
 	if body is Player:
 		match body.player_index:
-			0: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
-			1: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
-			2: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
-			3: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
-		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(body.player_index, false)
+			0: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
+			1: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
+			2: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
+			3: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
+		$UI/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(body.player_index, false)
 		living_player_indexes.erase(body.player_index)
 		print(living_player_indexes.size())
 		if living_player_indexes.is_empty():
@@ -151,6 +151,8 @@ func _input(event: InputEvent) -> void:
 			UiSwitcher.finish_game(false, null)
 
 func _on_powerup_spawner_timeout() -> void:
+	if not started:
+		return
 	var pup = power_up_scenes.pick_random().instantiate()
 	var camera_pos = $MovementNode/Camera.get_screen_center_position()
 	var spawn_pos = camera_pos + Vector2(randf_range(-576,576), (randf_range(-324,324)))
@@ -158,4 +160,3 @@ func _on_powerup_spawner_timeout() -> void:
 	$SpawnPowerUpParticles.position = spawn_pos
 	$SpawnPowerUpParticles.restart()
 	$Powerups.add_child(pup)
-	pass # Replace with function body.

@@ -146,9 +146,9 @@ func _on_kill_box_body_entered(body: Node2D) -> void:
 		#TODO: have a death sound effect, particle effect too
 
 # Test game over screen (press LB)
-func _input(event: InputEvent) -> void:
-		if event.is_action_pressed("GameOver"):
-			UiSwitcher.finish_game(false, null)
+#func _input(event: InputEvent) -> void:
+		#if event.is_action_pressed("GameOver"):
+			#UiSwitcher.finish_game(false, null)
 
 func _on_powerup_spawner_timeout() -> void:
 	if not started:

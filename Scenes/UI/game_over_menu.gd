@@ -11,10 +11,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func _input(event: InputEvent) -> void:
-		if event.is_action_pressed("p1_action"):
-			_on_main_menu_button_pressed()
-	
 
 func finish_game(victory: bool, winner: Player):
 	$VBoxContainer/LoserInfo.hide()
@@ -31,6 +27,9 @@ func finish_game(victory: bool, winner: Player):
 	else:
 		$VBoxContainer/LoserInfo.show()
 
+func _input(event: InputEvent) -> void:
+		if event.is_action_pressed("p1_action") && $VBoxContainer/MainMenuButton.has_focus() == true:
+			_on_main_menu_button_pressed()
 
 func _on_main_menu_button_pressed() -> void:
 	print("Pressed")

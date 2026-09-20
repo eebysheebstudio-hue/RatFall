@@ -54,18 +54,14 @@ func _input(event: InputEvent) -> void:
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect4.set_color(Color("a90200ff"))
 		player_exit.emit()
 		
-	if (event.is_action_pressed("p1_action") 
-	&& $TextureRect/MarginContainer/VBoxContainer/Start.has_focus()
-	&& players[0] == true):
-		_on_start_pressed()
-	
-	if (event.is_action_pressed("p1_action") 
-	&& $TextureRect/MarginContainer/VBoxContainer/Settings.has_focus()):
-		_on_settings_pressed()
-	
-	if (event.is_action_pressed("p1_action") 
-	&& $TextureRect/MarginContainer/VBoxContainer/Quit.has_focus()):
-		_on_quit_pressed()
+	if (event.is_action_pressed("p1_action")):
+		if ($TextureRect/MarginContainer/VBoxContainer/Start.has_focus() && players[0] == true):
+			_on_start_pressed()
+			print("test")
+		elif ($TextureRect/MarginContainer/VBoxContainer/Settings.has_focus()):
+			_on_settings_pressed()
+		elif ($TextureRect/MarginContainer/VBoxContainer/Quit.has_focus()):
+			_on_quit_pressed()
 		
 func _on_quit_pressed() -> void:
 	get_tree().quit()

@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://cg3bm7wl03pay" path="res://Scenes/hill.gd" id="1_7po3v"]
 [ext_resource type="Texture2D" uid="uid://gklten7u05e1" path="res://Assets/Visual/Full.jpg" id="2_6mhlc"]
 [ext_resource type="PackedScene" uid="uid://cpv7c16wg1g6m" path="res://Scenes/UI/HillProgressBar.tscn" id="2_kgtut"]
-[ext_resource type="PackedScene" uid="uid://cvtm30cnj61yw" path="res://Scenes/PowerUps/HookPowerUp.tscn" id="2_v62hp"]
 [ext_resource type="PackedScene" uid="uid://slfed6uk1a0u" path="res://Scenes/Camera.tscn" id="3_8xj3v"]
 [ext_resource type="SpriteFrames" uid="uid://begqj27dwl72q" path="res://Assets/Visual/CatChasers/CatChaser.tres" id="3_vsmbq"]
+[ext_resource type="PackedScene" uid="uid://cfj78hi586ra6" path="res://Scenes/Obstacles/Tree1.tscn" id="4_vsmbq"]
 [ext_resource type="PackedScene" uid="uid://lo3enc16f3xs" path="res://Scenes/UI/HillHud.tscn" id="6_q62r0"]
+[ext_resource type="PackedScene" uid="uid://0pa1jnqn3cr2" path="res://Scenes/Obstacles/Tree5.tscn" id="7_ph0nm"]
 [ext_resource type="PackedScene" uid="uid://ntjoko872gi3" path="res://Scenes/UI/PlayerHud.tscn" id="7_vsmbq"]
 [ext_resource type="Texture2D" uid="uid://d2cdvlrqhagjf" path="res://Assets/Visual/GameHud/Player1Hud.png" id="9_l6dtb"]
 [ext_resource type="Texture2D" uid="uid://smebeup0uma2" path="res://Assets/Visual/GameHud/Player2Hud.png" id="11_v62hp"]
@@ -37,16 +38,11 @@ colors = PackedColorArray(1, 1, 1, 0.5294118, 1, 1, 1, 0)
 [node name="Hill" type="Node2D" unique_id=675779279]
 script = ExtResource("1_7po3v")
 
-[node name="HookPowerUp" parent="." unique_id=1036122245 instance=ExtResource("2_v62hp")]
-position = Vector2(0, -151.8)
-
-[node name="HookPowerUp2" parent="." unique_id=1691817921 instance=ExtResource("2_v62hp")]
-position = Vector2(-141, -209)
-
 [node name="Powerup Spawner" type="Timer" parent="." unique_id=571246852]
+wait_time = 5.0
 autostart = true
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2079550402]
+[node name="BG" type="TextureRect" parent="." unique_id=2079550402]
 offset_left = -676.0
 offset_top = -10375.0
 offset_right = 683.0
@@ -95,9 +91,9 @@ shape = SubResource("WorldBoundaryShape2D_yf5fn")
 [node name="Camera" parent="MovementNode" unique_id=2085499639 instance=ExtResource("3_8xj3v")]
 position = Vector2(0, -5000)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1369945536]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1369945536]
 
-[node name="BoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=412102664]
+[node name="BoxContainer" type="VBoxContainer" parent="UI" unique_id=412102664]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -105,12 +101,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="HillHud" parent="CanvasLayer/BoxContainer" unique_id=1600366834 instance=ExtResource("6_q62r0")]
+[node name="HillHud" parent="UI/BoxContainer" unique_id=1600366834 instance=ExtResource("6_q62r0")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/BoxContainer/HillHud" unique_id=1831515906]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/BoxContainer/HillHud" unique_id=1831515906]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -124,24 +120,24 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(5, 35)
 theme_override_constants/separation = 0
 
-[node name="PlayerHud" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=587170444 instance=ExtResource("7_vsmbq")]
+[node name="PlayerHud" parent="UI/BoxContainer/HillHud/HBoxContainer" unique_id=587170444 instance=ExtResource("7_vsmbq")]
 layout_mode = 2
 offset_transform_enabled = true
 bg_texture = ExtResource("9_l6dtb")
 
-[node name="PlayerHud2" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=1671021736 instance=ExtResource("7_vsmbq")]
+[node name="PlayerHud2" parent="UI/BoxContainer/HillHud/HBoxContainer" unique_id=1671021736 instance=ExtResource("7_vsmbq")]
 layout_mode = 2
 bg_texture = ExtResource("11_v62hp")
 
-[node name="PlayerHud3" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=152885630 instance=ExtResource("7_vsmbq")]
+[node name="PlayerHud3" parent="UI/BoxContainer/HillHud/HBoxContainer" unique_id=152885630 instance=ExtResource("7_vsmbq")]
 layout_mode = 2
 bg_texture = ExtResource("14_1111v")
 
-[node name="PlayerHud4" parent="CanvasLayer/BoxContainer/HillHud/HBoxContainer" unique_id=2096173716 instance=ExtResource("7_vsmbq")]
+[node name="PlayerHud4" parent="UI/BoxContainer/HillHud/HBoxContainer" unique_id=2096173716 instance=ExtResource("7_vsmbq")]
 layout_mode = 2
 bg_texture = ExtResource("17_qee4n")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/BoxContainer" unique_id=615657957]
+[node name="MarginContainer" type="MarginContainer" parent="UI/BoxContainer" unique_id=615657957]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 3
@@ -152,13 +148,13 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="HillProgressBar" parent="CanvasLayer/BoxContainer/MarginContainer" unique_id=730191033 instance=ExtResource("2_kgtut")]
+[node name="HillProgressBar" parent="UI/BoxContainer/MarginContainer" unique_id=730191033 instance=ExtResource("2_kgtut")]
 layout_mode = 2
 size_flags_horizontal = 8
 offset_transform_enabled = true
 offset_transform_position = Vector2(15, 0)
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1781535886]
+[node name="Label" type="Label" parent="UI" unique_id=1781535886]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -168,7 +164,7 @@ theme_override_font_sizes/font_size = 128
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GetThatCheese" type="TextureRect" parent="CanvasLayer" unique_id=613212118]
+[node name="GetThatCheese" type="TextureRect" parent="UI" unique_id=613212118]
 visible = false
 custom_minimum_size = Vector2(720, 720)
 custom_maximum_size = Vector2(720, 720)
@@ -187,7 +183,7 @@ position = Vector2(1, 0)
 rotation = 0.025223725
 
 [node name="Bee" parent="Obstacles" unique_id=2070615394 instance=ExtResource("21_v62hp")]
-position = Vector2(123.8278, -801.378)
+position = Vector2(-31.122902, -797.46875)
 rotation = -0.025223725
 
 [node name="Bunny" parent="Obstacles" unique_id=1111000795 instance=ExtResource("22_b62s8")]
@@ -197,16 +193,16 @@ scale = Vector2(0.71512675, 0.66051394)
 
 [node name="Bunny2" parent="Obstacles" unique_id=612467776 instance=ExtResource("22_b62s8")]
 position = Vector2(-512.19183, -2736.9526)
-rotation = -0.18572676
+rotation = -0.020212516
 scale = Vector2(1.2323581, 1.2777853)
 
 [node name="Bunny3" parent="Obstacles" unique_id=165538779 instance=ExtResource("22_b62s8")]
 position = Vector2(-296.9323, -2729.3794)
-rotation = 0.40500933
+rotation = 0.30821726
 scale = Vector2(0.6109965, 0.70864874)
 
 [node name="Cappy" parent="Obstacles" unique_id=363736203 instance=ExtResource("23_1111v")]
-position = Vector2(361.14685, -1267.5117)
+position = Vector2(450.90958, -1198.7538)
 rotation = 3.116369
 scale = Vector2(1, -1)
 
@@ -216,33 +212,34 @@ rotation = -0.025223725
 
 [node name="Tree4" parent="Obstacles" unique_id=917598745 instance=ExtResource("24_tq72c")]
 position = Vector2(177.67535, -847.75085)
+rotation = -0.06504429
 
 [node name="TrapObstacle" parent="Obstacles" unique_id=2007855936 instance=ExtResource("25_cjtib")]
 position = Vector2(467.89972, -1437.258)
 
 [node name="Tree2" parent="Obstacles" unique_id=766890431 instance=ExtResource("26_q6vll")]
 position = Vector2(-401.89233, -1497.3401)
-rotation = -0.10024025
+rotation = -0.0065274574
 scale = Vector2(1.1927913, 1.1881354)
 
 [node name="Tree3" parent="Obstacles" unique_id=765020365 instance=ExtResource("27_3tuvm")]
-position = Vector2(353.26678, -3046.8787)
-rotation = -1.9746598
-scale = Vector2(1.0452049, 1.111823)
+position = Vector2(417.70047, -3030.4983)
+rotation = -1.8174541
+scale = Vector2(1.6002433, 1.7022378)
 
 [node name="Frog2" parent="Obstacles" unique_id=2056546263 instance=ExtResource("24_6mhlc")]
-position = Vector2(-95.96204, -1821.1588)
-rotation = -0.39941067
+position = Vector2(-678.4236, -1792.4596)
+rotation = -0.008911967
 scale = Vector2(1.4426833, 1.2419101)
 
 [node name="Tree6" parent="Obstacles" unique_id=218356069 instance=ExtResource("28_q6vll")]
 position = Vector2(19.54493, -2397.2551)
-rotation = -0.14894094
+rotation = -0.05552616
 scale = Vector2(1.1092838, 1.4375628)
 
 [node name="Tree7" parent="Obstacles" unique_id=1637649032 instance=ExtResource("28_q6vll")]
 position = Vector2(-213.64896, -3234.6406)
-rotation = -0.2236057
+rotation = -0.058815002
 scale = Vector2(1.5038861, 1.6187412)
 
 [node name="TrapObstacle2" parent="Obstacles" unique_id=1830406113 instance=ExtResource("25_cjtib")]
@@ -253,22 +250,60 @@ scale = Vector2(0.64038193, 0.69411135)
 position = Vector2(-580.3604, -3020.3237)
 scale = Vector2(0.64038193, 0.69411135)
 
+[node name="Tree5" parent="Obstacles" unique_id=1036122245 instance=ExtResource("26_q6vll")]
+position = Vector2(-554.01526, -3879.2612)
+
+[node name="Tree19" parent="Obstacles" unique_id=1664817775 instance=ExtResource("7_ph0nm")]
+position = Vector2(116.0361, -6780.0825)
+
+[node name="Tree1" parent="Obstacles" unique_id=1640903011 instance=ExtResource("4_vsmbq")]
+position = Vector2(201.10695, -4280.4336)
+
+[node name="Tree8" parent="Obstacles" unique_id=2040184893 instance=ExtResource("27_3tuvm")]
+position = Vector2(-336.60034, -4499.9424)
+
+[node name="Tree9" parent="Obstacles" unique_id=2050932190 instance=ExtResource("24_tq72c")]
+position = Vector2(380.4583, -4903.1553)
+
+[node name="Tree10" parent="Obstacles" unique_id=1201264226 instance=ExtResource("7_ph0nm")]
+position = Vector2(-742.5834, -5088.8896)
+
+[node name="Tree11" parent="Obstacles" unique_id=1072905040 instance=ExtResource("27_3tuvm")]
+position = Vector2(-63.691456, -5617.1807)
+
+[node name="Tree12" parent="Obstacles" unique_id=983110840 instance=ExtResource("4_vsmbq")]
+position = Vector2(-188.02118, -5589.0356)
+
+[node name="Tree14" parent="Obstacles" unique_id=1074300621 instance=ExtResource("26_q6vll")]
+position = Vector2(126.87863, -5596.9805)
+
+[node name="Tree15" parent="Obstacles" unique_id=1038585913 instance=ExtResource("26_q6vll")]
+position = Vector2(-382.78235, -6449.3975)
+rotation = -0.013545237
+scale = Vector2(1.08432, 0.99938464)
+
+[node name="Tree13" parent="Obstacles" unique_id=2041057715 instance=ExtResource("27_3tuvm")]
+position = Vector2(-544.80646, -6448.31)
+
+[node name="Tree16" parent="Obstacles" unique_id=1957981322 instance=ExtResource("26_q6vll")]
+position = Vector2(-728.31, -6386.663)
+
+[node name="Tree17" parent="Obstacles" unique_id=1426117129 instance=ExtResource("4_vsmbq")]
+position = Vector2(-181.5184, -6441.4707)
+
+[node name="Tree18" parent="Obstacles" unique_id=573221330 instance=ExtResource("24_tq72c")]
+position = Vector2(5.2203493, -6454.185)
+
+[node name="Tree20" parent="Obstacles" unique_id=1321007465 instance=ExtResource("24_tq72c")]
+position = Vector2(-691.5041, -2271.2822)
+
+[node name="Tree21" parent="Obstacles" unique_id=280505168 instance=ExtResource("4_vsmbq")]
+position = Vector2(-753.6125, -3266.032)
+
 [node name="Cheese" parent="." unique_id=1937917780 instance=ExtResource("20_1oy28")]
 position = Vector2(0, -10084)
 
 [node name="Powerups" type="Node2D" parent="." unique_id=1908181600]
-
-[node name="Bee" parent="." unique_id=1669329096 instance=ExtResource("21_v62hp")]
-position = Vector2(-494, -426)
-
-[node name="Bunny" parent="." unique_id=933863002 instance=ExtResource("22_b62s8")]
-position = Vector2(-330, -621)
-
-[node name="Cappy" parent="." unique_id=782069357 instance=ExtResource("23_1111v")]
-position = Vector2(-134, -784)
-
-[node name="Frog" parent="." unique_id=24904739 instance=ExtResource("24_6mhlc")]
-position = Vector2(105, -880)
 
 [node name="SpawnPowerUpParticles" type="CPUParticles2D" parent="." unique_id=2058239557]
 emitting = false
@@ -281,6 +316,73 @@ gravity = Vector2(0, 100)
 initial_velocity_min = 11.54
 initial_velocity_max = 261.54
 color_ramp = SubResource("Gradient_1111v")
+
+[node name="Tree4" parent="." unique_id=1442065111 instance=ExtResource("24_tq72c")]
+position = Vector2(450, -5604)
+
+[node name="Tree5" parent="." unique_id=1453598335 instance=ExtResource("7_ph0nm")]
+position = Vector2(555, -5442)
+
+[node name="Bee" parent="." unique_id=767426339 instance=ExtResource("21_v62hp")]
+position = Vector2(-151, -7253)
+
+[node name="Bee2" parent="." unique_id=1622181312 instance=ExtResource("21_v62hp")]
+position = Vector2(14, -7449)
+
+[node name="Bee3" parent="." unique_id=1861550972 instance=ExtResource("21_v62hp")]
+position = Vector2(-82, -6956)
+
+[node name="Bee4" parent="." unique_id=194356191 instance=ExtResource("21_v62hp")]
+position = Vector2(-515, -7686)
+
+[node name="Bee5" parent="." unique_id=628456338 instance=ExtResource("21_v62hp")]
+position = Vector2(394, -7842)
+
+[node name="Tree1" parent="." unique_id=196562534 instance=ExtResource("4_vsmbq")]
+position = Vector2(-135, -8008)
+
+[node name="Tree2" parent="." unique_id=1880924949 instance=ExtResource("4_vsmbq")]
+position = Vector2(-487, -607)
+
+[node name="Tree3" parent="." unique_id=897448769 instance=ExtResource("26_q6vll")]
+position = Vector2(-281, -483)
+
+[node name="Tree6" parent="." unique_id=1785022614 instance=ExtResource("7_ph0nm")]
+position = Vector2(549, -639)
+
+[node name="Tree7" parent="." unique_id=852556546 instance=ExtResource("27_3tuvm")]
+position = Vector2(340, -1859)
+
+[node name="Tree8" parent="." unique_id=1726033841 instance=ExtResource("4_vsmbq")]
+position = Vector2(178, -1690)
+
+[node name="Tree9" parent="." unique_id=839856819 instance=ExtResource("26_q6vll")]
+position = Vector2(628, -3323)
+
+[node name="Tree10" parent="." unique_id=1172960445 instance=ExtResource("4_vsmbq")]
+position = Vector2(-617, -3895)
+
+[node name="Tree11" parent="." unique_id=773560760 instance=ExtResource("4_vsmbq")]
+position = Vector2(-674, -3828)
+
+[node name="Tree12" parent="." unique_id=1061438134 instance=ExtResource("27_3tuvm")]
+position = Vector2(-524.9999, -5016.9995)
+rotation = 1.2647176
+
+[node name="Tree13" parent="." unique_id=759119300 instance=ExtResource("4_vsmbq")]
+position = Vector2(-403, -5800)
+
+[node name="Tree14" parent="." unique_id=1965859516 instance=ExtResource("26_q6vll")]
+position = Vector2(-493, -5714)
+
+[node name="Tree15" parent="." unique_id=2063169686 instance=ExtResource("4_vsmbq")]
+position = Vector2(665, -6264)
+
+[node name="Frog" parent="." unique_id=1352257439 instance=ExtResource("24_6mhlc")]
+position = Vector2(-541, -6818)
+
+[node name="Frog2" parent="." unique_id=17896664 instance=ExtResource("24_6mhlc")]
+position = Vector2(-426, -6778)
 
 [connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
 [connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]

@@ -26,8 +26,12 @@ func set_player_name(name: String):
 	$MarginContainer/HBoxContainer/Label.text = player_name
 
 func set_power_up_icon(icon: Texture2D) -> void:
-	if icon == null: player_image.texture = alive_icon
-	else: player_image.texture = icon
+	if icon == null: 
+		player_image.texture = alive_icon
+		$Activate.hide()
+	else: 
+		player_image.texture = icon
+		$Activate.show()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta: float) -> void:

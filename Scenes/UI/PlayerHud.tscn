@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bn7clmd0srxbf" path="res://Scenes/UI/player_hud.gd" id="1_pi7ir"]
 [ext_resource type="Texture2D" uid="uid://cnygarewojfdy" path="res://Assets/Visual/GameHud/Grey_Rat_Icon.png" id="2_dstdp"]
 [ext_resource type="Texture2D" uid="uid://d2cdvlrqhagjf" path="res://Assets/Visual/GameHud/Player1Hud.png" id="3_dstdp"]
+[ext_resource type="Texture2D" uid="uid://dxeyo5y0n72gu" path="res://Assets/Visual/AAA/Activate.png" id="4_3546w"]
 
 [node name="PlayerHud" type="Control" unique_id=587170444 node_paths=PackedStringArray("player_image")]
 custom_minimum_size = Vector2(250, 100)
@@ -64,4 +65,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_dstdp")
+expand_mode = 1
+
+[node name="Activate" type="TextureRect" parent="." unique_id=2128442496]
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -29.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_3546w")
 expand_mode = 1

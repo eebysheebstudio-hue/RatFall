@@ -113,6 +113,28 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ynupv")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dvisc")
 text = "DONE"
 
+[node name="HowToPlay" type="VBoxContainer" parent="." unique_id=893853455]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 460.0
+offset_right = 1255.0
+offset_bottom = 703.0
+
+[node name="Controls" type="Label" parent="HowToPlay" unique_id=1117200167]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HowToPlay" unique_id=585168621]
+layout_mode = 2
+text = "
+Movement: Joystick + Dpad"
+
+[node name="Label2" type="Label" parent="HowToPlay" unique_id=1217054486]
+layout_mode = 2
+text = "
+Use power up: A button (xbox), X button (playstation)"
+
 [connection signal="drag_ended" from="VBoxContainer2/master" to="." method="_on_master_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer2/master" to="." method="_on_master_value_changed"]
 [connection signal="drag_ended" from="VBoxContainer2/sfx" to="." method="_on_sfx_drag_ended"]

@@ -38,6 +38,8 @@ offset_transform_enabled = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(7, 5)
 texture = ExtResource("2_dstdp")
 expand_mode = 1
 

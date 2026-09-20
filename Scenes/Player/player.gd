@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 class_name Player
 
+@export var hook_scene: PackedScene
+
+
 const SPEED = 300.0
 
 var player_index: int = 0
@@ -20,7 +23,6 @@ var verticalSpeedWhileFalling: float = 0.0
 var horizontalSpeedWhileFalling: float = 0.1
 
 var speedBoostMultiplier: float = 2.5
-var hook_boost: float = 6.0
 var falling_rotation_speed: float = 10
 
 
@@ -29,13 +31,12 @@ enum ClimbingState { CLIMBING, FALLING, STOPPED, CANNON, HOOKED }
 var current_state: ClimbingState = ClimbingState.CLIMBING
 var speedBoostTimer: float = 0.0 
 
-# Set by apply_hook_state() to tell _physics_process which way to push
-var hook_direction: float = 0.0
-
 var power_up = ""
+var has_hook: bool = false
 
 func _ready() -> void:
 	$Sound.set_volume_linear(GlobalSettings.sfx_vol*GlobalSettings.master_vol)
+	add_to_group("players")
 	$AnimatedSprite2D.play()
 
 func update_player_index(new_index: int):
@@ -53,6 +54,7 @@ func update_player_index(new_index: int):
 		3:
 			$AnimatedSprite2D.sprite_frames = load("res://Scenes/Player/SpottedRat.tres")
 			$StationarySprite.texture = load("res://Assets/Visual/Spotted_Rat1.png")
+
 
 func _physics_process(delta: float) -> void:
 	# TODO Fix animations to alternate between moving and landing rat
@@ -109,17 +111,19 @@ func _physics_process(delta: float) -> void:
 	elif current_state == ClimbingState.CANNON:
 		velocity -= get_gravity() * delta
 
-	# Horizontal movement
 
+	# Player can't use controls and is a child of hook until they are pulled to the player that triggered the hook.
 	if current_state == ClimbingState.HOOKED:
-		# hook moves player left or right. The player falls sideways
-		velocity.x = hook_direction * SPEED * horizontalSpeedMultiplier * hook_boost
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
+# Horizontal movement
+	var direction := Input.get_axis("p1_left", "p1_right")
+	if direction:
+		velocity.x = direction * SPEED * horizontalSpeedMultiplier * leap_speed
 	else:
-		var direction := Input.get_axis("p1_left", "p1_right")
-		if direction:
-			velocity.x = direction * SPEED * horizontalSpeedMultiplier * leap_speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# Vertical movement only while climbing
 	if current_state == ClimbingState.CLIMBING:
@@ -145,7 +149,22 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("p1_test_cannon") and not event.is_echo():
 		apply_cannon_state(1.5)
 	if event.is_action_pressed("p1_test_hook") and not event.is_echo():
-		apply_hook_state(1, true)
+		spawn_hook()
+	if event.is_action_pressed("p1_action") and not event.is_echo():
+		if has_hook:
+			has_hook = false
+			use_hook()	
+		
+func spawn_hook() -> void:
+	var hook = hook_scene.instantiate()
+	hook.global_position = global_position
+	get_tree().current_scene.add_child(hook)
+
+func use_hook() -> void:
+	var hook = hook_scene.instantiate()
+	hook.global_position = global_position
+	get_tree().current_scene.add_child(hook)
+	hook.activate_hook(self)
 
 func start_game() -> void:
 	current_state = ClimbingState.STOPPED
@@ -178,16 +197,9 @@ func apply_cannon_state(duration: float) -> void:
 func apply_speed_boost(duration: float) -> void:
 	speedBoostTimer = max(speedBoostTimer, duration)
 
-# Hook moves player left or right. The player falls sideways.
-func apply_hook_state(duration: float, isHookedLeft: bool) -> void:
+# Hook moves player towards the other player that triggered the hook.
+func apply_hook_state() -> void:
 	current_state = ClimbingState.HOOKED
-	if isHookedLeft:
-		hook_direction = -1.0
-	else:
-		hook_direction = 1.0
-	await get_tree().create_timer(duration).timeout
-	if current_state == ClimbingState.HOOKED:
-		current_state = ClimbingState.CLIMBING # When hook timer is expired, climb.
 
 func get_powerup(type: String) -> void:
 	self.power_up = type

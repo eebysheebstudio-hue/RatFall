@@ -29,6 +29,9 @@ distance = -205.0
 [node name="Hill" type="Node2D" unique_id=675779279]
 script = ExtResource("1_7po3v")
 
+[node name="Powerup Spawner" type="Timer" parent="." unique_id=571246852]
+autostart = true
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2079550402]
 offset_left = -676.0
 offset_top = -10375.0
@@ -163,4 +166,7 @@ z_index = 1
 [node name="Cheese" parent="." unique_id=1937917780 instance=ExtResource("20_1oy28")]
 position = Vector2(0, -10084)
 
+[connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
+[connection signal="body_entered" from="MovementNode/KillBox" to="." method="_on_kill_box_body_entered"]
 [connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]
+

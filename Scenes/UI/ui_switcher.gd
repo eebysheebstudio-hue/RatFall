@@ -3,7 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	$Music.set_volume_linear((GlobalSettings.music_vol*GlobalSettings.master_vol))
+	$Sfx.set_volume_linear((GlobalSettings.sfx_vol*GlobalSettings.master_vol))
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

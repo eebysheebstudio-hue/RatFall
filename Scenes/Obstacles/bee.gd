@@ -17,7 +17,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(position, position + Vector2(200 * dir, 0))
+	var query = PhysicsRayQueryParameters2D.create(position, position + Vector2(150 * dir, 0))
 	var result = space_state.intersect_ray(query)
 	if result:
 		$Sprite2D.scale.x = dir * 0.1

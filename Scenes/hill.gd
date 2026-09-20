@@ -41,18 +41,23 @@ func _ready() -> void:
 			player.position = player.position + player_spawn_offset
 			#print("adding player")
 			$Players.add_child(player)
+			
+			var random_index = randi() % names.size()
+			var player_name = names[random_index]
+			names.remove_at(random_index)
+			player.player_name = player_name
 			match player_index:
 				0:  
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_player_name(names)
+					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(true)
 				1: 	
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_player_name(names)
+					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_alive_status(true)
 				2: 	
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_player_name(names)
+					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_alive_status(true)
 				3: 	
-					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(names)
+					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(player_name)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_alive_status(true)
 			$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(player_index, true)
 			living_player_indexes.append(player_index)
@@ -112,11 +117,9 @@ func _on_kill_box_body_entered(body: Node2D) -> void:
 			3: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
 		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(body.player_index, false)
 		living_player_indexes.erase(body.player_index)
-		print("LIVING PLAYERS")
 		print(living_player_indexes.size())
 		if living_player_indexes.is_empty():
 			UiSwitcher.finish_game(false, body)
-		print("YOU DIED")
 		#TODO: have a death sound effect, particle effect too
 
 

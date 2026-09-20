@@ -243,14 +243,54 @@ rotation = -0.058815002
 scale = Vector2(1.5038861, 1.6187412)
 
 [node name="TrapObstacle2" parent="Obstacles" unique_id=1830406113 instance=ExtResource("25_cjtib")]
-position = Vector2(170.84335, -3180.3203)
+position = Vector2(163.60251, -3150.1284)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle4" parent="Obstacles" unique_id=1036122245 instance=ExtResource("25_cjtib")]
+position = Vector2(-75.51371, -4420.502)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle5" parent="Obstacles" unique_id=1993721850 instance=ExtResource("25_cjtib")]
+position = Vector2(49.69886, -4849.7964)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle6" parent="Obstacles" unique_id=1942368519 instance=ExtResource("25_cjtib")]
+position = Vector2(-115.39309, -4930.6577)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle7" parent="Obstacles" unique_id=1323580665 instance=ExtResource("25_cjtib")]
+position = Vector2(-329.1806, -4840.2373)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle8" parent="Obstacles" unique_id=105511734 instance=ExtResource("25_cjtib")]
+position = Vector2(-315.00357, -5903.933)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle9" parent="Obstacles" unique_id=2092783775 instance=ExtResource("25_cjtib")]
+position = Vector2(423.6216, -6205.658)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle10" parent="Obstacles" unique_id=494277182 instance=ExtResource("25_cjtib")]
+position = Vector2(339.71484, -6240.5527)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle11" parent="Obstacles" unique_id=592701368 instance=ExtResource("25_cjtib")]
+position = Vector2(249.56683, -6245.2813)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle12" parent="Obstacles" unique_id=277731124 instance=ExtResource("25_cjtib")]
+position = Vector2(167.62729, -6202.201)
+scale = Vector2(0.64038193, 0.69411135)
+
+[node name="TrapObstacle13" parent="Obstacles" unique_id=1910202990 instance=ExtResource("25_cjtib")]
+position = Vector2(-273.1999, -7577.519)
 scale = Vector2(0.64038193, 0.69411135)
 
 [node name="TrapObstacle3" parent="Obstacles" unique_id=759331989 instance=ExtResource("25_cjtib")]
 position = Vector2(-580.3604, -3020.3237)
 scale = Vector2(0.64038193, 0.69411135)
 
-[node name="Tree5" parent="Obstacles" unique_id=1036122245 instance=ExtResource("26_q6vll")]
+[node name="Tree5" parent="Obstacles" unique_id=999139498 instance=ExtResource("26_q6vll")]
 position = Vector2(-554.01526, -3879.2612)
 
 [node name="Tree19" parent="Obstacles" unique_id=1664817775 instance=ExtResource("7_ph0nm")]
@@ -297,6 +337,151 @@ position = Vector2(5.2203493, -6454.185)
 [node name="Tree20" parent="Obstacles" unique_id=1321007465 instance=ExtResource("24_tq72c")]
 position = Vector2(-691.5041, -2271.2822)
 
+[node name="Tree22" parent="Obstacles" unique_id=1442065111 instance=ExtResource("24_tq72c")]
+position = Vector2(307.51837, -5613.5415)
+rotation = -0.025223725
+
+[node name="Tree23" parent="Obstacles" unique_id=1453598335 instance=ExtResource("7_ph0nm")]
+position = Vector2(416.57077, -5454.241)
+rotation = -0.025223725
+
+[node name="Bee2" parent="Obstacles" unique_id=767426339 instance=ExtResource("21_v62hp")]
+position = Vector2(-334.87994, -7246.859)
+rotation = -0.025223725
+
+[node name="Bee3" parent="Obstacles" unique_id=1622181312 instance=ExtResource("21_v62hp")]
+position = Vector2(-174.87573, -7446.958)
+rotation = -0.025223725
+
+[node name="Bee4" parent="Obstacles" unique_id=1861550972 instance=ExtResource("21_v62hp")]
+position = Vector2(-258.41122, -6951.6934)
+rotation = -0.025223725
+
+[node name="Bee5" parent="Obstacles" unique_id=194356191 instance=ExtResource("21_v62hp")]
+position = Vector2(-709.6849, -7670.541)
+rotation = -0.025223725
+
+[node name="Bee6" parent="Obstacles" unique_id=628456338 instance=ExtResource("21_v62hp")]
+position = Vector2(195.0915, -7849.417)
+rotation = -0.025223725
+
+[node name="Tree24" parent="Obstacles" unique_id=196562534 instance=ExtResource("4_vsmbq")]
+position = Vector2(-337.92694, -8002.0225)
+rotation = -0.025223725
+
+[node name="Tree25" parent="Obstacles" unique_id=1880924949 instance=ExtResource("4_vsmbq")]
+position = Vector2(-503.15396, -594.499)
+rotation = -0.025223725
+
+[node name="Tree26" parent="Obstacles" unique_id=897448769 instance=ExtResource("26_q6vll")]
+position = Vector2(-294.09207, -475.734)
+rotation = -0.025223725
+
+[node name="Tree27" parent="Obstacles" unique_id=1785022614 instance=ExtResource("7_ph0nm")]
+position = Vector2(531.7094, -652.6179)
+rotation = -0.025223725
+
+[node name="Tree28" parent="Obstacles" unique_id=852556546 instance=ExtResource("27_3tuvm")]
+position = Vector2(292.00623, -1866.9586)
+rotation = -0.025223725
+
+[node name="Tree29" parent="Obstacles" unique_id=1726033841 instance=ExtResource("4_vsmbq")]
+position = Vector2(134.32011, -1693.9265)
+rotation = -0.025223725
+
+[node name="Tree30" parent="Obstacles" unique_id=839856819 instance=ExtResource("26_q6vll")]
+position = Vector2(542.99097, -3337.7566)
+rotation = -0.025223725
+
+[node name="Tree31" parent="Obstacles" unique_id=1172960445 instance=ExtResource("4_vsmbq")]
+position = Vector2(-716.03937, -3878.1746)
+rotation = -0.025223725
+
+[node name="Tree32" parent="Obstacles" unique_id=773560760 instance=ExtResource("4_vsmbq")]
+position = Vector2(-771.3315, -3809.758)
+rotation = -0.025223725
+
+[node name="Tree33" parent="Obstacles" unique_id=1061438134 instance=ExtResource("27_3tuvm")]
+position = Vector2(-652.3666, -5002.1367)
+rotation = 1.2394938
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Tree34" parent="Obstacles" unique_id=759119300 instance=ExtResource("4_vsmbq")]
+position = Vector2(-550.15356, -5787.9653)
+rotation = -0.025223725
+
+[node name="Tree35" parent="Obstacles" unique_id=1965859516 instance=ExtResource("26_q6vll")]
+position = Vector2(-637.95593, -5699.7227)
+rotation = -0.025223725
+
+[node name="Tree36" parent="Obstacles" unique_id=2063169686 instance=ExtResource("4_vsmbq")]
+position = Vector2(505.8041, -6278.754)
+rotation = -0.025223725
+
+[node name="Frog3" parent="Obstacles" unique_id=1352257439 instance=ExtResource("24_6mhlc")]
+position = Vector2(-713.7847, -6802.161)
+rotation = -0.025223725
+
+[node name="Tree37" parent="Obstacles" unique_id=1153029781 instance=ExtResource("27_3tuvm")]
+position = Vector2(-4.6864038, -8789.678)
+rotation = -0.025223725
+
+[node name="Frog4" parent="Obstacles" unique_id=17896664 instance=ExtResource("24_6mhlc")]
+position = Vector2(-597.81244, -6765.074)
+rotation = -0.025223725
+
+[node name="Tree38" parent="Obstacles" unique_id=1425500540 instance=ExtResource("4_vsmbq")]
+position = Vector2(224.4424, -8351.316)
+rotation = -0.025223725
+
+[node name="Tree39" parent="Obstacles" unique_id=1322057755 instance=ExtResource("27_3tuvm")]
+position = Vector2(-717.54456, -8378.568)
+rotation = -0.025223725
+
+[node name="Tree40" parent="Obstacles" unique_id=743888250 instance=ExtResource("26_q6vll")]
+position = Vector2(-572.5563, -8341.213)
+rotation = -0.025223725
+
+[node name="Tree41" parent="Obstacles" unique_id=1877581278 instance=ExtResource("26_q6vll")]
+position = Vector2(-452.63812, -7989.125)
+rotation = -0.025223725
+
+[node name="Tree42" parent="Obstacles" unique_id=1877052266 instance=ExtResource("4_vsmbq")]
+position = Vector2(-857.21344, -8324.027)
+rotation = -0.025223725
+
+[node name="Tree43" parent="Obstacles" unique_id=511591186 instance=ExtResource("26_q6vll")]
+position = Vector2(-161.83345, -9427.918)
+rotation = -0.025223725
+
+[node name="Tree44" parent="Obstacles" unique_id=125004202 instance=ExtResource("7_ph0nm")]
+position = Vector2(-568.4839, -9329.63)
+rotation = -0.025223725
+
+[node name="Tree45" parent="Obstacles" unique_id=1893433993 instance=ExtResource("4_vsmbq")]
+position = Vector2(150.79384, -8336.455)
+rotation = -0.025223725
+
+[node name="Tree46" parent="Obstacles" unique_id=1172102434 instance=ExtResource("26_q6vll")]
+position = Vector2(-334.65924, -9339.53)
+rotation = -0.025223725
+
+[node name="Tree47" parent="Obstacles" unique_id=397590031 instance=ExtResource("24_tq72c")]
+position = Vector2(76.6156, -8342.586)
+rotation = -0.025223725
+
+[node name="Tree48" parent="Obstacles" unique_id=337723133 instance=ExtResource("27_3tuvm")]
+position = Vector2(-421.06992, -8958.2295)
+rotation = -0.025223725
+
+[node name="Tree49" parent="Obstacles" unique_id=2097127327 instance=ExtResource("26_q6vll")]
+position = Vector2(-192.09232, -8962.006)
+rotation = -0.025223725
+
+[node name="Tree50" parent="Obstacles" unique_id=1880597820 instance=ExtResource("7_ph0nm")]
+position = Vector2(-617.5028, -8933.268)
+rotation = -0.025223725
+
 [node name="Tree21" parent="Obstacles" unique_id=280505168 instance=ExtResource("4_vsmbq")]
 position = Vector2(-753.6125, -3266.032)
 
@@ -316,73 +501,6 @@ gravity = Vector2(0, 100)
 initial_velocity_min = 11.54
 initial_velocity_max = 261.54
 color_ramp = SubResource("Gradient_1111v")
-
-[node name="Tree4" parent="." unique_id=1442065111 instance=ExtResource("24_tq72c")]
-position = Vector2(450, -5604)
-
-[node name="Tree5" parent="." unique_id=1453598335 instance=ExtResource("7_ph0nm")]
-position = Vector2(555, -5442)
-
-[node name="Bee" parent="." unique_id=767426339 instance=ExtResource("21_v62hp")]
-position = Vector2(-151, -7253)
-
-[node name="Bee2" parent="." unique_id=1622181312 instance=ExtResource("21_v62hp")]
-position = Vector2(14, -7449)
-
-[node name="Bee3" parent="." unique_id=1861550972 instance=ExtResource("21_v62hp")]
-position = Vector2(-82, -6956)
-
-[node name="Bee4" parent="." unique_id=194356191 instance=ExtResource("21_v62hp")]
-position = Vector2(-515, -7686)
-
-[node name="Bee5" parent="." unique_id=628456338 instance=ExtResource("21_v62hp")]
-position = Vector2(394, -7842)
-
-[node name="Tree1" parent="." unique_id=196562534 instance=ExtResource("4_vsmbq")]
-position = Vector2(-135, -8008)
-
-[node name="Tree2" parent="." unique_id=1880924949 instance=ExtResource("4_vsmbq")]
-position = Vector2(-487, -607)
-
-[node name="Tree3" parent="." unique_id=897448769 instance=ExtResource("26_q6vll")]
-position = Vector2(-281, -483)
-
-[node name="Tree6" parent="." unique_id=1785022614 instance=ExtResource("7_ph0nm")]
-position = Vector2(549, -639)
-
-[node name="Tree7" parent="." unique_id=852556546 instance=ExtResource("27_3tuvm")]
-position = Vector2(340, -1859)
-
-[node name="Tree8" parent="." unique_id=1726033841 instance=ExtResource("4_vsmbq")]
-position = Vector2(178, -1690)
-
-[node name="Tree9" parent="." unique_id=839856819 instance=ExtResource("26_q6vll")]
-position = Vector2(628, -3323)
-
-[node name="Tree10" parent="." unique_id=1172960445 instance=ExtResource("4_vsmbq")]
-position = Vector2(-617, -3895)
-
-[node name="Tree11" parent="." unique_id=773560760 instance=ExtResource("4_vsmbq")]
-position = Vector2(-674, -3828)
-
-[node name="Tree12" parent="." unique_id=1061438134 instance=ExtResource("27_3tuvm")]
-position = Vector2(-524.9999, -5016.9995)
-rotation = 1.2647176
-
-[node name="Tree13" parent="." unique_id=759119300 instance=ExtResource("4_vsmbq")]
-position = Vector2(-403, -5800)
-
-[node name="Tree14" parent="." unique_id=1965859516 instance=ExtResource("26_q6vll")]
-position = Vector2(-493, -5714)
-
-[node name="Tree15" parent="." unique_id=2063169686 instance=ExtResource("4_vsmbq")]
-position = Vector2(665, -6264)
-
-[node name="Frog" parent="." unique_id=1352257439 instance=ExtResource("24_6mhlc")]
-position = Vector2(-541, -6818)
-
-[node name="Frog2" parent="." unique_id=17896664 instance=ExtResource("24_6mhlc")]
-position = Vector2(-426, -6778)
 
 [connection signal="timeout" from="Powerup Spawner" to="." method="_on_powerup_spawner_timeout"]
 [connection signal="body_entered" from="MovementNode/Cats/KillBox" to="." method="_on_kill_box_body_entered"]

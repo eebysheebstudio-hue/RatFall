@@ -1,8 +1,8 @@
 extends Control
 
 var player_name: String = "" 
-var alive_icon: Texture
-var dead_icon: Texture
+@export var alive_icon: Texture
+@export var dead_icon: Texture
 @export var bg_texture: Texture
 @export var player_image: TextureRect
 var alive: bool = false
@@ -11,7 +11,7 @@ var alive: bool = false
 func _ready() -> void:
 	randomize()
 	$Background.texture = bg_texture
-	player_image.texture = alive_icon
+	player_image.texture = dead_icon
 
 func set_alive_status(alive_in: bool):
 	alive = alive_in

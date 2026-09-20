@@ -135,9 +135,9 @@ func _on_kill_box_body_entered(body: Node2D) -> void:
 	if body is Player:
 		match body.player_index:
 			0: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
-			1: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
-			2: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
-			3: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
+			1: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud2.set_alive_status(false)
+			2: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud3.set_alive_status(false)
+			3: 	$UI/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_alive_status(false)
 		$UI/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(body.player_index, false)
 		living_player_indexes.erase(body.player_index)
 		print(living_player_indexes.size())

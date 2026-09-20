@@ -162,6 +162,7 @@ vertical_alignment = 1
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=951822854]
 z_index = 1
+rotation = 0.025223725
 
 [node name="Cheese" parent="." unique_id=1937917780 instance=ExtResource("20_1oy28")]
 position = Vector2(0, -10084)

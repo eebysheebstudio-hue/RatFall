@@ -9,7 +9,6 @@ signal button_sound()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_focus()
-	pass # Replace with function body.
 
 func get_focus() -> void:
 	$TextureRect/MarginContainer/VBoxContainer/Start.grab_focus()
@@ -20,6 +19,7 @@ func _process(delta: float) -> void:
 	
 func _input(event: InputEvent) -> void:
 	#don't judge me
+	#I wound never, this is beautiful
 	if event.is_action_pressed("p1_start"):
 		players[0] = true
 		$TextureRect/MarginContainer/VBoxContainer/PlayerIndication/ColorRect.set_color(Color(0.219, 0.467, 0.172, 1.0))
@@ -77,9 +77,7 @@ func _on_settings_pressed() -> void:
 
 func _on_start_pressed() -> void:
 	get_tree().change_scene_to_packed(hillScene)
-	UiSwitcher.hide_all()
-	#when we have the actual game, pass the list of active players
-	
+	UiSwitcher.hide_all()	
 
 func _button_sound_relay() -> void:
 	button_sound.emit()

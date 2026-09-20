@@ -25,12 +25,12 @@ var obstacle_scenes: Array[PackedScene] = [
 	load("res://Scenes/Obstacles/Tree4.tscn"),
 	load("res://Scenes/Obstacles/Tree5.tscn"),
 ]
+var living_player_indexes: Array[int] = []
 
 var pup_scene: PackedScene = load("res://Scenes/PowerUps/TemplatePowerUp.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-
 	bounds = Vector2($MovementNode/StaticBody2D/LeftBorder.position.x - 200, $MovementNode/StaticBody2D/RightBorder.position.x + 200)
 	var players_connected = UiSwitcher.get_main_menu().players
 	for player_index in range(players_connected.size()):
@@ -55,6 +55,7 @@ func _ready() -> void:
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_player_name(names)
 					$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud4.set_alive_status(true)
 			$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(player_index, true)
+			living_player_indexes.append(player_index)
 	hill_height = hill_top - hill_bottom
 	$MovementNode.position = Vector2(0, hill_bottom)
 	scatter_obstacles()
@@ -109,7 +110,12 @@ func _on_kill_box_body_entered(body: Node2D) -> void:
 			1: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
 			2: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
 			3: 	$CanvasLayer/BoxContainer/HillHud/HBoxContainer/PlayerHud.set_alive_status(false)
-		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(body.player_index, true)
+		$CanvasLayer/BoxContainer/MarginContainer/HillProgressBar.set_player_alive(body.player_index, false)
+		living_player_indexes.erase(body.player_index)
+		print("LIVING PLAYERS")
+		print(living_player_indexes.size())
+		if living_player_indexes.is_empty():
+			UiSwitcher.finish_game(false, body)
 		print("YOU DIED")
 		#TODO: have a death sound effect, particle effect too
 

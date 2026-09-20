@@ -14,6 +14,10 @@ func hide_all() -> void:
 	$CanvasLayer/GameOverMenu.hide()
 	$CanvasLayer/SettingsMenu.hide()
 	
+func finish_game(victory: bool, winner: Player) -> void:
+	get_tree().paused = true
+	$CanvasLayer/GameOverMenu.finish_game(victory, winner)
+	show_game_over()
 
 func show_main_menu() -> void:
 	$CanvasLayer/MainMenu.show()
@@ -21,7 +25,7 @@ func show_main_menu() -> void:
 	$CanvasLayer/SettingsMenu.hide()
 	$CanvasLayer/MainMenu.get_focus()
 	
-func show_game_over(playe: Player) -> void:
+func show_game_over() -> void:
 	$CanvasLayer/MainMenu.hide()
 	$CanvasLayer/GameOverMenu.show()
 	$CanvasLayer/SettingsMenu.hide()
